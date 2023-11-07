@@ -6,6 +6,7 @@
 .pnp.js
 firebase.json
 .firebasers
+.firebase
 # testing
 /coverage
 
@@ -13,6 +14,7 @@ firebase.json
 /build
 firebase.json
 .firebasers
+.firebase
 # misc
 .DS_Store
 .env.local
