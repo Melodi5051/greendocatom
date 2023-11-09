@@ -1,13 +1,6 @@
-import React, { useState } from "react"
-import { createFolders } from "./API/axios.api"
+import React from "react"
 const App: React.FC = () => {
-  const [nameFolder, setNameFolder] = useState("second")
-  return (
-    <div>
-      <input type="text" name="" id="" onChange={(e) => setNameFolder(e.target.value)} />
-      <button onClick={() => createFolders(nameFolder)}>Создать папку</button>
-    </div>
-  )
+  return <div></div>
 }
 
 export default App

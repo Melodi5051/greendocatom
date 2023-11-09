@@ -12,6 +12,7 @@ firebase.json
 
 # production
 /build
+.env
 firebase.json
 .firebasers
 .firebase
