@@ -1,7 +1,6 @@
-import './App.scss'
-
-function App () {
-  return <div>START!!</div>
+import React from "react"
+const App: React.FC = () => {
+  return <div></div>
 }
 
 export default App

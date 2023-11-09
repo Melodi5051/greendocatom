@@ -4,13 +4,18 @@
 /node_modules
 /.pnp
 .pnp.js
-
+firebase.json
+.firebasers
+.firebase
 # testing
 /coverage
 
 # production
 /build
-
+.env
+firebase.json
+.firebasers
+.firebase
 # misc
 .DS_Store
 .env.local
