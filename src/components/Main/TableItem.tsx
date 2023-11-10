@@ -2,24 +2,24 @@ import React from 'react';
 import { IYandexDiskFile } from '../../types/Files';
 
 interface ITableItem {
-    fileName: string,
-    filePath: string,
-    fileModified: string
+    name: string,
+    path: string,
+    modified: string
 }
 
-const TableItem = ({ fileName, filePath, fileModified }: ITableItem) => {
+const TableItem = ({ name, path, modified }: ITableItem) => {
 
     return (
         <tr>
             <td><input type='checkbox' /></td>
-            <td>{fileName}</td>
+            <td>{name}</td>
             <td>
                 <select name="" id="">
-                    <option value="">{filePath}</option>
+                    <option value="">{path}</option>
                 </select>
             </td>
-            <td>{fileModified}</td>
-            <td>{fileModified}</td>
+            <td>{modified}</td>
+            <td>{modified}</td>
             <td>
                 <button>скачать</button>
                 <button>удалить</button>

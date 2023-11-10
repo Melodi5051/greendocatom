@@ -1,12 +1,13 @@
 import React from 'react';
 import '../../styles/Table.css'
 import TableItem from './TableItem';
+import { IYandexDiskFile } from '../../types/Files';
 
-const Table = ({ data }: any) => {
+const Table = ({ arrayItems }: any) => {
 
 
     return (
-        <section>
+        <section className='table-wrapper'>
             <select name="" id="" />
             <table className='documents-list-wrapper'>
                 <thead>
@@ -20,8 +21,8 @@ const Table = ({ data }: any) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((file: any, index: number) => (
-                        <TableItem key={index} fileName={file.name} filePath={file.path} fileModified={file.modified} />
+                    {arrayItems.map((file: any, index: number) => (
+                        <TableItem key={index} name={file.name} path={file.path} modified={file.modified} />
                     ))}
                 </tbody>
             </table>
