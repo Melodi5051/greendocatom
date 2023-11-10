@@ -96,6 +96,8 @@
    --color-workflow-f-grey-1: #333333;
    --color-workflow-f-grey-2: #5F6062;
    --color-workflow-f-grey-3: #7f7f7f;
+
+   --color-bg-grey-1: #F5F5F5;
  
    --fontStack-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
    --fontStack-sansSerif: -apple-system, BlinkMacSystemFont, 'RosatomWebRegular', 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -233,4 +235,10 @@
      transition-duration: 0.01ms !important;
      scroll-behavior: auto !important;
    }
+ }
+
+
+ .layout {
+  background: var(--color-bg-grey-1);
+  
  }
