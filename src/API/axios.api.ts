@@ -2,11 +2,13 @@ import axios from "axios"
 import { appStore } from "../store/store"
 import { extractFolderName, formatData } from "../helper/formatDate"
 import { IYandexDiskFile } from "../types/Files"
+
 export const getAllFiles = async () => {
   try {
     const response = await axios.get("https://cloud-api.yandex.net/v1/disk/resources/files", {
       headers: {
-        Authorization: process.env.REACT_APP_API_KEY,
+        Authorization: process.env.REACT_APP_API_KEY
+        // Authorization: process.env.REACT_APP_API_KEY,
       },
       params: {
         limit: 10,
@@ -33,5 +35,5 @@ export const createFiles = () => {
   return ""
 }
 
-export const getFolder = async (currentPath: string) => {}
-export const getFolderContents = async (folderPath: string) => {}
+export const getFolder = async (currentPath: string) => { }
+export const getFolderContents = async (folderPath: string) => { }

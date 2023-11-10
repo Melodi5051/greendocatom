@@ -1,22 +1,20 @@
 import React, { useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { appStore } from './store/store';
-import {getAllFiles} from './API/axios.api'
+import { getAllFiles } from './API/axios.api'
+import Table from './components/Main/Table';
+
+
 const App: React.FC = () => {
+
   useEffect(() => {
     getAllFiles();
-  }, []); 
+  }, []);
+
   return (
-    <div>
-      <h1>Files from Yandex.Disk</h1>
-      <ul>
-        {appStore.arrayItems.map((file, index) => (
-          <li key={index}>
-            <strong>Название:</strong> {file.name}, <strong>Категория:</strong> {file.path}, <strong>Дата обновления:</strong> {file.modified}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <main>
+      <Table data={appStore.arrayItems} />
+    </main>
   );
 };
 
