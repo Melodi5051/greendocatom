@@ -1,6 +1,6 @@
 import React from 'react';
-import { observer } from 'mobx-react-lite';
 import Layout from './pages/Layout';
+import { observer } from 'mobx-react-lite';
 
 const App: React.FC = () => {
   return (
