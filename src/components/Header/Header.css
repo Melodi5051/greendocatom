@@ -1,0 +1,70 @@
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 100px;
+  background: white;
+  /* border-bottom: 4px solid var(--color-workflow-f-blue-1); */
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-img {
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  border-left: 2px solid var(--color-workflow-f-black);
+}
+.logo h1 {
+  font-size: 21px;
+  font-weight: 400;
+  height: 0;
+}
+.logo span {
+  color: var(--color-workflow-f-blue-1);
+}
+.logo h2 {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-workflow-f-blue-2);
+}
+
+.customer {
+  margin-right: 20px;
+  height: 30px;
+  width: 30px;
+}
+
+.loggedIn {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.login {
+  border-radius: 13px;
+  border: 3px solid var(--color-workflow-f-blue-2);
+  background-color: var(--color-workflow-f-white);
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 175px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.login:hover {
+  background-color: var(--color-workflow-f-blue-2);
+  color: var(--color-workflow-f-white);
+}
