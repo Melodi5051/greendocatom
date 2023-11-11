@@ -7,16 +7,11 @@
 
 ## Команда нашего проекта:
 
-
-## Документ с обязанностями в команде:
-https://docs.google.com/spreadsheets/d/1AcvAsbErx5Q7nsxeyycaLqJtRxlavEeGgZW2Em6z7vc/edit#gid=0
+## Доска тасков:
+https://docs.google.com/spreadsheets/d/1ywqjdEB3rrTZh6OZrBye9BhFnM5tDtHfYNndyegFq7w/edit#gid=526637205
 
 ## Гитхаб нашего проекта:
 https://github.com/Melodi5051/greendocatom
-
-## В качестве доски тасков используем Yandex Tracker:
-https://tracker.yandex.ru/agile/board/13
-
 
 ## Figma проекта:
 https://www.figma.com/file/PT6dGwcEKgCmNcwJUeVXDI/GreenAtom-Doc-app?type=design&mode=design&t=XcnltAAzuvhx6obw-1
