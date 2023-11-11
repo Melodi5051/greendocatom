@@ -4,7 +4,7 @@ import { IButtonText, IButtonTextIcon } from "./../../types/IButtons";
 import IconFolderOpen from "./../../assets/icons/icon-folder-open.svg";
 import IconPencil from "./../../assets/icons/icon-pencil.svg";
 import IconTrash from "./../../assets/icons/icon-trash.svg";
-
+import { appStore } from "../../store/store";
 
 const ICONS_SELECTOR: Record<string, any> = {
   "icon-folder-open": IconFolderOpen,
@@ -12,6 +12,13 @@ const ICONS_SELECTOR: Record<string, any> = {
   "icon-pencil": IconPencil
 }
 
+const handleCategoryChange = (e: any) => {
+  if(e.target.textContent !== 'Все категории'){
+    appStore.setCategoryFilter((e.target.textContent).toLowerCase())
+    return
+  }
+  appStore.setCategoryFilter('')
+}
 
 const ButtonTextIcon: React.FC<IButtonTextIcon> = ({ iconName = "icon-folder-open" }) => {
   const SelectedIcon = ICONS_SELECTOR[iconName];
@@ -22,7 +29,7 @@ const ButtonTextIcon: React.FC<IButtonTextIcon> = ({ iconName = "icon-folder-ope
 
 const ButtonText: React.FC<IButtonText> = (props) => {
   return (
-    <button className="btn-text">
+    <button className="btn-text" onClick={(e: any) => handleCategoryChange(e)}>
       {props.iconName ? <ButtonTextIcon iconName={props.iconName} /> : ''}
       <span>{props.text}</span>
       {props.hasIconPencil ? <ButtonTextIcon iconName="icon-pencil" /> : ''}

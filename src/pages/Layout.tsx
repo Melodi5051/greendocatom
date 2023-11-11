@@ -1,11 +1,12 @@
 import { useEffect } from "react"
-import { getAllFiles } from "../API/axios.api"
+import { getAllFiles, getAllFolder } from "../API/axios.api"
 import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
 import Main from "../components/Main/Main"
 
 const Layout = () => {
   useEffect(() => {
+    getAllFolder()
     getAllFiles()
   }, [])
   return (
