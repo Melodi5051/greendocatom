@@ -1,24 +1,22 @@
-import React from 'react';
-import './Aside.css'
-import AsideHeader from '../AsideHeader/AsideHeader';
-import ButtonText from '../Buttons/Button';
+import React from "react"
+import "./Aside.css"
+import AsideHeader from "../AsideHeader/AsideHeader"
+import ButtonText from "../Buttons/Button"
+import { appStore } from "../../store/store"
 const Aside = () => {
-    return (
-        <aside>
-            <AsideHeader />
-             {/* Будет убрано */}
-            <ButtonText text='Бухгалтерия'    iconName='icon-folder-open' hasIconPencil={true} />
-            <ButtonText text='Университет'    iconName='icon-folder-open' hasIconPencil={true}/>
-            <ButtonText text='АХУ'            iconName='icon-folder-open' hasIconPencil={true}/>
-            <ButtonText text='УТП'            iconName='icon-folder-open' hasIconPencil={true}/>
-            <ButtonText text='Администрация'  iconName='icon-folder-open' hasIconPencil={true}/>
-            <ButtonText text='Папка 1' iconName='icon-folder-open'/>
-            <ButtonText text='Удаленные документы'  iconName='icon-trash' hasIconPencil={true}/>
-            <ButtonText text='Только карандаш' hasIconPencil={true}/>
-            <ButtonText text='Без иконок'/>
-        </aside>
-    );
+  return (
+    <aside>
+    <AsideHeader />
+    <ButtonText text='Все категории'/>
+    {appStore.arrayFolders.length === 0 ? (
+      <p>Loading</p>
+    ) : (
+      appStore.arrayFolders.map((item: any, index) => (
+        <ButtonText key={index} text={item.name} iconName="icon-folder-open" hasIconPencil={true} />
+      ))
+    )}
+  </aside>
+  )
 }
 
-export default Aside;
-
+export default Aside

@@ -1,28 +1,31 @@
+import { IYandexDiskFile } from "../../types/Files"
+import { observer } from "mobx-react-lite"
+import { appStore } from "./../../store/store"
+import { getAllFiles, moveFile } from "../../API/axios.api"
+import { extractFolderName } from "../../helper/formatDate"
 
-interface ITableItem {
-    name: string,
-    path: string,
-    modified: string
+
+const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
+  const handleFileChangeCategory = (e: React.ChangeEvent<HTMLSelectElement>, name: string) => {
+    moveFile(path, `disk:/CaseLabDocuments/${e.target.value}/${name}`)
+    
+  }
+  return (
+    <tr>
+      <td>{name}</td>
+      <td>
+        <select value={extractFolderName(path)} onChange={(e) => handleFileChangeCategory(e, name)}>
+          {appStore.arrayFolders.map((folder: any, folderIndex) => (
+            <option key={folderIndex} value={folder.name}>
+              {folder.name}
+            </option>
+          ))}
+        </select>
+      </td>
+      <td>{modified}</td>
+      <td>{created}</td>
+    </tr>
+  )
 }
 
-const TableItem = ({ name, path, modified }: ITableItem) => {
-    return (
-        <tr>
-            <td><input type='checkbox' /></td>
-            <td>{name}</td>
-            <td>
-                <select name="" id="">
-                    <option value="">{path}</option>
-                </select>
-            </td>
-            <td>{modified}</td>
-            <td>{modified}</td>
-            <td>
-                <button>скачать</button>
-                <button>удалить</button>
-            </td>
-        </tr>
-    );
-}
-
-export default TableItem;
+export default observer(TableItem)
