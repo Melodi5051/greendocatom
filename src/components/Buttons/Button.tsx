@@ -1,6 +1,6 @@
 import React from "react";
 import "./Button.css";
-import { IButtonText, IButtonTextIcon } from "./../../types/IButtons";
+import { IButtonClassic, IButtonText, IButtonTextIcon } from "./../../types/IButtons";
 import IconFolderOpen from "./../../assets/icons/icon-folder-open.svg";
 import IconPencil from "./../../assets/icons/icon-pencil.svg";
 import IconTrash from "./../../assets/icons/icon-trash.svg";
@@ -35,6 +35,16 @@ const ButtonText: React.FC<IButtonText> = (props) => {
       {props.hasIconPencil ? <ButtonTextIcon iconName="icon-pencil" /> : ''}
     </button>
   );
+}
+
+
+export const Button: React.FC<IButtonClassic> = (props) => {
+  return (
+    <button className={`btn-classic v${props?.v || "3"} ${props?.isNegative ? "negative" : ""}`} onClick={props.onClick}>
+      {props.children || "" }
+      <span>{props.text || ""}</span>
+    </button>
+  )
 }
 
 export default ButtonText;
