@@ -1,5 +1,3 @@
-import React from 'react';
-import { IYandexDiskFile } from '../../types/Files';
 
 interface ITableItem {
     name: string,
@@ -8,7 +6,6 @@ interface ITableItem {
 }
 
 const TableItem = ({ name, path, modified }: ITableItem) => {
-
     return (
         <tr>
             <td><input type='checkbox' /></td>

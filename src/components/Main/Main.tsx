@@ -4,6 +4,7 @@ import { appStore } from "../../store/store";
 import './Main.css'
 import Aside from "../Aside/Aside";
 import Table from "../Table/Table";
+
 const Main = () => {
   return (
     <main>
