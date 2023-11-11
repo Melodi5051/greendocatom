@@ -12,3 +12,11 @@ export const filterItems = (
   
   return arrayItems
 }
+
+export const removeFileExtension = (fileName: string): string => {
+  const lastDotIndex = fileName.lastIndexOf('.');
+  if (lastDotIndex !== -1) {
+    return fileName.slice(0, lastDotIndex);
+  }
+  return fileName;
+}

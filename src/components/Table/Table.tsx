@@ -5,14 +5,16 @@ import { IYandexDiskFile } from "../../types/Files"
 const Table = ({ arrayItems }: any) => {
   return (
     <section className="table-wrapper">
-      <select name="" id="" />
       <table className="documents-list-wrapper">
         <thead>
           <tr>
+            <th></th>
             <th>Название</th>
             <th>Категория</th>
             <th>Дата обновления</th>
             <th>Дата добавления</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>

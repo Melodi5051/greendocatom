@@ -4,7 +4,15 @@ export const formatData = (date: Date): string => {
   const year = date.getFullYear()
   const hours = addLeadingZero(date.getHours())
   const minutes = addLeadingZero(date.getMinutes())
-  return `${day}.${month}.${year} ${hours}:${minutes}`
+  const screenWidth =
+    window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+  const isSmallScreen = screenWidth < 1200
+
+  if (isSmallScreen) {
+    return `${day}.${month}.${year}`
+  } else {
+    return `${day}.${month}.${year} ${hours}:${minutes}`
+  }
 }
 
 export const extractFolderName = (path: string): string => {

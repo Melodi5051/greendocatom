@@ -1,32 +1,36 @@
 .table-wrapper {
-    width: 80%;
+  margin: 20px; 
+  position: relative;
 }
 
-table {
-    width: 100%;
-    margin-bottom: 20px;
-    border-collapse: collapse;
-    border-radius: 10px;
+.documents-list-wrapper {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0px 10px;
+  background-color: #f5f5f5;
 }
 
-table th {
-    font-weight: bold;
-    padding: 5px;
-    background: #efefef;
-    border: 1px solid #dddddd;
+.documents-list-wrapper thead {
+  background: white;
+  border-top: 10px solid #003274
+}
+.documents-list-wrapper th, .documents-list-wrapper td {
+  padding: 8px;
+  text-align: left;
+  background-color: white;
 }
 
-table td {
-    border: 1px solid #dddddd;
-    padding: 5px;
+
+.documents-list-wrapper tbody tr:hover {
+  background-color: #f5f5f5;
 }
 
-table tr td:first-child,
-table tr th:first-child {
-    border-left: none;
-}
-
-table tr td:last-child,
-table tr th:last-child {
-    border-right: none;
+@media (max-width: 1200px) {
+  .table-wrapper {
+    margin: 10px;
+  }
+  .documents-list-wrapper th,
+  .documents-list-wrapper td {
+    padding: 8px; /* Возвращаем отступы к исходным значениям */
+  }
 }

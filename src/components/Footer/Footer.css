@@ -3,9 +3,9 @@
     height: 50px;
     display: flex;
     align-items: center;
-    padding: 10px;
+    background: #FFF;
     gap: 70px;
-    padding: 20px 100px;
+    padding: 30px 110px;
 }
 
 .footer-copiright {
@@ -21,5 +21,17 @@
     font-size:  15px;;
     color: var(--color-workflow-f-blue-2);
 }
+@media (max-width: 1200px) {
+  .footer {
+    gap: 30px; /* Уменьшаем отступ между элементами */
+    padding: 20px 50px; /* Уменьшаем внутренний отступ */
+  }
 
+  .footer-copiright {
+    font-size: 14px; /* Уменьшаем размер шрифта */
+  }
 
+  .footer-devs {
+    font-size: 14px; /* Уменьшаем размер шрифта */
+  }
+}

@@ -1,7 +1,7 @@
 import axios from "axios"
 import { appStore } from "../store/store"
 import { formatData } from "../helper/formatDate"
-import {filterItems} from "../helper/filterItems"
+import { filterItems } from "../helper/filterItems"
 import { IYandexDiskFile } from "../types/Files"
 import { ROOT_PATH_FOLDER } from "../constants/constants"
 
@@ -22,12 +22,12 @@ export const getAllFiles = async () => {
         //Каталог в котором лежит данный файл
         path: item.path,
         //Дата создания данного файла
-        created: formatData(new Date(item.created)),
+        created: item.created,
         //Дата последнего изменения данного файла
-        modified: formatData(new Date(item.modified)),
+        modified: item.modified,
       }),
     )
-    
+
     appStore.setArrayItems(filterItems(newYandexDiskFiles, appStore.categoryFilter))
   } catch (error) {
     console.error("Ошибка АПИ запроса", error)
@@ -76,5 +76,5 @@ export const createFiles = () => {
   return ""
 }
 
-export const getFolder = async (currentPath: string) => { }
-export const getFolderContents = async (folderPath: string) => { }
+export const getFolder = async (currentPath: string) => {}
+export const getFolderContents = async (folderPath: string) => {}

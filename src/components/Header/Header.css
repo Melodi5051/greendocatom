@@ -5,7 +5,6 @@
   justify-content: space-between;
   padding: 20px 100px;
   background: white;
-  /* border-bottom: 4px solid var(--color-workflow-f-blue-1); */
 }
 
 .header-logo {
@@ -67,4 +66,23 @@
 .login:hover {
   background-color: var(--color-workflow-f-blue-2);
   color: var(--color-workflow-f-white);
+}
+
+@media (max-width: 1200px) {
+  .header {
+    padding: 20px 50px; /* Уменьшаем внутренний отступ */
+  }
+
+  .header-logo h1 {
+    font-size: 18px; /* Уменьшаем размер шрифта */
+  }
+
+  .header-logo h2 {
+    font-size: 14px; /* Уменьшаем размер шрифта */
+  }
+
+  .login {
+    width: 150px; /* Уменьшаем ширину кнопки логина */
+    height: 30px; /* Уменьшаем высоту кнопки логина */
+  }
 }
