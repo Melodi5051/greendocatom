@@ -4,7 +4,7 @@ import logo from './../../assets/ГРИНАТОМ_Лого2021 1.png'
 const Header = () => {
   return (
     <div className="header">
-      <div className="logo">
+      <div className="header-logo">
         <img src={logo} alt="logo" className="logo-img" />
         <div className="logo-text rosatom-fontFamily-regular">
           <h1>грин<span>атом</span></h1>
