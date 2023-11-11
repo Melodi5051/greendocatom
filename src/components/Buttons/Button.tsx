@@ -29,12 +29,15 @@ const ButtonTextIcon: React.FC<IButtonTextIcon> = ({ iconName = "icon-folder-ope
 
 const ButtonText: React.FC<IButtonText> = (props) => {
   return (
-    <button className="btn-text" onClick={(e: any) => handleCategoryChange(e)}>
-      {props.iconName ? <ButtonTextIcon iconName={props.iconName} /> : ''}
-      <span>{props.text}</span>
-      {props.hasIconPencil ? <ButtonTextIcon iconName="icon-pencil" /> : ''}
+    <button
+      className="btn-text rosatom-fontFamily-regular"
+      onClick={(e: any) => handleCategoryChange(e)}
+    >
+      {props.iconName ? <ButtonTextIcon iconName={props.iconName} /> : ""}
+      <span className="rosatom-fontFamily-regular">{props.text}</span>
+      {props.hasIconPencil ? <ButtonTextIcon iconName="icon-pencil" /> : ""}
     </button>
-  );
+  )
 }
 
 

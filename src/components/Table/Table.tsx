@@ -1,11 +1,12 @@
 import "./Table.css"
 import TableItem from "../TableItem/TableItem"
 import { IYandexDiskFile } from "../../types/Files"
+import { paginate } from "../../helper/filterItems"
 
 const Table = ({ arrayItems }: any) => {
   return (
     <section className="table-wrapper">
-      <table className="documents-list-wrapper">
+      <table className="documents-list-wrapper rosatom-fontFamily-regular">
         <thead>
           <tr>
             <th></th>
@@ -18,7 +19,7 @@ const Table = ({ arrayItems }: any) => {
           </tr>
         </thead>
         <tbody>
-          {arrayItems.map((file: IYandexDiskFile, index: number) => (
+          {paginate(arrayItems, 1, 6).map((file: IYandexDiskFile, index: number) => (
             <TableItem
               key={index}
               name={file.name}

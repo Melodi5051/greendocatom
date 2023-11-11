@@ -12,16 +12,12 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
   const handleFileChangeCategory = (e: React.ChangeEvent<HTMLSelectElement>, name: string) => {
     moveFile(path, `disk:/CaseLabDocuments/${e.target.value}/${name}`)
   }
-
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
-
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth)
     }
-
     window.addEventListener("resize", handleResize)
-
     return () => {
       window.removeEventListener("resize", handleResize)
     }

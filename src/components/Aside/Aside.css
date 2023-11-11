@@ -1,16 +1,21 @@
 aside {
   background: #fff;
   width: 330px;
+  display: flex;
+  flex-direction: column;
+}
+
+.aside-footer {
+  margin-top: auto; 
+  padding: 20px 10px;
 }
 
 .aside-title {
   padding: 15px 10px;
   text-align: start;
   box-sizing: border-box;
-
   color: #000;
   border-bottom: 3px solid #d9d9d9;
-
   font-size: 20px;
   font-weight: 400;
   line-height: normal;
@@ -20,7 +25,6 @@ aside {
   aside {
     max-width: 270px;
   }
-
   .aside-title {
     padding: 10px 10px;
     font-size: 18px; /* Уменьшаем размер шрифта */

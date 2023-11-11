@@ -5,7 +5,7 @@ import ButtonText from "../Buttons/Button"
 
 const AsideHeader = () => {
   return (
-    <div className="aside-header">
+    <div className="aside-header ">
       <ButtonText text="Все категории" iconName="icon-folder-open" />
       {appStore.arrayFolders.length === 0 ? (
         <p>Loading</p>

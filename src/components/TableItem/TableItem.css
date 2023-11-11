@@ -1,7 +1,3 @@
-.table-item {
-  margin-bottom: 10px;
-  position: relative;
-}
 
 .table-category {
   position: relative;
@@ -17,20 +13,6 @@
   outline: none;
   position: relative;
   padding-right: 20px; 
-}
-
-.category-select::before {
-  content: ''; 
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid #6CACE4; 
-  transform: translateY(-50%);
-  transition: transform 0.2s ease; 
 }
 
 .category-select:focus::before {

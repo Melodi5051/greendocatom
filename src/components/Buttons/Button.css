@@ -196,3 +196,25 @@
    color: var(--color-workflow-white) !important;
    border-color: var(--color-workflow-f-negative) !important;
  }
+
+ @media (max-width: 1200px) {
+  aside {
+    max-width: 270px;
+  }
+
+
+  button.btn-text {
+    font-size: 16px; 
+    white-space: nowrap;
+  }
+
+  button.btn-text .icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  button.btn-text .iconPencil {
+    width: 18px;
+    height: 18px;
+  }
+}

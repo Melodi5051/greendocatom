@@ -10,6 +10,7 @@ import Table from "../Table/Table"
 const Main = () => {
   useEffect(() => {
     getAllFiles()
+    appStore.arrayItems.forEach((el) => {})
   }, [appStore.categoryFilter, appStore.arrayFolders])
   return (
     <main>
