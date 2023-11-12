@@ -1,0 +1,23 @@
+:root {
+  --main-padding: 10px 20px;
+  --main-padding-mobile: 10px 5px;
+  --main-column-gap: 10px;
+}
+
+main {
+  padding: var(--main-padding);
+  display: flex;
+  column-gap: var(--main-column-gap);
+  flex-grow: 1;
+}
+
+.main-content {
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  main {
+    padding: var(--main-padding-mobile);
+    column-gap: var(--main-column-gap);
+  }
+}

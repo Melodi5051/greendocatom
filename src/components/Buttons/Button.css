@@ -1,0 +1,104 @@
+:root {
+  --button-outline: none;
+  --button-focus-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  --button-hover-background: var(--color-category-button-background-hover);
+  --button-active-background: var(--color-category-button-background-active);
+  --button-text-color: var(--color-workflow-f-black);
+  --button-text-font-family: var(--fontStack-sansSerif);
+  --button-text-font-size: var(--prop-category-button-fontSize);
+  --button-text-font-weight: var(--prop-category-button-fontWeight);
+  --button-text-border-radius: var(--prop-category-button-borderRadius);
+  --button-text-min-width: 230px;
+  --button-transition: background-color .3s;
+}
+
+button {
+  outline: var(--button-outline);
+}
+
+button img {
+  display: initial;
+}
+
+button:focus {
+  box-shadow: var(--button-focus-shadow);
+}
+
+.aside-button {
+  display: flex;
+}
+
+.aside-button img {
+  cursor: pointer;
+}
+
+button.btn-text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+  font-family: var(--button-text-font-family);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--button-text-color);
+  font-size: var(--button-text-font-size);
+  font-style: normal;
+  font-weight: var(--button-text-font-weight);
+  line-height: normal;
+  border: none;
+  border-radius: var(--button-text-border-radius);
+  background-color: inherit;
+  cursor: pointer;
+  min-width: var(--button-text-min-width);
+  transition: var(--button-transition);
+}
+
+button.btn-text:hover {
+  background-color: var(--button-hover-background);
+}
+
+button.btn-text:active {
+  background-color: var(--button-active-background);
+}
+
+button.btn-text .icon {
+  display: flex;
+  width: 18px;
+  height: 18px;
+  padding: 2.5px 0.611px 2.5px 0.625px;
+  justify-content: center;
+  align-items: center;
+}
+
+button.btn-text .iconPencil {
+  display: flex;
+  position: relative;
+  height: 100px;
+  right: 0%;
+  width: 18px;
+  height: 18px;
+  padding: 2.5px 0.611px 2.5px 0.625px;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+button.btn-text .iconPencil:hover {
+  display: flex;
+}
+
+@media (max-width: 1200px) {
+  aside {
+    max-width: 270px;
+  }
+
+  button.btn-text {
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  button.btn-text .icon,
+  button.btn-text .iconPencil {
+    width: 18px;
+    height: 18px;
+  }
+}

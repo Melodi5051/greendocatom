@@ -1,0 +1,38 @@
+.main-header {
+    background: white;
+    min-height: 55px;
+    display: flex;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.main-refresh {
+    display: flex;
+    gap: 10px;
+}
+
+.main-refresh img {
+    cursor: pointer;
+}
+.main-refresh img:hover {
+    animation: rotateAnimation 0.5s linear;
+}
+.main-refresh h1 {
+    color: #000;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.main-refresh h1::first-letter {
+    text-transform: uppercase;
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}

@@ -1,0 +1,63 @@
+:root {
+  --aside-background: #fff;
+  --aside-width: 330px;
+  --aside-transition: 0.3s;
+  --aside-title-color: #000;
+  --aside-title-border-color: #d9d9d9;
+  --aside-title-font-size: 20px;
+  --aside-title-font-size-small: 18px;
+}
+
+aside {
+  background: var(--aside-background);
+  width: var(--aside-width);
+  display: flex;
+  flex-direction: column;
+  transition: var(--aside-transition);
+}
+
+.aside-footer {
+  margin-top: auto;
+  padding: 20px 10px;
+}
+
+.aside-title {
+  padding: 15px 10px;
+  text-align: start;
+  box-sizing: border-box;
+  color: var(--aside-title-color);
+  border-bottom: 3px solid var(--aside-title-border-color);
+  font-size: var(--aside-title-font-size);
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media (max-width: 1200px) {
+  aside {
+    max-width: 270px;
+  }
+  .aside-title {
+    padding: 10px 10px;
+    font-size: var(--aside-title-font-size-small);
+  }
+}
+
+@media (max-width: 920px) {
+  aside {
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    position: absolute;
+    height: 100%;
+  }
+  .aside-open {
+    left: 0px;
+  }
+  .aside-close {
+    left: -270px;
+  }
+  .aside-title {
+    padding: 10px 10px;
+    font-size: var(--aside-title-font-size-small);
+  }
+}

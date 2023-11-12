@@ -1,0 +1,93 @@
+:root {
+  --table-wrapper-margin: 20px;
+  --table-wrapper-margin-mobile: 10px;
+  --documents-list-bg: var(--color-bg-grey-1);
+  --documents-list-header-bg: var(--color-workflow-white);
+  --documents-list-header-border-color: var(--color-workflow-f-blue-1);
+  --documents-list-cell-bg: var(--color-workflow-white);
+  --documents-list-hover-bg: var(--color-bg-grey-1);
+  --documents-list-cell-font-size: 14px;
+  --documents-list-cell-padding: 8px;
+  --documents-list-cell-max-width: 100px;
+}
+
+.table-wrapper {
+  margin: var(--table-wrapper-margin);
+  position: relative;
+}
+
+.documents-list-wrapper {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0px 10px;
+  background-color: var(--documents-list-bg);
+}
+
+.documents-list-wrapper thead {
+  background: var(--documents-list-header-bg);
+  text-align: left;
+  border-top: 10px solid var(--documents-list-header-border-color);
+ 
+}
+.documents-list-wrapper th {
+  border-bottom: 2  px solid var(---, #003274);
+}
+.documents-list-wrapper th,
+.documents-list-wrapper td {
+  
+  padding: var(--documents-list-cell-padding);
+  background-color: var(--documents-list-cell-bg);
+}
+
+.documents-list-wrapper tbody tr:hover {
+  background-color: var(--documents-list-hover-bg);
+}
+
+@media (max-width: 1200px) {
+  .table-wrapper {
+    margin: var(--table-wrapper-margin-mobile);
+  }
+  .table-category {
+    min-width: 120px;
+  }
+  .documents-list-wrapper th,
+  .documents-list-wrapper td {
+    overflow: hidden;
+    max-width: var(--documents-list-cell-max-width);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+    font-size: var(--documents-list-cell-font-size);
+    padding: var(--documents-list-cell-padding);
+  }
+}
+
+@media (max-width: 630px) {
+  .th-6,
+  .th-7,
+  .th-5,
+  .th-4,
+  .table-modified,
+  .table-created,
+  .table-download,
+  .table-delete {
+    display: none;
+  }
+  thead {
+    text-align: left;
+  }
+  .th-3 {
+    text-align: right;
+  }
+  .adaptive_icon {
+    display: flex;
+    margin-top: 5px;
+    gap: 20px;
+  }
+  .documents-list-wrapper {
+    width: 100%;
+  }
+  .table-category {
+    align-items: end;
+  }
+}
