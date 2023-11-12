@@ -12,11 +12,11 @@
 
 .documents-list-wrapper thead {
   background: white;
+  text-align: left;
   border-top: 10px solid #003274
 }
 .documents-list-wrapper th, .documents-list-wrapper td {
   padding: 8px;
-  text-align: left;
   background-color: white;
 }
 
@@ -38,5 +38,28 @@
     position: relative;
     font-size: 14px;
     padding: 8px; /* Возвращаем отступы к исходным значениям */
+  }
+}
+
+@media (max-width: 620px) {
+  .th-6, .th-7, .th-5, .th-4, .table-modified, .table-created, .table-download, .table-delete {
+    display: none;
+  }
+  thead {
+    text-align: left;
+  }
+  .th-3 {
+    text-align: right;
+  }
+  .adaptive_icon {
+    display: flex;
+    margin-top: 5px;
+    gap: 20px;
+  }
+  .documents-list-wrapper{
+    width: 100%;
+  }
+  .table-category {
+    align-items: end;
   }
 }

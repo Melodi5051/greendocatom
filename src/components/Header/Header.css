@@ -70,11 +70,11 @@
 
 @media (max-width: 1200px) {
   .header {
-    padding: 20px 50px; 
+    padding: 20px 50px;
   }
 
   .header-logo h1 {
-    font-size: 18px; 
+    font-size: 18px;
   }
 
   .header-logo h2 {
@@ -83,24 +83,56 @@
 
   .login {
     width: 150px;
-    height: 30px; 
+    height: 30px;
   }
 }
 
 @media (max-width: 920px) {
- .button-burger {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 24px;
-  width: 45px;
-  margin: 20px;
+  .button-burger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 45px;
+    margin: 20px;
+  }
+
+  .burger-bar {
+    width: 45px;
+    height: 2px;
+    background-color: #333;
+  }
 }
 
-.burger-bar {
-  width: 45px;
-  height: 2px;
-  background-color: #333;
-}
+@media (max-width: 620px) {
+  .button-burger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+    margin: 10px;
+  }
+  .header-logo h1 {
+    font-size: 15px;
+  }
+
+  .header-logo h2 {
+    font-size: 12px;
+  }
+  .header {
+    padding: 10px 30px;
+  }
+  .burger-bar {
+    width: 45px;
+    height: 2px;
+    background-color: #333;
+  }
+  .logo-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+  }
 }
