@@ -18,17 +18,16 @@ const Table = ({ arrayItems }: any) => {
       <table className="documents-list-wrapper rosatom-fontFamily-regular">
         <thead>
           <tr>
-            <th></th>
-            <th>Название</th>
-            <th>Категория</th>
-            <th>Дата обновления</th>
-            <th>Дата добавления</th>
-            <th></th>
-            <th></th>
+            <th className="ht-2">Название</th>
+            <th className="th-3">Категория</th>
+            <th className="th-4">Дата обновления</th>
+            <th className="th-5">Дата добавления</th>
+            <th className="th-6"></th>
+            <th className="th-7"></th>
           </tr>
         </thead>
         <tbody>
-          {paginate(arrayItems, 1, 6).map((file: IYandexDiskFile, index: number) => (
+          {paginate(arrayItems, 1, 10).map((file: IYandexDiskFile, index: number) => (
             <TableItem
               key={index}
               name={file.name}

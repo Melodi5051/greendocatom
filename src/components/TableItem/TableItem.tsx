@@ -5,6 +5,9 @@ import { deleteResources, moveFile } from "../../API/axios.api"
 import { extractFolderName } from "../../helper/formatDate"
 import { removeFileExtension } from "../../helper/filterItems"
 import "./TableItem.css"
+import download_icon from "./../../assets/icons/icon-download.svg"
+import trash_icon from "./../../assets/icons/icon-trash.svg"
+import info_icon from "./../../assets/icons/icon-info.svg"
 import { formatData } from "../../helper/formatDate"
 import { useEffect, useState } from "react"
 
@@ -30,11 +33,15 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
 
   return (
     <tr className="table-item">
-      <td>
-        <input type="checkbox" />
-      </td>
-      <td className="table-name" data-full-name={removeFileExtension(name)}>
-        {removeFileExtension(name)}
+      <td className="table-name">
+        <a href={`${name}`} data-full-name={removeFileExtension(name)}>
+          {removeFileExtension(name)}
+        </a>
+        <div className="adaptive_icon">
+          <img src={info_icon} alt="" className="info-icon" />
+          <img src={download_icon} alt="" className="download-icon" />
+          <img src={trash_icon} alt="" className="" />
+        </div>
       </td>
       <td className="table-category">
         <select
