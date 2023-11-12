@@ -1,5 +1,6 @@
 import './Header.css'
 import logo from './../../assets/ГРИНАТОМ_Лого2021 1.png'
+import CustomInput from '../CustomInput/CustomInput';
 
 const Header = () => {
   return (
@@ -25,6 +26,7 @@ const Header = () => {
           </div>
         )}
       </div> */}
+      <CustomInput placeholder="Поиск документа" showButton={true}/>
     </div>
   );
 }
