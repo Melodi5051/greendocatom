@@ -99,8 +99,10 @@
    --color-workflow-f-grey-3: #7f7f7f;
 
    --color-workflow-f-positive: #025EA1;
+   --color-workflow-f-positive-2: #2670a5;
    --color-workflow-f-negative: #dc3545;
-
+   --color-workflow-f-negative-2: #e36571;
+   
    /* Кнопки блока "Категория" */
    --prop-category-button-fontSize: 18px;
    --prop-category-button-fontWeight: 400;
@@ -115,7 +117,12 @@
    --color-category-button-background-active: #d9d9d9;
 
    --color-bg-grey-1: #F5F5F5;
-  /* Шрифты */
+
+   /* Кнопки Классические */
+   --color-workflow-buttonClassic-borderColor: #00327454;
+   --prop-workflow-buttonClassic-withIcon-width: 40px;
+
+   /* Шрифты */
    --fontStack-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
    --fontStack-sansSerif: -apple-system, BlinkMacSystemFont, 'RosatomWebRegular', 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
    --fontStack-system: -apple-system, BlinkMacSystemFont, 'RosatomWebRegular', 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -254,9 +261,9 @@
 
 
  .layout {
-  background: var(--color-bg-grey-1);
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* 100% высоты видимой области */
+   background: var(--color-bg-grey-1);
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+   /* 100% высоты видимой области */
  }
-

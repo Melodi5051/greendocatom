@@ -3,12 +3,12 @@ import { getAllFiles, getAllFolder } from "../API/axios.api"
 import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
 import Main from "../components/Main/Main"
-
+import { observer } from "mobx-react-lite"
 const Layout = () => {
   useEffect(() => {
     getAllFolder()
-    getAllFiles()
   }, [])
+
   return (
     <div className="layout">
       <Header />
@@ -18,4 +18,4 @@ const Layout = () => {
   )
 }
 
-export default Layout
+export default observer(Layout)

@@ -1,18 +1,16 @@
 import axios from "axios"
 import { appStore } from "../store/store"
-import { formatData } from "../helper/formatDate"
-import {filterItems} from "../helper/filterItems"
+import { filterItems } from "../helper/filterItems"
 import { IYandexDiskFile } from "../types/Files"
 import { ROOT_PATH_FOLDER } from "../constants/constants"
 
+
+//ПОЛУЧЕНИЕ ВСЕХ ФАЙЛОВ ИЗ ЯНДЕКС ДИСКА
 export const getAllFiles = async () => {
   try {
     const response = await axios.get(`${ROOT_PATH_FOLDER}/files`, {
       headers: {
-        Authorization: process.env.REACT_APP_API_KEY,
-      },
-      params: {
-        limit: 10,
+        Authorization: `OAuth ${process.env.REACT_APP_API_KEY}`,
       },
     })
     const newYandexDiskFiles: IYandexDiskFile[] = response.data.items.map(
@@ -22,23 +20,23 @@ export const getAllFiles = async () => {
         //Каталог в котором лежит данный файл
         path: item.path,
         //Дата создания данного файла
-        created: formatData(new Date(item.created)),
+        created: item.created,
         //Дата последнего изменения данного файла
-        modified: formatData(new Date(item.modified)),
+        modified: item.modified,
       }),
     )
-    
     appStore.setArrayItems(filterItems(newYandexDiskFiles, appStore.categoryFilter))
   } catch (error) {
     console.error("Ошибка АПИ запроса", error)
   }
 }
 
+//ПОЛУЧЕНИЕ ВСЕХ ПАПОК ИЗ ЯНДЕКС ДИСКА
 export const getAllFolder = async () => {
   try {
     const response = await axios.get(`${ROOT_PATH_FOLDER}?path=CaseLabDocuments`, {
       headers: {
-        Authorization: process.env.REACT_APP_API_KEY,
+        Authorization: `OAuth ${process.env.REACT_APP_API_KEY}`,
       },
     })
     const folders = response.data._embedded.items.filter((item: any) => item.type === "dir")
@@ -50,31 +48,66 @@ export const getAllFolder = async () => {
     console.error("Ошибка АПИ запроса", error)
   }
 }
+
+//ПЕРЕМЕЩЕНИЕ ФАЙЛА
 export const moveFile = async (from: string, to: string) => {
   try {
-    const response = await axios.post("https://cloud-api.yandex.net/v1/disk/resources/move", null, {
+    const response = await axios.post(`${ROOT_PATH_FOLDER}/move`, null, {
       params: {
         from: from,
         path: to,
       },
       headers: {
-        Authorization: process.env.REACT_APP_API_KEY,
+        Authorization: `OAuth ${process.env.REACT_APP_API_KEY}`,
       },
     })
-    console.log("File move response:", response.data)
-    getAllFiles()
+      appStore.updateAllComponents(!appStore.updateWeb)
   } catch (error) {
-    console.error("Error moving file:", error)
+    console.error("Ошибка перемещения", error)
   }
 }
 
-export const createFolders = () => {
-  return ""
+//СОЗДАНИЕ ПАПКИ 
+export const createFolders = async (folderName: string) => {
+  try {
+    const response = await axios.put(
+      `${ROOT_PATH_FOLDER}?path=/CaseLabDocuments/${folderName}`,
+      null, // тело запроса отсутствует
+      {
+        headers: {
+          Authorization: `OAuth ${process.env.REACT_APP_API_KEY}`,
+        },
+      },
+    )
+  } catch (error) {
+    if (axios.isAxiosError(error) && error.response && error.response.status === 409) {
+      console.log(`Директория ${folderName} уже существует`)
+    } else {
+      console.error("Ошибка API запроса", error)
+    }
+  }
 }
+
+// УДАЛЕНИЕ ФАЙЛОВ И ПАПОК 
+export const deleteResources = async (resourceName: string) => {
+  try {
+    const response = await axios.delete("https://cloud-api.yandex.net/v1/disk/resources", {
+      headers: {
+        Authorization: `OAuth ${process.env.REACT_APP_API_KEY}`,
+      },
+      params: {
+        path: `CaseLabDocuments/${resourceName}`,
+        force_async: true,
+      },
+    })
+    appStore.updateAllComponents(!appStore.updateWeb)
+  } catch (error) {
+    console.error("Ошибка АПИ запроса", error)
+  }
+}
+
 
 export const createFiles = () => {
   return ""
 }
 
-export const getFolder = async (currentPath: string) => { }
-export const getFolderContents = async (folderPath: string) => { }

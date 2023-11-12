@@ -1,3 +1,5 @@
 .aside-header {
-    border-bottom: 1px solid black;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
 }
