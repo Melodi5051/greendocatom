@@ -6,6 +6,7 @@ class AppStore {
   categoryFilter: string = ""
   arrayFolders: any = []
   updateWeb: boolean = true
+  searchSubstring: string = ''
 
   constructor() {
     makeAutoObservable(this)
@@ -25,6 +26,19 @@ class AppStore {
 
   updateAllComponents(newStatus: boolean) {
     this.updateWeb = newStatus
+  }
+
+  findItems(arrayItems: IYandexDiskFile[]) {
+    if (arrayItems && this.searchSubstring) {
+      const foundItems = arrayItems.filter((item) => item.name.toLowerCase().includes(this.searchSubstring.toLowerCase()))
+      return foundItems
+    } else {
+      return arrayItems
+    }
+  }
+
+  setSubstring(substring: string) {
+    this.searchSubstring = substring
   }
 }
 

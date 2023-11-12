@@ -22,6 +22,8 @@ const Main = () => {
       <Aside />
       <div className="main-content">
         <MainHeader />
+        {/* {appStore.searchSubstring ?
+          <Table arrayItems={appStore.findItems(appStore.searchSubstring)} /> :} */}
         <Table arrayItems={filterItems(appStore.arrayItems, appStore.categoryFilter)} />
       </div>
     </main>
