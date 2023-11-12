@@ -1,11 +1,12 @@
 import { makeAutoObservable } from "mobx"
-import { IYandexDiskFile } from "../types/Files"
+import { IYandexDiskFile, IYandexDiskFolders } from "../types/Files"
 
 class AppStore {
   arrayItems: IYandexDiskFile[] = []
   categoryFilter: string = ""
-  arrayFolders: [] = []
+  arrayFolders: any = []
   updateWeb: boolean = true
+
   constructor() {
     makeAutoObservable(this)
   }

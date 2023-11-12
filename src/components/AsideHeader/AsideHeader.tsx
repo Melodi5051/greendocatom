@@ -1,28 +1,22 @@
-import React, { useEffect } from "react"
 import IconTrash from "./../../assets/icons/icon-trash.svg"
 import "./AsideHeader.css"
 import { appStore } from "../../store/store"
 import ButtonText from "../Buttons/Button"
 import { observer } from "mobx-react-lite"
-import { deleteResources, getAllFolder } from "../../API/axios.api"
-const AsideHeader = () => {
-  useEffect(() => {
-    setTimeout(() => {
-      getAllFolder()
-    }, 2000)
-  }, [appStore.updateWeb])
+import { deleteResources } from "../../API/axios.api"
 
+const AsideHeader = () => {
   const handleClickTrash = (fileName: string) => {
-    deleteResources(fileName)
-    appStore.updateAllComponents(!appStore.updateWeb)
+    deleteResources(fileName, "dir")
   }
+
   return (
     <div className="aside-header ">
       <ButtonText text="Все категории" IconFolderOpen={true} />
       {appStore.arrayFolders.length === 0 ? (
         <p>Loading...</p>
       ) : (
-        appStore.arrayFolders.map((item: any, index) => (
+        appStore.arrayFolders.map((item: any, index: number) => (
           <div className="aside-button">
             <ButtonText
               key={index}

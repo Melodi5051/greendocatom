@@ -1,9 +1,10 @@
 # GreenDocAtom
 Дипломный проект по Case Lab от "Гринатом" направление Front-end.
-https://greendocatom.web.app/
+
 ## Создание React приложения для работы с документами.
 ## Стек технологий который используеться в проекте
 ## Команда нашего проекта:
+
 
 ## Документ с обязанностями в команде:
 https://docs.google.com/spreadsheets/d/1ywqjdEB3rrTZh6OZrBye9BhFnM5tDtHfYNndyegFq7w/edit#gid=1741907818
@@ -11,6 +12,13 @@ https://docs.google.com/spreadsheets/d/1ywqjdEB3rrTZh6OZrBye9BhFnM5tDtHfYNndyegF
 https://github.com/Melodi5051/greendocatom
 ## В качестве доски тасков используем Yandex Tracker:
 https://tracker.yandex.ru/agile/board/13
+
+## Доска тасков:
+https://docs.google.com/spreadsheets/d/1ywqjdEB3rrTZh6OZrBye9BhFnM5tDtHfYNndyegFq7w/edit#gid=526637205
+
+## Гитхаб нашего проекта:
+https://github.com/Melodi5051/greendocatom
+>>>>>>> origin/gramizor's-code
 
 ## Figma проекта:
 https://www.figma.com/file/PT6dGwcEKgCmNcwJUeVXDI/GreenAtom-Doc-app?type=design&mode=design&t=XcnltAAzuvhx6obw-1
@@ -25,3 +33,5 @@ https://www.figma.com/file/PT6dGwcEKgCmNcwJUeVXDI/GreenAtom-Doc-app?type=design&
   • Когда писать будем компоненты будет создавать папку "Стили, сам компонент".
   • Если есть общие стили в основной файл выносим их.
   • Нужно использовать переменные в CSS.
+
+

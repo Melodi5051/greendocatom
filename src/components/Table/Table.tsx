@@ -2,17 +2,10 @@ import "./Table.css"
 import TableItem from "../TableItem/TableItem"
 import { IYandexDiskFile } from "../../types/Files"
 import { paginate } from "../../helper/filterItems"
-import { getAllFiles } from "../../API/axios.api"
+import { observer } from "mobx-react-lite"
 import { useEffect } from "react"
 import { appStore } from "../../store/store"
-import { observer } from "mobx-react-lite"
 const Table = ({ arrayItems }: any) => {
-  useEffect(() => {
-    setTimeout(() => {
-      getAllFiles()
-    }, 2000)
-  }, [appStore.updateWeb])
-
   return (
     <section className="table-wrapper">
       <table className="documents-list-wrapper rosatom-fontFamily-regular">
