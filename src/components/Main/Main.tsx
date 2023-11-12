@@ -8,11 +8,9 @@ import Aside from "../Aside/Aside"
 import Table from "../Table/Table"
 import { storeAside } from "../../store/storeAside"
 import MainHeader from "../MainHeader/MainHeader"
+import { filterItems } from "../../helper/filterItems"
 
 const Main = () => {
-  useEffect(() => {
-    getAllFiles()
-  }, [appStore.categoryFilter, appStore.updateWeb])
   const handleClickDocument = (event: any) => {
     const target = event.target as HTMLElement
     if (!target.closest(".aside-open") && !target.closest(".aside-close")) {
@@ -24,7 +22,7 @@ const Main = () => {
       <Aside />
       <div className="main-content">
         <MainHeader />
-        <Table arrayItems={appStore.arrayItems} />
+        <Table arrayItems={filterItems(appStore.arrayItems, appStore.categoryFilter)} />
       </div>
     </main>
   )

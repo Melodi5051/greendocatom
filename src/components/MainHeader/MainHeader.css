@@ -1,18 +1,24 @@
 .main-header {
     background: white;
     min-height: 55px;
+    justify-content: space-between;
+    align-items:center ;
     display: flex;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 5px 50px 0px 10px;
 }
 
 .main-refresh {
     display: flex;
     gap: 10px;
+    min-width: 250px;
+    align-items: center;
+
 }
 
 .main-refresh img {
     cursor: pointer;
+    max-width: 35px;
 }
 .main-refresh img:hover {
     animation: rotateAnimation 0.5s linear;
@@ -35,4 +41,45 @@
   to {
     transform: rotate(180deg);
   }
+}
+
+@media (max-width: 920px) {
+    .main-header {
+        padding: 5px 10px 0px 5px; /* Further adjusted padding for screens below 920px */
+    }
+
+    .main-refresh {
+        gap: 3px; /* Further reduced gap for screens below 920px */
+        min-width: 120px; /* Further adjusted min-width for screens below 920px */
+    }
+
+    .main-refresh img {
+        max-width: 20px; /* Further reduced max-width for screens below 920px */
+    }
+
+    .main-refresh h1 {
+        font-size: 16px; /* Further reduced font size for screens below 920px */
+    }
+}
+
+@media (max-width: 630px) {
+  
+    .main-header {
+        padding: 5px 5px 10px 5px; /* Further adjusted padding for screens below 630px */
+        display: block;
+
+    }
+
+    .main-refresh {
+        gap: 2px; /* Further reduced gap for screens below 630px */
+        min-width: 100px; /* Further adjusted min-width for screens below 630px */
+    }
+
+    .main-refresh img {
+        max-width: 15px; /* Further reduced max-width for screens below 630px */
+    }
+
+    .main-refresh h1 {
+        font-size: 12px; /* Further reduced font size for screens below 630px */
+    }
 }
