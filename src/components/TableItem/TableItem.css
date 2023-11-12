@@ -1,6 +1,19 @@
+:root {
+  --table-text-size: 14px;
+  --table-text-color: black;
+  --table-background-color: white;
+  --table-border-color: #6CACE4;
+  --table-padding: 5px 15px;
+  --table-hover-background: #6CACE4;
+  --table-hover-color: white;
+  --delete-border-color: #FF8282;
+  --table-hover-delete-background: #FF8282;
+}
+
 .table-item {
   position: relative;
 }
+
 .table-category {
   position: relative;
   cursor: pointer;
@@ -8,7 +21,7 @@
 
 .category-select {
   border: none;
-  background: #fff;
+  background: var(--table-background-color);
   text-transform: capitalize;
   cursor: pointer;
   outline: none;
@@ -20,67 +33,69 @@
 }
 
 .category-select:focus::before {
-  transform: translateY(-50%) rotate(-180deg); 
+  transform: translateY(-50%) rotate(-180deg);
 }
 
 .table-name {
-  max-width: 150px; 
+  max-width: 150px;
   overflow: hidden;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .table-name a:hover::before {
-  content: attr(data-full-name); 
+  content: attr(data-full-name);
   position: absolute;
   background: #000;
   border-radius: 5px;
   background: #FFF;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  top: -30px; 
+  top: -30px;
   left: 20px;
   padding: 10px;
   z-index: 100;
   white-space: normal;
 }
+
 .table-name a:hover::after {
-   position: absolute;
+  position: absolute;
   content: '';
   top: 10px;
   left: 35px;
-  width: 0; 
+  width: 0;
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
   border-top: 15px solid #fff;
   z-index: 1000;
 }
+
 .download-button,
 .delete-button {
-  background-color: white;
-  color: black;
+  background-color: var(--table-background-color);
+  color: var(--table-text-color);
   border-radius: 5px;
-  border: 2px solid #6CACE4;
-  padding: 5px 15px;
+  border: 2px solid var(--table-border-color);
+  padding: var(--table-padding);
   text-align: center;
   text-decoration: none;
-  font-size: 14px;
+  font-size: var(--table-text-size);
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
 
 .delete-button {
-  border: 2px solid #FF8282;
+  border: 2px solid var(--delete-border-color);
 }
 
 .download-button:hover {
-  color: white;
-  background: #6CACE4;
+  color: var(--table-hover-color);
+  background: var(--table-hover-background);
 }
 
 .delete-button:hover {
-  color: white;
-  background: #FF8282;
+  color: var(--table-hover-color);
+  background: var(--table-hover-delete-background);
 }
 
 @media (max-width: 1200px) {
@@ -100,7 +115,7 @@
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 630px) {
   .adaptive_icon {
     display: flex;
   }

@@ -1,13 +1,23 @@
+:root {
+  --aside-background: #fff;
+  --aside-width: 330px;
+  --aside-transition: 0.3s;
+  --aside-title-color: #000;
+  --aside-title-border-color: #d9d9d9;
+  --aside-title-font-size: 20px;
+  --aside-title-font-size-small: 18px;
+}
+
 aside {
-  background: #fff;
-  width: 330px;
+  background: var(--aside-background);
+  width: var(--aside-width);
   display: flex;
   flex-direction: column;
-  transition: 0.3s;
+  transition: var(--aside-transition);
 }
 
 .aside-footer {
-  margin-top: auto; 
+  margin-top: auto;
   padding: 20px 10px;
 }
 
@@ -15,9 +25,9 @@ aside {
   padding: 15px 10px;
   text-align: start;
   box-sizing: border-box;
-  color: #000;
-  border-bottom: 3px solid #d9d9d9;
-  font-size: 20px;
+  color: var(--aside-title-color);
+  border-bottom: 3px solid var(--aside-title-border-color);
+  font-size: var(--aside-title-font-size);
   font-weight: 400;
   line-height: normal;
 }
@@ -28,7 +38,7 @@ aside {
   }
   .aside-title {
     padding: 10px 10px;
-    font-size: 18px; /* Уменьшаем размер шрифта */
+    font-size: var(--aside-title-font-size-small);
   }
 }
 
@@ -48,6 +58,6 @@ aside {
   }
   .aside-title {
     padding: 10px 10px;
-    font-size: 18px; /* Уменьшаем размер шрифта */
+    font-size: var(--aside-title-font-size-small);
   }
 }

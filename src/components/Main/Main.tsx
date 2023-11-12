@@ -7,6 +7,7 @@ import "./Main.css"
 import Aside from "../Aside/Aside"
 import Table from "../Table/Table"
 import { storeAside } from "../../store/storeAside"
+import MainHeader from "../MainHeader/MainHeader"
 
 const Main = () => {
   useEffect(() => {
@@ -22,7 +23,7 @@ const Main = () => {
     <main onClick={(event) => handleClickDocument(event)}>
       <Aside />
       <div className="main-content">
-        сюда добавить блока под шапкой который
+        <MainHeader />
         <Table arrayItems={appStore.arrayItems} />
       </div>
     </main>
