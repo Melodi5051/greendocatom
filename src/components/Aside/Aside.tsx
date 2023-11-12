@@ -1,22 +1,18 @@
-import React from "react"
 import "./Aside.css"
+import { observer } from "mobx-react-lite"
 import AsideHeader from "../AsideHeader/AsideHeader"
 import ButtonText from "../Buttons/Button"
-import { appStore } from "../../store/store"
+import { storeAside } from "../../store/storeAside"
 const Aside = () => {
   return (
-    <aside>
-    <AsideHeader />
-    <ButtonText text='Все категории'/>
-    {appStore.arrayFolders.length === 0 ? (
-      <p>Loading</p>
-    ) : (
-      appStore.arrayFolders.map((item: any, index) => (
-        <ButtonText key={index} text={item.name} iconName="icon-folder-open" hasIconPencil={true} />
-      ))
-    )}
-  </aside>
+    <aside className={storeAside.isOpen ? "aside-open" : "aside-close"}>
+      <h1 className="aside-title rosatom-fontFamily-regular">Категории</h1>
+      <AsideHeader />
+      <div className="aside-footer rosatom-fontFamily-bold">
+        <ButtonText text="Удаленные документы" hasIconTrash={true} buttonText="sdfsdf" />
+      </div>
+    </aside>
   )
 }
 
-export default Aside
+export default observer(Aside)

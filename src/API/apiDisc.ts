@@ -37,27 +37,3 @@ export const getUploadLink = async (filePath: string) => {
         console.error("Ошибка АПИ запроса при получение ссылки на загрузку документа", error);
     }
 }
-
-export const getHref = (downloadLinkPromise: Promise<string | undefined>): string => {
-    let link:string | undefined = '';
-    downloadLinkPromise.then(value => link = value);
-    console.log(link)
-    return link;
-}
-
-export const downloadFilebyLink = async (downloadLink: Promise<string | undefined>) => {
-    try {
-        const link = await downloadLink;
-        console.log(link)
-        const response = await axios.get(`${link}`, {
-            headers: {
-                Authorization: process.env.REACT_APP_API_KEY,
-                responseType: "blob",
-              },                
-        });
-        //const result = response.data;
-        console.log("downloadFilebyLink");        
-    } catch(error) {
-        console.error("Ошибка АПИ запроса скачивания", error);
-    }
-}

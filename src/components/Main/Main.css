@@ -1,5 +1,17 @@
 main {
+    padding: 10px 20px;
     display: flex;
+    column-gap: 10px;
     flex-grow: 1;
-    border: 1px solid black;
+}
+
+.main-content {
+    width: 100%;
+}
+@media (max-width: 1200px) { 
+main {
+    padding: 10px 5px;
+    column-gap: 10px;
+}
+
 }

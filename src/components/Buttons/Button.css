@@ -1,64 +1,99 @@
- button {
-   outline: none;
- }
+/* Ваши общие стили для кнопок */
 
- button.btn-text:focus {
-   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
- }
+button {
+  outline: none;
+}
 
- button.btn-text {
-   font-family: var(--fontStack-sansSerif);
-   display: flex;
-   align-items: center;
-   gap: 10px;
+button img {
+  display: initial;
+}
 
-   color: var(--color-workflow-f-black);
+button:focus {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
 
-   /* Обычный */
-   font-size: var(--prop-category-button-fontSize);
-   font-style: normal;
-   font-weight: var(--prop-category-button-fontWeight);
-   line-height: normal;
-
-   border: none;
-   border-radius: var(--prop-category-button-borderRadius);
-   background-color: inherit;
-   cursor: pointer;
-
-   min-width: var(--prop-category-button-minWidth);
-
-   transition: background-color .3s;
- }
-
- button.btn-text:hover {
-   background-color: var(--color-category-button-background-hover);
- }
-
- button.btn-text:active {
-   background-color: var(--color-category-button-background-active);
- }
-
- button.btn-text .icon {
-   display: flex;
-   width: var(--icon-category-button-width);
-   height: var(--icon-category-button-height);
-   padding: 2.5px 0.611px 2.5px 0.625px;
-   justify-content: center;
-   align-items: center;
-   width: 20px;
- }
-
- button.btn-text .iconPencil {
-   display: flex;
-   position: relative;
-   height: 100px;
-   right: 0%;
-   width: var(--icon-category-button-width);
-   height: var(--icon-category-button-height);
-   padding: 2.5px 0.611px 2.5px 0.625px;
-   justify-content: right;
-   align-items: right;
- }
- button.btn-text .iconPencil:hover{
+/* Стили для кнопок в "Категория" */
+.aside-button {
   display: flex;
- }
+}
+.aside-button img{
+  cursor: pointer;
+}
+button.btn-text {
+  text-overflow: ellipsis; 
+    white-space: nowrap;
+    position: relative;
+  font-family: var(--fontStack-sansSerif);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-workflow-f-black);
+  font-size: var(--prop-category-button-fontSize);
+  font-style: normal;
+  font-weight: var(--prop-category-button-fontWeight);
+  line-height: normal;
+  border: none;
+  border-radius: var(--prop-category-button-borderRadius);
+  background-color: inherit;
+  cursor: pointer;
+  min-width: 230px;
+  transition: background-color .3s;
+}
+
+button.btn-text:hover {
+  background-color: var(--color-category-button-background-hover);
+}
+
+button.btn-text:active {
+  background-color: var(--color-category-button-background-active);
+}
+
+button.btn-text .icon {
+  display: flex;
+  width: 18px;
+  height: 18px;
+  padding: 2.5px 0.611px 2.5px 0.625px;
+  justify-content: center;
+  align-items: center;
+}
+
+button.btn-text .iconPencil {
+  display: flex;
+  position: relative;
+  height: 100px;
+  right: 0%;
+  width: 18px;
+  height: 18px;
+  padding: 2.5px 0.611px 2.5px 0.625px;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+button.btn-text .iconPencil:hover {
+  display: flex;
+}
+
+/* Медиа-запрос для управления стилями при малых экранах */
+
+@media (max-width: 1200px) {
+  aside {
+    max-width: 270px;
+  }
+
+  button.btn-text {
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  button.btn-text .icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  button.btn-text .iconPencil {
+    width: 18px;
+    height: 18px;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}
