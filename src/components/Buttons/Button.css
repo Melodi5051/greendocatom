@@ -1,210 +1,87 @@
- /**
-   Универсальные свойства для кнопок
- */
- button {
-   outline: none;
- }
+/* Ваши общие стили для кнопок */
 
- button img {
-   display: initial;
- }
+button {
+  outline: none;
+}
 
- /**
-   Кнопки в "Категория"
- */
- button.btn-text:focus {
-   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
- }
+button img {
+  display: initial;
+}
 
- button.btn-text {
-   font-family: var(--fontStack-sansSerif);
-   display: flex;
-   align-items: center;
-   gap: 10px;
+button:focus {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
 
-   color: var(--color-workflow-f-black);
+/* Стили для кнопок в "Категория" */
+.aside-button {
+  display: flex;
+}
+.aside-button img{
+  cursor: pointer;
+}
+button.btn-text {
+  text-overflow: ellipsis; 
+    white-space: nowrap;
+    position: relative;
+  font-family: var(--fontStack-sansSerif);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-workflow-f-black);
+  font-size: var(--prop-category-button-fontSize);
+  font-style: normal;
+  font-weight: var(--prop-category-button-fontWeight);
+  line-height: normal;
+  border: none;
+  border-radius: var(--prop-category-button-borderRadius);
+  background-color: inherit;
+  cursor: pointer;
+  min-width: 230px;
+  transition: background-color .3s;
+}
 
-   /* Обычный */
-   font-size: var(--prop-category-button-fontSize);
-   font-style: normal;
-   font-weight: var(--prop-category-button-fontWeight);
-   line-height: normal;
+button.btn-text:hover {
+  background-color: var(--color-category-button-background-hover);
+}
 
-   border: none;
-   border-radius: var(--prop-category-button-borderRadius);
-   background-color: inherit;
-   cursor: pointer;
+button.btn-text:active {
+  background-color: var(--color-category-button-background-active);
+}
 
-   min-width: var(--prop-category-button-minWidth);
+button.btn-text .icon {
+  display: flex;
+  width: 18px;
+  height: 18px;
+  padding: 2.5px 0.611px 2.5px 0.625px;
+  justify-content: center;
+  align-items: center;
+}
 
-   transition: background-color .3s;
- }
+button.btn-text .iconPencil {
+  display: flex;
+  position: relative;
+  height: 100px;
+  right: 0%;
+  width: 18px;
+  height: 18px;
+  padding: 2.5px 0.611px 2.5px 0.625px;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
 
- button.btn-text:hover {
-   background-color: var(--color-category-button-background-hover);
- }
+button.btn-text .iconPencil:hover {
+  display: flex;
+}
 
- button.btn-text:active {
-   background-color: var(--color-category-button-background-active);
- }
+/* Медиа-запрос для управления стилями при малых экранах */
 
- button.btn-text .icon {
-   display: flex;
-   width: var(--icon-category-button-width);
-   height: var(--icon-category-button-height);
-   padding: 2.5px 0.611px 2.5px 0.625px;
-   justify-content: center;
-   align-items: center;
-   width: 20px;
- }
-
- button.btn-text .iconPencil {
-   display: flex;
-   position: relative;
-   height: 100px;
-   right: 0%;
-   width: var(--icon-category-button-width);
-   height: var(--icon-category-button-height);
-   padding: 2.5px 0.611px 2.5px 0.625px;
-   justify-content: right;
-   align-items: right;
- }
-
- button.btn-text .iconPencil:hover {
-   display: flex;
- }
-
- /**
-   Кнопки классические из Figma на 
-   странице "Компоненты"
- */
- button.btn-classic {
-   height: 40px;
-   /* min-width: max-content; */
-   flex-shrink: 0;
-
-   font-family: var(--fontStack-sansSerif);
-   font-size: 14px;
-   font-style: normal;
-   font-weight: 500;
-   line-height: normal;
-
-   padding: 0 30px;
-   margin: 3px;
-
-   cursor: pointer;
-
-   transition: all .2s;
- }
-
- /**
-   Это версию использовать только когда
-   в кнопке нет ничего, кроме иконки
- */
- button.btn-classic.v4 {
-
-   min-width: var(--prop-workflow-buttonClassic-withIcon-width);
-   min-height: var(--prop-workflow-buttonClassic-withIcon-width);
-
-   max-width: var(--prop-workflow-buttonClassic-withIcon-width);
-   max-height: var(--prop-workflow-buttonClassic-withIcon-width);
-
-   padding: 0;
-   margin: 7px;
-   justify-content: center;
-   align-items: center;
-   flex-shrink: 0;
-
-   color: var(--color-workflow-white);
-   justify-content: center !important;
-   align-items: center !important;
-   border-radius: 5px;
-   border: 0.5px solid var(--color-workflow-base-base);
-   background: var(--color-workflow-base-base);
- }
-
- button.btn-classic.v4:hover {
-   background: var(--color-workflow-f-blue-1);
- }
-
- button.btn-classic.v4.negative {
-   border: 0.5px solid var(--color-workflow-f-negative);
-   background: var(--color-workflow-f-negative);
- }
-
- button.btn-classic.v4.negative:hover {
-   background: var(--color-workflow-f-negative-2);
- }
-
- button.btn-classic.v1 {
-   color: var(--color-workflow-base-base);
-   border-radius: 50px;
-   border: 3px solid var(--color-workflow-base-base);
-   background: var(--color-workflow-white);
- }
-
- button.btn-classic.v1:hover {
-   color: var(--color-workflow-white);
-   background: var(--color-workflow-base-base);
- }
-
- button.btn-classic.v2 {
-   color: var(--color-workflow-white);
-   border-radius: 50px;
-   border: 3px solid var(--color-workflow-f-blue-1);
-   background: var(--color-workflow-f-blue-1);
- }
-
- button.btn-classic.v2:hover {
-   color: var(--color-workflow-f-blue-1);
-   background: var(--color-workflow-white);
- }
-
- button.btn-classic.v3 {
-
-   color: var(--color-workflow-base-base);
-   border-radius: 5px;
-   border: 3px solid var(--color-workflow-base-base);
-   background: var(--color-workflow-white);
- }
-
- button.btn-classic.v3:hover {
-   color: var(--color-workflow-white);
-   background: var(--color-workflow-base-base);
- }
-
- button.btn-classic.v1.negative:hover {
-   background-color: var(--color-workflow-f-negative) !important;
-   color: var(--color-workflow-white) !important;
-   border-color: var(--color-workflow-f-negative) !important;
- }
-
- button.btn-classic.v2.negative:hover {
-   background-color: var(--color-workflow-f-negative) !important;
-   color: var(--color-workflow-white) !important;
-   border-color: var(--color-workflow-f-negative) !important;
- }
-
- button.btn-classic.v3.negative {
-   background-color: var(--color-workflow-white) !important;
-   color: var(--color-workflow-f-negative) !important;
-   border-color: var(--color-workflow-f-negative) !important;
- }
-
- button.btn-classic.v3.negative:hover {
-   background-color: var(--color-workflow-f-negative) !important;
-   color: var(--color-workflow-white) !important;
-   border-color: var(--color-workflow-f-negative) !important;
- }
-
- @media (max-width: 1200px) {
+@media (max-width: 1200px) {
   aside {
     max-width: 270px;
   }
 
-
   button.btn-text {
-    font-size: 16px; 
+    font-size: 16px;
     white-space: nowrap;
   }
 
@@ -216,5 +93,7 @@
   button.btn-text .iconPencil {
     width: 18px;
     height: 18px;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
 }

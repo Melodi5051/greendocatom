@@ -3,6 +3,7 @@ aside {
   width: 330px;
   display: flex;
   flex-direction: column;
+  transition: 0.3s;
 }
 
 .aside-footer {
@@ -24,6 +25,26 @@ aside {
 @media (max-width: 1200px) {
   aside {
     max-width: 270px;
+  }
+  .aside-title {
+    padding: 10px 10px;
+    font-size: 18px; /* Уменьшаем размер шрифта */
+  }
+}
+
+@media (max-width: 920px) {
+  aside {
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    position: absolute;
+    height: 100%;
+  }
+  .aside-open {
+    left: 0px;
+  }
+  .aside-close {
+    left: -270px;
   }
   .aside-title {
     padding: 10px 10px;

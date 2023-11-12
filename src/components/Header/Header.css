@@ -70,19 +70,37 @@
 
 @media (max-width: 1200px) {
   .header {
-    padding: 20px 50px; /* Уменьшаем внутренний отступ */
+    padding: 20px 50px; 
   }
 
   .header-logo h1 {
-    font-size: 18px; /* Уменьшаем размер шрифта */
+    font-size: 18px; 
   }
 
   .header-logo h2 {
-    font-size: 14px; /* Уменьшаем размер шрифта */
+    font-size: 14px;
   }
 
   .login {
-    width: 150px; /* Уменьшаем ширину кнопки логина */
-    height: 30px; /* Уменьшаем высоту кнопки логина */
+    width: 150px;
+    height: 30px; 
   }
+}
+
+@media (max-width: 920px) {
+ .button-burger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 45px;
+  margin: 20px;
+}
+
+.burger-bar {
+  width: 45px;
+  height: 2px;
+  background-color: #333;
+}
 }

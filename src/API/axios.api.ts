@@ -4,6 +4,8 @@ import { filterItems } from "../helper/filterItems"
 import { IYandexDiskFile } from "../types/Files"
 import { ROOT_PATH_FOLDER } from "../constants/constants"
 
+
+//ПОЛУЧЕНИЕ ВСЕХ ФАЙЛОВ ИЗ ЯНДЕКС ДИСКА
 export const getAllFiles = async () => {
   try {
     const response = await axios.get(`${ROOT_PATH_FOLDER}/files`, {
@@ -29,6 +31,7 @@ export const getAllFiles = async () => {
   }
 }
 
+//ПОЛУЧЕНИЕ ВСЕХ ПАПОК ИЗ ЯНДЕКС ДИСКА
 export const getAllFolder = async () => {
   try {
     const response = await axios.get(`${ROOT_PATH_FOLDER}?path=CaseLabDocuments`, {
@@ -45,6 +48,8 @@ export const getAllFolder = async () => {
     console.error("Ошибка АПИ запроса", error)
   }
 }
+
+//ПЕРЕМЕЩЕНИЕ ФАЙЛА
 export const moveFile = async (from: string, to: string) => {
   try {
     const response = await axios.post(`${ROOT_PATH_FOLDER}/move`, null, {
@@ -56,12 +61,13 @@ export const moveFile = async (from: string, to: string) => {
         Authorization: `OAuth ${process.env.REACT_APP_API_KEY}`,
       },
     })
-    getAllFiles()
+      appStore.updateAllComponents(!appStore.updateWeb)
   } catch (error) {
     console.error("Ошибка перемещения", error)
   }
 }
 
+//СОЗДАНИЕ ПАПКИ 
 export const createFolders = async (folderName: string) => {
   try {
     const response = await axios.put(
@@ -82,7 +88,7 @@ export const createFolders = async (folderName: string) => {
   }
 }
 
-// delete применяется и к папкам, и к файлам
+// УДАЛЕНИЕ ФАЙЛОВ И ПАПОК 
 export const deleteResources = async (resourceName: string) => {
   try {
     const response = await axios.delete("https://cloud-api.yandex.net/v1/disk/resources", {
@@ -94,14 +100,14 @@ export const deleteResources = async (resourceName: string) => {
         force_async: true,
       },
     })
+    appStore.updateAllComponents(!appStore.updateWeb)
   } catch (error) {
     console.error("Ошибка АПИ запроса", error)
   }
 }
 
+
 export const createFiles = () => {
   return ""
 }
 
-export const getFolder = async (currentPath: string) => {}
-export const getFolderContents = async (folderPath: string) => {}

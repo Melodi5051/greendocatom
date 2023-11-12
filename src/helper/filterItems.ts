@@ -9,7 +9,6 @@ export const filterItems = (
   if (arrayItems.length > 0 && typeFilter.length > 0) {
     return arrayItems.filter((file) => extractFolderName(file.path) === typeFilter)
   }
-
   return arrayItems
 }
 

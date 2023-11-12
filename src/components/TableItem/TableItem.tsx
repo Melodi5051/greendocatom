@@ -1,18 +1,23 @@
 import { IYandexDiskFile } from "../../types/Files"
 import { observer } from "mobx-react-lite"
 import { appStore } from "./../../store/store"
-import { moveFile } from "../../API/axios.api"
+import { deleteResources, moveFile } from "../../API/axios.api"
 import { extractFolderName } from "../../helper/formatDate"
 import { removeFileExtension } from "../../helper/filterItems"
 import "./TableItem.css"
-import { useState, useEffect } from "react"
 import { formatData } from "../../helper/formatDate"
+import { useEffect, useState } from "react"
 
 const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
   const handleFileChangeCategory = (e: React.ChangeEvent<HTMLSelectElement>, name: string) => {
     moveFile(path, `disk:/CaseLabDocuments/${e.target.value}/${name}`)
   }
+  const handleDeleteFile = (e: any, name: string, path: string) => {
+    deleteResources(`${extractFolderName(path)}/${name}`)
+  }
+
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth)
@@ -22,6 +27,7 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
       window.removeEventListener("resize", handleResize)
     }
   }, [])
+
   return (
     <tr className="table-item">
       <td>
@@ -50,7 +56,9 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
         <button className="download-button">СКАЧАТЬ</button>
       </td>
       <td className="table-delete">
-        <button className="delete-button">УДАЛИТЬ</button>
+        <button className="delete-button" onClick={(event) => handleDeleteFile(event, name, path)}>
+          УДАЛИТЬ
+        </button>
       </td>
     </tr>
   )

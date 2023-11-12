@@ -1,19 +1,25 @@
 
 import { observer } from 'mobx-react-lite';
 import { appStore } from "../../store/store";
-import { useEffect } from 'react';
+import { useEffect, useRef } from "react"
 import { getAllFiles } from "../../API/axios.api"
 import "./Main.css"
 import Aside from "../Aside/Aside"
 import Table from "../Table/Table"
+import { storeAside } from "../../store/storeAside"
 
 const Main = () => {
   useEffect(() => {
     getAllFiles()
-    appStore.arrayItems.forEach((el) => {})
-  }, [appStore.categoryFilter, appStore.arrayFolders])
+  }, [appStore.categoryFilter, appStore.updateWeb])
+  const handleClickDocument = (event: any) => {
+    const target = event.target as HTMLElement
+    if (!target.closest(".aside-open") && !target.closest(".aside-close")) {
+      storeAside.setIsOpen(false)
+    }
+  }
   return (
-    <main>
+    <main onClick={(event) => handleClickDocument(event)}>
       <Aside />
       <div className="main-content">
         сюда добавить блока под шапкой который
