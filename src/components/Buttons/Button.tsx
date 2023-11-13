@@ -5,7 +5,7 @@ import IconFolderOpen from "./../../assets/icons/icon-folder-open.svg"
 import IconPencil from "./../../assets/icons/icon-pencil.svg"
 import IconTrash from "./../../assets/icons/icon-trash.svg"
 import { appStore } from "../../store/store"
-import { deleteResources } from "../../API/axios.api"
+import { deleteResources, getAllFiles, getTrash } from "../../API/axios.api"
 
 const ICONS_SELECTOR: Record<string, any> = {
   "icon-folder-open": IconFolderOpen,
@@ -23,7 +23,7 @@ const handleIconClick = (
     buttonText !== undefined &&
     buttonText !== "Удаленные документы"
   ) {
-    deleteResources(buttonText, "dir")
+    deleteResources(buttonText, "dir") // TODO:  СДЕЛАТЬ ПОДТВЕРЖДЕНИЕ УДАЛЕНИЯ
   }
 }
 

@@ -16,6 +16,10 @@ export const RouterWeb = createBrowserRouter([
         path: "/:name",
         element: <DocumentPage />,
       },
+      {
+        path: "/basket",
+        element: <div>Корзина предметов</div>,
+      },
     ],
   },
 ])
