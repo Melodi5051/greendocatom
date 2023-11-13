@@ -12,15 +12,16 @@
     display: flex;
     gap: 10px;
     min-width: 250px;
+    text-wrap: wrap;
     align-items: center;
 
 }
 
-.main-refresh img {
+.main-refresh refresh_icon {
     cursor: pointer;
     max-width: 35px;
 }
-.main-refresh img:hover {
+.main-refresh refresh_icon:hover {
     animation: rotateAnimation 0.5s linear;
 }
 .main-refresh h1 {

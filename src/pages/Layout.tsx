@@ -4,6 +4,8 @@ import Main from "../components/Main/Main"
 import { observer } from "mobx-react-lite"
 import { getAllFiles, getAllFolders } from "../API/axios.api"
 import { useEffect } from "react"
+import { Outlet } from "react-router-dom"
+
 const Layout = () => {
   useEffect(() => {
     getAllFiles()

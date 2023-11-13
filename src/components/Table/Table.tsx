@@ -3,7 +3,7 @@ import TableItem from "../TableItem/TableItem"
 import { IYandexDiskFile } from "../../types/Files"
 import { paginate } from "../../helper/filterItems"
 import { observer } from "mobx-react-lite"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { appStore } from "../../store/store"
 const Table = ({ arrayItems }: any) => {
   useEffect(() => {

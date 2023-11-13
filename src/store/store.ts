@@ -7,9 +7,17 @@ class AppStore {
   arrayFolders: any = []
   updateWeb: boolean = true
   limitItems: number = Math.floor((window.innerHeight - 320) / (window.innerWidth < 620 ? 70 : 65))
+  searchSubstring: string = ""
+  categoryTemp: string = ""
+
   constructor() {
     makeAutoObservable(this)
   }
+
+  setCategoryTemp(newTemp: string) {
+    this.categoryTemp = newTemp
+  }
+
   setLimitItems(newLimit: number) {
     this.limitItems = newLimit
   }
@@ -27,6 +35,21 @@ class AppStore {
 
   updateAllComponents(newStatus: boolean) {
     this.updateWeb = newStatus
+  }
+
+  findItems(arrayItems: IYandexDiskFile[]) {
+    if (arrayItems && this.searchSubstring) {
+      const foundItems = arrayItems.filter((item) =>
+        item.name.toLowerCase().includes(this.searchSubstring.toLowerCase()),
+      )
+      return foundItems
+    } else {
+      return arrayItems
+    }
+  }
+
+  setSubstring(substring: string) {
+    this.searchSubstring = substring
   }
 }
 

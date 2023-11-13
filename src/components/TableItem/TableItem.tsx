@@ -10,9 +10,9 @@ import trash_icon from "./../../assets/icons/icon-trash.svg"
 import info_icon from "./../../assets/icons/icon-info.svg"
 import { formatData } from "../../helper/formatDate"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
-
   const handleFileChangeCategory = (e: React.ChangeEvent<HTMLSelectElement>, name: string) => {
     moveFile(path, `disk:/CaseLabDocuments/${e.target.value}/${name}`, name)
   }
@@ -20,7 +20,14 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
   const handleDeleteFile = (e: any, name: string, path: string) => {
     deleteResources(`${extractFolderName(path)}/${name}`, "file")
   }
-
+  const handleChangeCategoryFile = (
+    e: React.ChangeEvent<HTMLSelectElement>,
+    name: string,
+    path: string,
+  ) => {
+    appStore.setCategoryTemp(appStore.categoryFilter)
+    appStore.setCategoryFilter(`${extractFolderName(path)}/${name}`)
+  }
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
   useEffect(() => {
@@ -40,9 +47,13 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
       ) : (
         <tr className="table-item">
           <td className="table-name">
-            <a href={`${name}`} data-full-name={removeFileExtension(name)}>
+            <Link
+              to={`/${name}`}
+              onClick={(event: any) => handleChangeCategoryFile(event, name, path)}
+            >
               {removeFileExtension(name)}
-            </a>
+            </Link>
+
             <div className="adaptive_icon">
               <img src={info_icon} alt="" className="info-icon" />
               <img src={download_icon} alt="" className="download-icon" />
