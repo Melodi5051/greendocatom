@@ -1,0 +1,68 @@
+.form-wrapper {
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.sing-up-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+}
+
+label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.btn-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 20px;
+    border-radius: 7px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+}
+
+.btn-back:hover {
+    color: rgba(0, 0, 0, 0.481);
+}
+
+.errors-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error {
+    margin-left: 10px;
+    box-sizing: border-box;
+    color: red;
+}
+
+.sign-up-btn {
+    text-align: center;
+    height: 50px;
+    border: 3px solid #FF8282;
+    background: white;
+    border-radius: 7px;
+    text-transform: uppercase;
+}
+
+.sign-up-btn:hover {
+    color: white;
+    background: #FF8282;
+}

@@ -4,3 +4,6 @@ export interface IYandexDiskFile {
   created: string
   path: string
 }
+export interface IYandexDiskFolders {
+  name: string
+}

@@ -1,18 +1,11 @@
-
-import { observer } from 'mobx-react-lite';
-import { appStore } from "../../store/store";
-import { useEffect, useRef } from "react"
-import { getAllFiles } from "../../API/axios.api"
+import { observer } from "mobx-react-lite"
 import "./Main.css"
 import Aside from "../Aside/Aside"
-import Table from "../Table/Table"
 import { storeAside } from "../../store/storeAside"
 import MainHeader from "../MainHeader/MainHeader"
+import { Outlet } from "react-router-dom"
 
 const Main = () => {
-  useEffect(() => {
-    getAllFiles()
-  }, [appStore.categoryFilter, appStore.updateWeb])
   const handleClickDocument = (event: any) => {
     const target = event.target as HTMLElement
     if (!target.closest(".aside-open") && !target.closest(".aside-close")) {
@@ -24,7 +17,7 @@ const Main = () => {
       <Aside />
       <div className="main-content">
         <MainHeader />
-        <Table arrayItems={appStore.arrayItems} />
+        <Outlet />
       </div>
     </main>
   )
