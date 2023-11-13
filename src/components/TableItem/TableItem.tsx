@@ -10,6 +10,7 @@ import trash_icon from "./../../assets/icons/icon-trash.svg"
 import info_icon from "./../../assets/icons/icon-info.svg"
 import { formatData } from "../../helper/formatDate"
 import { useEffect, useState } from "react"
+import { getDownloadLink } from "../../API/apiDisc"
 
 const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
   const handleFileChangeCategory = (e: React.ChangeEvent<HTMLSelectElement>, name: string) => {
@@ -20,11 +21,13 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
   }
 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+  const [downloadLink, setLinkD] = useState('#')
 
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth)
     }
+    getDownloadLink(path).then(link => setLinkD(link))
     window.addEventListener("resize", handleResize)
     return () => {
       window.removeEventListener("resize", handleResize)
@@ -60,7 +63,7 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
       <td className="table-modified">{formatData(new Date(modified))}</td>
       <td className="table-created">{formatData(new Date(created))}</td>
       <td className="table-download">
-        <button className="download-button">СКАЧАТЬ</button>
+        <a className="download-button" href={downloadLink}>СКАЧАТЬ</a>
       </td>
       <td className="table-delete">
         <button className="delete-button" onClick={(event) => handleDeleteFile(event, name, path)}>

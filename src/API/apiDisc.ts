@@ -30,9 +30,10 @@ export const getUploadLink = async (filePath: string) => {
                 Authorization: process.env.REACT_APP_API_KEY,
               },
         });
-
-        console.log("getUploadLink", response);
-
+        
+        const result = response.data;
+        console.log("getUploadLink", result.href);
+        return result.href;
     } catch(error) {
         console.error("Ошибка АПИ запроса при получение ссылки на загрузку документа", error);
     }
