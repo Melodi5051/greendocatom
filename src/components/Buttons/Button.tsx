@@ -23,7 +23,7 @@ const handleIconClick = (
     buttonText !== undefined &&
     buttonText !== "Удаленные документы"
   ) {
-    deleteResources(buttonText)
+    deleteResources(buttonText) // TODO:  СДЕЛАТЬ ПОДТВЕРЖДЕНИЕ УДАЛЕНИЯ
   }
 }
 
