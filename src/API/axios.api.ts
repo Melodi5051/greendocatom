@@ -99,6 +99,9 @@ export const deleteResources = async (resourceName: string, type: string) => {
               (item: any) => item.name !== resourceName,
             )
             appStore.setArrayFolders(newFolderarray)
+            if (appStore.categoryFilter.toLocaleLowerCase() === resourceName.toLowerCase()) {
+              appStore.setCategoryFilter("")
+            }
           } else {
             const newFileArray = appStore.arrayItems.filter(
               (item: any) => item.name !== resourceName.split("/").pop(),

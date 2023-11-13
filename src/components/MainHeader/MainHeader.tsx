@@ -9,6 +9,7 @@ const MainHeader = () => {
   const handleRefreshTable = () => {
     getAllFiles()
     getAllFolders()
+    appStore.setCategoryFilter("")
   }
 
   return (

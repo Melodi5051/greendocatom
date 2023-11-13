@@ -6,11 +6,13 @@ class AppStore {
   categoryFilter: string = ""
   arrayFolders: any = []
   updateWeb: boolean = true
-
+  limitItems: number = Math.floor((window.innerHeight - 320) / (window.innerWidth < 620 ? 70 : 65))
   constructor() {
     makeAutoObservable(this)
   }
-
+  setLimitItems(newLimit: number) {
+    this.limitItems = newLimit
+  }
   setArrayFolders(newArrayFolders: []) {
     this.arrayFolders = newArrayFolders
   }
