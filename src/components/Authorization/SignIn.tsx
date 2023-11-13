@@ -7,8 +7,6 @@ const SignIn = () => {
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState<string[]>([])
-    console.log(login, password);
-
 
     const nav = useNavigate()
 
@@ -23,7 +21,6 @@ const SignIn = () => {
         if (!password || password.length < 3 || password.length > 15) {
             error.push('Неверный пароль!')
         }
-        console.log(storeAuthorization.authentication(login, password));
 
         if (!error.length && storeAuthorization.authentication(login, password)) {
             nav('/greendocatom')

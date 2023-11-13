@@ -56,7 +56,7 @@ label {
 .sign-up-btn {
     text-align: center;
     height: 50px;
-    border: 3px solid red;
+    border: 3px solid #FF8282;
     background: white;
     border-radius: 7px;
     text-transform: uppercase;
@@ -64,5 +64,5 @@ label {
 
 .sign-up-btn:hover {
     color: white;
-    background: red;
+    background: #FF8282;
 }
