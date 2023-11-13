@@ -1,4 +1,3 @@
-
 import { observer } from 'mobx-react-lite';
 import { appStore } from "../../store/store";
 import { useEffect, useRef } from "react"
@@ -22,8 +21,6 @@ const Main = () => {
       <Aside />
       <div className="main-content">
         <MainHeader />
-        {/* {appStore.searchSubstring ?
-          <Table arrayItems={appStore.findItems(appStore.searchSubstring)} /> :} */}
         <Table arrayItems={filterItems(appStore.arrayItems, appStore.categoryFilter)} />
       </div>
     </main>

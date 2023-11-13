@@ -4,6 +4,7 @@ import Main from "../components/Main/Main"
 import { observer } from "mobx-react-lite"
 import { getAllFiles, getAllFolders } from "../API/axios.api"
 import { useEffect } from "react"
+import Router from "../router/router"
 const Layout = () => {
   useEffect(() => {
     getAllFiles()
@@ -12,7 +13,7 @@ const Layout = () => {
   return (
     <div className="layout">
       <Header />
-      <Main />
+      <Router />
       <Footer />
     </div>
   )

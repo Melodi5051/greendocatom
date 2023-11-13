@@ -6,8 +6,6 @@ export const filterItems = (
   arrayItems: IYandexDiskFile[],
   typeFilter: string,
 ): IYandexDiskFile[] => {
-  // console.log('arrayItems - ', arrayItems, 'typeFilter - ', typeFilter);
-
   if (arrayItems.length > 0 && typeFilter.length > 0) {
     const filteredArray = arrayItems.filter((file) => extractFolderName(file.path) === typeFilter)
     return appStore.findItems(filteredArray)
