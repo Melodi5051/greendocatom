@@ -21,24 +21,43 @@ const Table = ({ arrayItems }: any) => {
   }, [])
 
   return (
-    <section className="table-wrapper">
-      <table className="documents-list-wrapper rosatom-fontFamily-regular">
-        {/* ... */}
-        <tbody>
-          {paginate(arrayItems, appStore.currentPage, appStore.limitItems).map(
-            (file: IYandexDiskFile, index: number) => (
-              <TableItem
-                key={index}
-                name={file.name}
-                path={file.path}
-                modified={file.modified}
-                created={file.created}
-              />
-            ),
+    <>
+      <section className="table-wrapper">
+        <table className="documents-list-wrapper rosatom-fontFamily-regular">
+          {appStore.arrayItems.length === 0 ? (
+            <div>
+              <h1 className="table-no-items">У вас нету файлов добавьте их</h1>
+            </div>
+          ) : (
+            <>
+              <thead>
+                <tr>
+                  <th className="ht-2">Название</th>
+                  <th className="th-3">Категория</th>
+                  <th className="th-4">Дата обновления</th>
+                  <th className="th-5">Дата добавления</th>
+                  <th className="th-6"></th>
+                  <th className="th-7"></th>
+                </tr>
+              </thead>
+            </>
           )}
-        </tbody>
-      </table>
-    </section>
+          <tbody>
+            {paginate(arrayItems, appStore.currentPage, appStore.limitItems).map(
+              (file: IYandexDiskFile, index: number) => (
+                <TableItem
+                  key={index}
+                  name={file.name}
+                  path={file.path}
+                  modified={file.modified}
+                  created={file.created}
+                />
+              ),
+            )}
+          </tbody>
+        </table>
+      </section>
+    </>
   )
 }
 

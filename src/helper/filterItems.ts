@@ -33,3 +33,13 @@ export const paginate = (
   const endIndex = startIndex + pageSize
   return arrayItems.slice(startIndex, endIndex)
 }
+
+
+export const formatNumber = (number?: number): string => {
+  if (number !== undefined) {
+    const fileSizeInKB: number = number / 1024
+    return `${fileSizeInKB.toFixed(1)} KB`
+  } else {
+    return ""
+  }
+}

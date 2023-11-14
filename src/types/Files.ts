@@ -3,6 +3,8 @@ export interface IYandexDiskFile {
   modified: string
   created: string
   path: string
+  preview?: string
+  size?: number
 }
 export interface IYandexDiskFolders {
   name: string

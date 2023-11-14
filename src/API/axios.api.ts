@@ -5,7 +5,7 @@ import { ROOT_PATH_FOLDER, TRASH_PATH_FOLDER } from "../constants/constants"
 
 export const getAllFiles = async () => {
   try {
-    const response = await axios.get(`${ROOT_PATH_FOLDER}/files`, {
+    const response = await axios.get(`${ROOT_PATH_FOLDER}/files?preview_size=1920x1080`, {
       headers: {
         Authorization: `OAuth ${process.env.REACT_APP_API_KEY}`,
       },
@@ -16,6 +16,8 @@ export const getAllFiles = async () => {
         path: item.path,
         created: item.created,
         modified: item.modified,
+        preview: item.preview,
+        size: item.size,
       }),
     )
     appStore.setArrayItems(newYandexDiskFiles)
@@ -154,7 +156,6 @@ export const cleanTrash = async (resourcePath: string = "trash:/") => {
         force_async: true,
       },
     })
-    appStore.updateAllComponents(!appStore.updateWeb)
   } catch (error) {
     console.error("API Error", error)
   }
@@ -193,7 +194,6 @@ export const restoreResource = async (resourcePath: string) => {
         Authorization: `OAuth ${process.env.REACT_APP_API_KEY}`,
       },
     })
-    appStore.updateAllComponents(!appStore.updateWeb)
   } catch (error) {
     if (axios.isAxiosError(error) && error.response && error.response.status === 404) {
       console.log(`Resource ${resourcePath} not found`)

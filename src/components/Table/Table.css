@@ -29,6 +29,11 @@
   border-top: 10px solid var(--documents-list-header-border-color);
  
 }
+
+
+.table-no-items {
+  color: var(--documents-list-header-border-color);
+}
 .documents-list-wrapper th {
   border-bottom: 2px solid  #003274;
 }
