@@ -1,14 +1,16 @@
 import { makeAutoObservable } from "mobx"
-import { IYandexDiskFile, IYandexDiskFolders } from "../types/Files"
+import { IYandexDiskFile, IYandexDiskFolders, IYandexTrashItems } from "../types/Files"
 
 class AppStore {
   arrayItems: IYandexDiskFile[] = []
   categoryFilter: string = ""
-  arrayFolders: any = []
+  arrayFolders: IYandexDiskFolders[] = []
   updateWeb: boolean = true
   limitItems: number = Math.floor((window.innerHeight - 320) / (window.innerWidth < 620 ? 70 : 65))
+  currentPage: number = 1
   searchSubstring: string = ""
   categoryTemp: string = ""
+  arrayTrashItems: IYandexTrashItems[] = []
 
   constructor() {
     makeAutoObservable(this)
@@ -17,14 +19,18 @@ class AppStore {
   setCategoryTemp(newTemp: string) {
     this.categoryTemp = newTemp
   }
-
+  setCurrentPage(newCurrent: number) {
+    this.currentPage = newCurrent
+  }
   setLimitItems(newLimit: number) {
     this.limitItems = newLimit
   }
-  setArrayFolders(newArrayFolders: []) {
+  setArrayFolders(newArrayFolders: IYandexDiskFolders[]) {
     this.arrayFolders = newArrayFolders
   }
-
+  setArrayTrashItems(newArrayTrashItems: IYandexTrashItems[]) {
+    this.arrayTrashItems = newArrayTrashItems
+  }
   setCategoryFilter(newCategoryFilter: string) {
     this.categoryFilter = newCategoryFilter
   }

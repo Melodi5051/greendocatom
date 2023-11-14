@@ -46,41 +46,41 @@
 
 @media (max-width: 920px) {
     .main-header {
-        padding: 5px 10px 0px 5px; /* Further adjusted padding for screens below 920px */
+        padding: 5px 10px 0px 5px; 
     }
 
     .main-refresh {
-        gap: 3px; /* Further reduced gap for screens below 920px */
-        min-width: 120px; /* Further adjusted min-width for screens below 920px */
+     
+        min-width: 120px; 
     }
 
     .main-refresh img {
-        max-width: 20px; /* Further reduced max-width for screens below 920px */
+        max-width: 20px; 
     }
 
     .main-refresh h1 {
-        font-size: 16px; /* Further reduced font size for screens below 920px */
+        font-size: 16px; 
     }
 }
 
 @media (max-width: 630px) {
   
     .main-header {
-        padding: 5px 5px 10px 5px; /* Further adjusted padding for screens below 630px */
+        padding: 5px 5px 10px 5px; 
         display: block;
 
     }
 
     .main-refresh {
-        gap: 2px; /* Further reduced gap for screens below 630px */
-        min-width: 100px; /* Further adjusted min-width for screens below 630px */
+        
+        min-width: 100px; 
     }
 
     .main-refresh img {
-        max-width: 15px; /* Further reduced max-width for screens below 630px */
+        max-width: 15px; 
     }
 
     .main-refresh h1 {
-        font-size: 12px; /* Further reduced font size for screens below 630px */
+        font-size: 12px; 
     }
 }

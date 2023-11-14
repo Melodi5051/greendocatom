@@ -29,9 +29,12 @@
 }
 
 .adaptive_icon {
+  
   display: none;
 }
-
+.adaptive_icon img {
+  cursor: pointer;
+}
 .category-select:focus::before {
   transform: translateY(-50%) rotate(-180deg);
 }

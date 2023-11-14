@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom"
 import Layout from "../pages/Layout"
 import MainPage from "../pages/MainPage"
 import DocumentPage from "../pages/DocumentPage"
+import BasketPage from "../pages/BasketPage"
 export const RouterWeb = createBrowserRouter([
   {
     path: "/",
@@ -18,7 +19,7 @@ export const RouterWeb = createBrowserRouter([
       },
       {
         path: "/basket",
-        element: <div>Корзина предметов</div>,
+        element: <BasketPage />,
       },
     ],
   },

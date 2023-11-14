@@ -6,4 +6,7 @@ export interface IYandexDiskFile {
 }
 export interface IYandexDiskFolders {
   name: string
+  path: string
 }
+
+export interface IYandexTrashItems extends IYandexDiskFile, IYandexDiskFolders {}

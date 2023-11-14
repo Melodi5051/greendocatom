@@ -1,7 +1,6 @@
 import { IYandexDiskFile } from "../types/Files"
 import { extractFolderName } from "./formatDate"
 import { appStore } from "../store/store"
-import { getAllFiles } from "../API/axios.api"
 export const filterItems = (
   arrayItems: IYandexDiskFile[],
   typeFilter: string,
