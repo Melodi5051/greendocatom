@@ -25,7 +25,6 @@ const AsideHeader = () => {
           appStore.arrayFolders.map((item: any, index: number) => (
             <div key={index} className="aside-button">
               <InputAside isActive={false} value={item.name} path={item.path} />
-              {/* <img src={pencil} alt="" /> */}
               <img src={IconTrash} alt="" onClick={(e) => handleClickTrash(item.name)} />
             </div>
           ))

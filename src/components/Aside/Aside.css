@@ -17,6 +17,7 @@ aside {
 }
 a {
   text-decoration: none;
+  min-height: 80%;
 }
 .aside-footer {
   margin-top: auto;
