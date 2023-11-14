@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx"
 import { IYandexDiskFile, IYandexDiskFolders, IYandexTrashItems } from "../types/Files"
+import { storeAddFiles } from "./storeAddFiles"
 
 class AppStore {
   arrayItems: IYandexDiskFile[] = []
@@ -27,6 +28,7 @@ class AppStore {
   }
   setArrayFolders(newArrayFolders: IYandexDiskFolders[]) {
     this.arrayFolders = newArrayFolders
+    storeAddFiles.setSelectedFolder(newArrayFolders[0].name)
   }
   setArrayTrashItems(newArrayTrashItems: IYandexTrashItems[]) {
     this.arrayTrashItems = newArrayTrashItems
