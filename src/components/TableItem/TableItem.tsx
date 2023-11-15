@@ -12,6 +12,7 @@ import { formatData } from "../../helper/formatDate"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getDownloadLink, getUploadLink } from "../../API/apiDisc"
+import Tooltip from "../Tooltip/Tooltip"
 
 const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
   const handleFileChangeCategory = (e: React.ChangeEvent<HTMLSelectElement>, name: string) => {
@@ -50,13 +51,14 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
     <>
       <tr className="table-item">
         <td className="table-name">
-          <Link
-            to={`/${name}`}
-            onClick={(event: any) => handleChangeCategoryFile(event, name, path)}
-          >
-            {removeFileExtension(name)}
-          </Link>
-
+          <Tooltip content={name}>
+            <Link
+              to={`/${name}`}
+              onClick={(event: any) => handleChangeCategoryFile(event, name, path)}
+            >
+              {removeFileExtension(name)}
+            </Link>
+          </Tooltip>
           <div className="adaptive_icon">
             <img src={info_icon} alt="" className="info-icon" />
             <img
