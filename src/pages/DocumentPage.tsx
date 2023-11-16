@@ -1,17 +1,20 @@
-import { useParams } from "react-router-dom"
-import { appStore } from "../store/store"
+import { useEffect } from "react"
+import DocumentDetails from "../components/DocumentDetails/DocumentDetails"
+import DocumentViewer from "../components/DocumentView/DocumentViewer"
+import { getAllFiles, getAllFolders } from "../API/axios.api"
+import "./DocumentPage.css"
+
 const DocumentPage = () => {
-  const { name } = useParams()
-  const helderSerchFullItem = appStore.arrayItems.filter((item) => item.name === name)
-  return (
-    <div>
-      <h2>Страница документа</h2>
-      <p>Имя документа {helderSerchFullItem[0].name}</p>
-      <p>Каталог документа {helderSerchFullItem[0].path}</p>
-      <p>Дата создания документа {helderSerchFullItem[0].created}</p>
-      <p>Дата обновлениея документа {helderSerchFullItem[0].modified}</p>
-    </div>
-  )
+    useEffect(() => {
+        getAllFolders()
+        getAllFiles()
+    }, [])
+    return (
+        <div className="document-page">
+            <DocumentDetails />
+            <DocumentViewer />
+        </div>
+    )
 }
 
 export default DocumentPage

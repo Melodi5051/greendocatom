@@ -7,6 +7,7 @@ import CustomInput from "../CustomInput/CustomInput"
 import { getAllFiles, getAllFolders } from "../../API/axios.api"
 import arrayBack from "./../../assets/icons/icon-back.svg"
 import { Link } from "react-router-dom"
+
 const MainHeader = () => {
   const handleRefreshTable = () => {
     getAllFiles()
@@ -28,20 +29,17 @@ const MainHeader = () => {
           </Link>
         ) : null}
         <Link to={"/"}>
-          <img
-            className="refresh_icon"
-            src={refresh_icon}
-            alt=""
-            onClick={(event) => handleRefreshTable()}
-          />
+          <img className="refresh_icon" src={refresh_icon} alt="" onClick={handleRefreshTable} />
         </Link>
         <h1>{appStore.categoryFilter.length > 0 ? appStore.categoryFilter : "Все файлы"}</h1>
       </div>
+
       <div className="main-input">
-        <CustomInput placeholder="Поиск документа" showButton={true} />
+        <CustomInput placeholder="Поиск документа" showButton={false} />
       </div>
     </div>
   )
 }
 
 export default observer(MainHeader)
+

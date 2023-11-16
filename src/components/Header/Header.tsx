@@ -1,6 +1,7 @@
 import './Header.css'
 import logo from './../../assets/ГРИНАТОМ_Лого2021 1.png'
 import { storeAside } from "../../store/storeAside"
+import Tooltip from "../Tooltip/Tooltip"
 
 const Header = () => {
   return (
