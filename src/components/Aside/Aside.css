@@ -13,10 +13,11 @@ a {
   padding: 20px 0px;
 }
 .aside-footer a {
-  border-top: 2px solide black;
-  padding: 0px 10px;
+  border-top: 2px solid var(--aside-title-border-color);
+  padding: 5px 15px;
   display: flex;
   gap: 10px;
+  font-weight: 400;
 }
 .aside-footer a:hover {
   background: #e0e0e0;
