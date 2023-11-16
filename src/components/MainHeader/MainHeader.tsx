@@ -7,9 +7,6 @@ import CustomInput from "../CustomInput/CustomInput"
 import { getAllFiles, getAllFolders } from "../../API/axios.api"
 import arrayBack from "./../../assets/icons/icon-back.svg"
 import { Link } from "react-router-dom"
-import { extractFolderName } from "../../helper/formatDate"
-import { storeAddFiles } from "../../store/storeAddFiles"
-import { uploadFileToYandexDisk } from "../../API/apiAddFiles"
 
 const MainHeader = () => {
   const handleRefreshTable = () => {
@@ -18,24 +15,7 @@ const MainHeader = () => {
     appStore.setCategoryFilter("")
     appStore.setSubstring("")
   }
-  const handleFileSelection = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files && event.target.files[0]
-    storeAddFiles.setSelectedFile(file)
-  }
 
-  const handleFolderSelection = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const folder = event.target.value
-    storeAddFiles.setSelectedFolder(folder)
-  }
-
-  const handleAddFiles = () => {
-    if (storeAddFiles.selectedFile && storeAddFiles.selectedFolder) {
-      uploadFileToYandexDisk(storeAddFiles.selectedFolder, storeAddFiles.selectedFile)
-      getAllFiles()
-    } else {
-      alert("Выберите файл")
-    }
-  }
   return (
     <div className="main-header">
       <div className="main-refresh">
@@ -49,34 +29,13 @@ const MainHeader = () => {
           </Link>
         ) : null}
         <Link to={"/"}>
-          <img
-            className="refresh_icon"
-            src={refresh_icon}
-            alt=""
-            onClick={(event) => handleRefreshTable()}
-          />
+          <img className="refresh_icon" src={refresh_icon} alt="" onClick={handleRefreshTable} />
         </Link>
         <h1>{appStore.categoryFilter.length > 0 ? appStore.categoryFilter : "Все файлы"}</h1>
       </div>
-      <div className="main-add-files">
-        <input type="file" onChange={handleFileSelection} />
-        <select
-          className="category-select"
-          value={storeAddFiles.selectedFolder}
-          onChange={handleFolderSelection}
-        >
-          {appStore.arrayFolders.map((folder: any, folderIndex: any) => (
-            <option key={folderIndex} value={folder.name}>
-              {folder.name}
-            </option>
-          ))}
-        </select>
-        <button className="aside-add-button" onClick={() => handleAddFiles()}>
-          +
-        </button>
-      </div>
+
       <div className="main-input">
-        <CustomInput placeholder="Поиск документа" showButton={true} />
+        <CustomInput placeholder="Поиск документа" showButton={false} />
       </div>
     </div>
   )

@@ -18,56 +18,13 @@
     align-items: center;
 
 }
-.main-add-files {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 5px;
-    gap: 10px;
-}
 
-.main-add-files input[type="file"] {
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.main-add-files input[type="file"]::before {
-    position: absolute;
-    content: 'Выберите файл';
-    display: inline-block;
-    background-color: #6cace4;
-    color: white;
-    padding: 0px 16px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.main-add-files input[type="file"]:hover::before {
-    background-color: #45a049;
-    box-shadow: 0px 0px 5px rgb(138, 137, 137);
-}
-
-.main-add-files input[type="file"] {
-    
-    opacity: 1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-}
-
-.category-select {
-    width: 150px;
-    padding: 5px;
-}
 
 .main-refresh refresh_icon {
     cursor: pointer;
     max-width: 35px;
 }
+
 .main-refresh refresh_icon:hover {
     animation: rotateAnimation 0.5s linear;
     
@@ -93,10 +50,6 @@
 }
 
 @media (max-width: 920px) {
-    .main-add-files {
-        max-width: 600px;
-        display: flex;
-    }
     .main-refresh {
         min-width: 120px; 
     }
@@ -119,15 +72,12 @@
         display: flex;
 
     }
-    .main-add-files {
-        max-width: 300px;
-        flex-wrap: wrap;
-        display: flex;
-    }
+ 
 
 
     .main-refresh {
         min-width: 100px; 
+      
     }
 
     .main-refresh img {
@@ -136,5 +86,8 @@
 
     .main-refresh h1 {
         font-size: 12px; 
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
     }
 }

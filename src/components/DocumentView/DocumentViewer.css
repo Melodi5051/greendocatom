@@ -12,12 +12,4 @@
 
 .document-view {
     background-color: var(--table-background-color);
-    height: 500px;
-    width: 400px;
-}
-
-.document-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
