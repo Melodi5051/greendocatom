@@ -1,0 +1,105 @@
+:root {
+    --table-text-size: 14px;
+    --table-text-color: black;
+    --table-background-color: white;
+    --table-border-color: #6CACE4;
+    --table-padding: 5px 15px;
+    --table-hover-background: #6CACE4;
+    --table-hover-color: white;
+    --delete-border-color: #FF8282;
+    --table-hover-delete-background: #FF8282;
+}
+
+/* фон */
+.document-details {
+    align-items: center;
+    background-color: var(--table-background-color);
+    margin: 10px;
+    width: 100%;
+}
+
+/* контейнер с данными */
+.document-details-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.row {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.document-title {
+    width: 260px; /* Ширина контейнера */
+    white-space: nowrap; /* Запрет переноса текста на новую строку */
+    overflow: hidden; /* Скрытие части текста, выходящего за границы контейнера */
+    text-overflow: ellipsis; /* Отображение многоточия в конце обрезанного текста */
+}
+.column {
+    flex: 1;
+}
+
+/* для кнопок */
+.action-buttons {
+    display: flex;
+    padding: 10px;
+    gap: 20px;
+}
+
+.download-button,
+.delete-button {
+    background-color: var(--table-background-color);
+    color: var(--table-text-color);
+    border-radius: 5px;
+    border: 2px solid var(--table-border-color);
+    padding: var(--table-padding);
+    text-align: center;
+    text-decoration: none;
+    font-size: var(--table-text-size);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.delete-button {
+    border: 2px solid var(--delete-border-color);
+}
+
+.download-button:hover {
+    color: var(--table-hover-color);
+    background: var(--table-hover-background);
+}
+
+.delete-button:hover {
+    color: var(--table-hover-color);
+    background: var(--table-hover-delete-background);
+}
+
+@media (max-width: 1200px) {
+    .column {
+        padding: 6px;
+    }
+
+    .download-button,
+    .delete-button {
+        padding: 4px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 630px) {
+    .row {
+        flex-direction: column;;
+        align-items: start;
+        text-wrap: nowrap;
+
+    }
+    .column {
+        padding: 6px;
+    }
+}

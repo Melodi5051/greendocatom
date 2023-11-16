@@ -1,0 +1,15 @@
+:root {
+    --table-text-size: 14px;
+    --table-text-color: black;
+    --table-background-color: white;
+    --table-border-color: #6CACE4;
+    --table-padding: 5px 15px;
+    --table-hover-background: #6CACE4;
+    --table-hover-color: white;
+    --delete-border-color: #FF8282;
+    --table-hover-delete-background: #FF8282;
+}
+
+.document-view {
+    background-color: var(--table-background-color);
+}

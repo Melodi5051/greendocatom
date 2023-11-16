@@ -78,6 +78,13 @@
   светлее оттенок;
  */
  :root {
+  --aside-background: #fff;
+  --aside-width: 330px;
+  --aside-transition: 0.3s;
+  --aside-title-color: #000;
+  --aside-title-border-color: #d9d9d9;
+  --aside-title-font-size: 20px;
+  --aside-title-font-size-small: 18px;
    /* Общие частовстречающиеся цвета */
    --color-workflow-base-base: #025ea1;
    --color-workflow-base-green: #b1c72e;

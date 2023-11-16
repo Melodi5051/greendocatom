@@ -1,14 +1,9 @@
-
-import { observer } from 'mobx-react-lite';
-import { appStore } from "../../store/store";
-import { useEffect, useRef } from "react"
-import { getAllFiles } from "../../API/axios.api"
+import { observer } from "mobx-react-lite"
 import "./Main.css"
 import Aside from "../Aside/Aside"
-import Table from "../Table/Table"
 import { storeAside } from "../../store/storeAside"
 import MainHeader from "../MainHeader/MainHeader"
-import { filterItems } from "../../helper/filterItems"
+import { Outlet } from "react-router-dom"
 
 const Main = () => {
   const handleClickDocument = (event: any) => {
@@ -22,7 +17,7 @@ const Main = () => {
       <Aside />
       <div className="main-content">
         <MainHeader />
-        <Table arrayItems={filterItems(appStore.arrayItems, appStore.categoryFilter)} />
+        <Outlet />
       </div>
     </main>
   )

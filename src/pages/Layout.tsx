@@ -1,13 +1,13 @@
 import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
 import Main from "../components/Main/Main"
-import { observer } from "mobx-react-lite"
 import { getAllFiles, getAllFolders } from "../API/axios.api"
 import { useEffect } from "react"
+
 const Layout = () => {
   useEffect(() => {
-    getAllFiles()
     getAllFolders()
+    getAllFiles()
   }, [])
   return (
     <div className="layout">
@@ -18,4 +18,4 @@ const Layout = () => {
   )
 }
 
-export default observer(Layout)
+export default Layout

@@ -1,0 +1,16 @@
+.styled-input {
+  border: none;
+  max-width: 150px;
+  background-color: transparent;
+  outline: none;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.styled-input.inactive {
+  caret-color: transparent;
+}
+input:invalid {
+box-shadow: none;
+  border-color: #ccc;
+}
