@@ -9,6 +9,7 @@ import { Link } from "react-router-dom"
 import { storeAddFiles } from "../../store/storeAddFiles"
 import { uploadFileToYandexDisk } from "../../API/apiAddFiles"
 import downloadLogo from "./../../assets/icons/icon-download.svg"
+import React from "react";
 const AsideHeader = () => {
   const handleClickTrash = (fileName: string) => {
     deleteResources(fileName, "dir")
@@ -42,7 +43,9 @@ const AsideHeader = () => {
       </div>
       <div className="aside-content">
         {appStore.arrayFolders.length === 0 ? (
-          <p>Loading...</p>
+            <div style={{display: "flex", justifyContent: "center"}}>
+              <span className="loader"></span>
+            </div>
         ) : (
           appStore.arrayFolders.map((item: any, index: number) => (
             <Link to={"/"}>
