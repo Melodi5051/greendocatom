@@ -12,23 +12,35 @@
 
 /* фон */
 .document-details {
+    align-items: center;
     background-color: var(--table-background-color);
     margin: 10px;
+    width: 100%;
 }
 
 /* контейнер с данными */
 .document-details-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 10px;
 }
+
+
 
 .row {
     display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 0;
     flex-direction: row;
+    align-items: center;
+    
 }
-
+.document-title {
+    width: 260px; /* Ширина контейнера */
+    white-space: nowrap; /* Запрет переноса текста на новую строку */
+    overflow: hidden; /* Скрытие части текста, выходящего за границы контейнера */
+    text-overflow: ellipsis; /* Отображение многоточия в конце обрезанного текста */
+}
 .column {
     flex: 1;
 }
@@ -82,7 +94,10 @@
 
 @media (max-width: 630px) {
     .row {
-        flex-direction: column;
+        flex-direction: column;;
+        align-items: start;
+        text-wrap: nowrap;
+
     }
     .column {
         padding: 6px;

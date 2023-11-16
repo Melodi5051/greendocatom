@@ -8,10 +8,7 @@ import InputAside from "../UI/InputAside"
 const Aside = () => {
   return (
     <aside className={storeAside.isOpen ? "aside-open" : "aside-close"}>
-      <h1 className="aside-title rosatom-fontFamily-regular">Категории</h1>
-      <Link to={"/"}>
-        <AsideHeader />
-      </Link>
+      <AsideHeader />
       <div className="aside-footer rosatom-fontFamily-bold">
         <Link to={"/basket"}>
           <img src={IconTrash} alt="" />

@@ -1,53 +1,99 @@
-.aside-header {
-  display: flex;
-  flex-direction: column;
-  outline: none;
-  border: none;
-  text-decoration: none; /* Убираем подчеркивание */
-}
-.aside-content {
-  display: flex;
-  flex-direction: column;
-  
+.aside-title {
+  color: var(--aside-title-color);
+  padding: 10px 15px;
+  border-bottom: 3px solid var(--aside-title-border-color);
+  font-size: var(--aside-title-font-size);
+  font-weight: 400;
+  line-height: normal;
 }
 
 .aside-button {
-  padding: 2px 5px;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 0px 15px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--aside-title-border-color);
+}
+
+.add-files__wrapper {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 0px 10px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.aside-add-button {
+  color: white;
+  padding: 0px 8px;
+  cursor: pointer;
+  background: #6cace4;
+  border: 1px solid #6cace4;
+  border-radius: 5px;
+}
+
+.input__wrapper {
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+ 
+.input__file {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+ 
+.input__file-icon-wrapper {
+  height: 60px;
+  width: 60px;
+  margin-right: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+          
+  border-right: 1px solid #fff;
+}
+ .input__file-icon {
+
+  padding: 2px;
+ }
+.input__file-button-text {
+  line-height: 1;
+  margin-top: 1px;
+}
+ 
+.input__file-button {
+  width: 100%;
+  height: 25px;
+  background: #6cace4;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 400;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.aside-add {
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  position: relative;
- 
-}
-.aside-add-button {
   padding: 0px 10px;
-  z-index: 10;
-  border-radius: 10px;
-  position: relative;
-  cursor: pointer;
-  color: white;
-  font-size: 20px;
-  font-weight: 700;
-  background: #6cace4;
-  border: none;
-}
-.aside-add {
-  gap: 10px;
-  margin-top: 15px;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-}
-.aside-add-input {
-  max-width: 200px;
-  max-height: 27px;
-}
-.aside-add-button:hover {
-  box-shadow: 0px 0px 5px rgb(138, 137, 137);
-}
-
-.aside-button:hover {
-  background: #e0e0e0;
+  margin-top: 10px;
 }
