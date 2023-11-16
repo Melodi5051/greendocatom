@@ -31,6 +31,7 @@
 }
 .main-refresh h1 {
     color: #000;
+    font-family: var(--fontStack-sansSerif);
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -38,6 +39,10 @@
 }
 .main-refresh h1::first-letter {
     text-transform: uppercase;
+}
+
+.main-add-files {
+    font-family: var(--fontStack-sansSerif);
 }
 
 @keyframes rotateAnimation {
@@ -66,7 +71,7 @@
 @media (max-width: 630px) {
   
     .main-header {
-        padding: 5px 5px 10px 5px; 
+        padding: 5px 5px 10px 5px;
         display: block;
         gap: 10px;
         display: flex;

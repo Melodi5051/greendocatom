@@ -75,13 +75,17 @@
   .table-modified,
   .table-created,
   .table-download,
-  .table-delete {
+  .table-delete,
+  .table-refresh  {
     display: none;
   }
   thead {
     text-align: left;
   }
   .th-3 {
+    text-align: right;
+  }
+  .th-6 {
     text-align: right;
   }
   .adaptive_icon {

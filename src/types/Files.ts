@@ -9,6 +9,8 @@ export interface IYandexDiskFile {
 export interface IYandexDiskFolders {
   name: string
   path: string
+  created: string
+  deleted?: string
 }
 
 export interface IYandexTrashItems extends IYandexDiskFile, IYandexDiskFolders {}

@@ -19,7 +19,7 @@ const handleKeyPress = async (
 }
 
 const handleSwapCategory = (name: string) => {
-  if (name !== "Все файлы") {
+  if (name !== "Все файлы" && name !== "Удаленные файлы") {
     appStore.setCategoryFilter(name)
     appStore.setCurrentPage(1)
     return

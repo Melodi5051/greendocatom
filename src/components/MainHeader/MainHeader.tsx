@@ -6,16 +6,16 @@ import refresh_icon from "./../../assets/icons/icon-refreshpage.svg"
 import CustomInput from "../CustomInput/CustomInput"
 import { getAllFiles, getAllFolders } from "../../API/axios.api"
 import arrayBack from "./../../assets/icons/icon-back.svg"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 const MainHeader = () => {
+  const location = useLocation()
   const handleRefreshTable = () => {
     getAllFiles()
     getAllFolders()
     appStore.setCategoryFilter("")
     appStore.setSubstring("")
   }
-
   return (
     <div className="main-header">
       <div className="main-refresh">
@@ -29,13 +29,23 @@ const MainHeader = () => {
           </Link>
         ) : null}
         <Link to={"/"}>
-          <img className="refresh_icon" src={refresh_icon} alt="" onClick={handleRefreshTable} />
+          <img
+            className="refresh_icon"
+            src={refresh_icon}
+            alt=""
+            onClick={(event) => handleRefreshTable()}
+          />
         </Link>
-        <h1>{appStore.categoryFilter.length > 0 ? appStore.categoryFilter : "Все файлы"}</h1>
+        <h1>
+          {appStore.categoryFilter.length > 0
+            ? appStore.categoryFilter
+            : location.pathname === "/basket"
+            ? "Удаленные файлы"
+            : "Все файлы"}
+        </h1>
       </div>
-
       <div className="main-input">
-        <CustomInput placeholder="Поиск документа" showButton={false} />
+        <CustomInput placeholder="Поиск документа" showButton={true} />
       </div>
     </div>
   )
