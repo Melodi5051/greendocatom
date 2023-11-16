@@ -1,5 +1,53 @@
 .aside-header {
   display: flex;
-  gap: 10px;
   flex-direction: column;
+  outline: none;
+  border: none;
+  text-decoration: none; /* Убираем подчеркивание */
+}
+.aside-content {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.aside-button {
+  padding: 2px 5px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  position: relative;
+ 
+}
+.aside-add-button {
+  padding: 0px 10px;
+  z-index: 10;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  background: #6cace4;
+  border: none;
+}
+.aside-add {
+  gap: 10px;
+  margin-top: 15px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.aside-add-input {
+  max-width: 200px;
+  max-height: 27px;
+}
+.aside-add-button:hover {
+  box-shadow: 0px 0px 5px rgb(138, 137, 137);
+}
+
+.aside-button:hover {
+  background: #e0e0e0;
 }
