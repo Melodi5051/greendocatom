@@ -11,13 +11,10 @@ import info_icon from "./../../assets/icons/icon-info.svg"
 import { formatData } from "../../helper/formatDate"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { getDownloadLink, getUploadLink } from "../../API/apiDisc"
+import { getDownloadLink } from "../../API/apiDisc"
 import Tooltip from "../Tooltip/Tooltip"
 
-const TableItem = ({ name, path, modified, created, deleted }: IYandexDiskFile) => {
-    if (deleted != null) {
-        modified = deleted
-    }
+const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
   const handleFileChangeCategory = (e: React.ChangeEvent<HTMLSelectElement>, name: string) => {
     moveFile(path, `disk:/CaseLabDocuments/${e.target.value}/${name}`, name)
   }
@@ -25,9 +22,9 @@ const TableItem = ({ name, path, modified, created, deleted }: IYandexDiskFile) 
     deleteResources(`${extractFolderName(path)}/${name}`, "file")
   }
 
-    const handleDeleteFileFromTrash = (e: any, path?: string) => {
-      cleanTrash(path)
-    }
+  const handleDeleteFileFromTrash = (e: any, path?: string) => {
+    cleanTrash(path)
+  }
   const handleChangeCategoryFile = (
     e: React.ChangeEvent<HTMLSelectElement>,
     name: string,
@@ -106,7 +103,7 @@ const TableItem = ({ name, path, modified, created, deleted }: IYandexDiskFile) 
         <td className="table-delete">
           <button
             className="delete-button"
-            onClick={!deleted ? (event) => handleDeleteFile(event, name, path) : (event) => handleDeleteFileFromTrash(event, path)}
+            onClick={(event) => handleDeleteFile(event, name, path)}
           >
             УДАЛИТЬ
           </button>

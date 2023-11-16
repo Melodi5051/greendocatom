@@ -3,7 +3,6 @@ export interface IYandexDiskFile {
   modified: string
   created: string
   path: string
-  deleted?: string
   preview?: string
   size?: number
 }
