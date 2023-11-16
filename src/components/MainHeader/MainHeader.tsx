@@ -6,12 +6,13 @@ import refresh_icon from "./../../assets/icons/icon-refreshpage.svg"
 import CustomInput from "../CustomInput/CustomInput"
 import { getAllFiles, getAllFolders } from "../../API/axios.api"
 import arrayBack from "./../../assets/icons/icon-back.svg"
-import { Link } from "react-router-dom"
+import {Link, useLocation} from "react-router-dom"
 import { extractFolderName } from "../../helper/formatDate"
 import { storeAddFiles } from "../../store/storeAddFiles"
 import { uploadFileToYandexDisk } from "../../API/apiAddFiles"
 
 const MainHeader = () => {
+  const location = useLocation()
   const handleRefreshTable = () => {
     getAllFiles()
     getAllFolders()
@@ -56,7 +57,7 @@ const MainHeader = () => {
             onClick={(event) => handleRefreshTable()}
           />
         </Link>
-        <h1>{appStore.categoryFilter.length > 0 ? appStore.categoryFilter : "Все файлы"}</h1>
+        <h1>{appStore.categoryFilter.length > 0 ? appStore.categoryFilter : location.pathname === "/basket" ? "Удаленные файлы" : "Все файлы"}</h1>
       </div>
       <div className="main-add-files">
         <input type="file" onChange={handleFileSelection} />

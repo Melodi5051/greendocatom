@@ -1,7 +1,7 @@
 import { IYandexDiskFile } from "../../types/Files"
 import { observer } from "mobx-react-lite"
 import { appStore } from "./../../store/store"
-import { deleteResources, moveFile } from "../../API/axios.api"
+import {cleanTrash, deleteResources, moveFile} from "../../API/axios.api"
 import { extractFolderName } from "../../helper/formatDate"
 import { removeFileExtension } from "../../helper/filterItems"
 import "./TableItem.css"
@@ -14,13 +14,20 @@ import { Link } from "react-router-dom"
 import { getDownloadLink, getUploadLink } from "../../API/apiDisc"
 import Tooltip from "../Tooltip/Tooltip"
 
-const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
+const TableItem = ({ name, path, modified, created, deleted }: IYandexDiskFile) => {
+    if (deleted != null) {
+        modified = deleted
+    }
   const handleFileChangeCategory = (e: React.ChangeEvent<HTMLSelectElement>, name: string) => {
     moveFile(path, `disk:/CaseLabDocuments/${e.target.value}/${name}`, name)
   }
   const handleDeleteFile = (e: any, name: string, path: string) => {
     deleteResources(`${extractFolderName(path)}/${name}`, "file")
   }
+
+    const handleDeleteFileFromTrash = (e: any, path?: string) => {
+      cleanTrash(path)
+    }
   const handleChangeCategoryFile = (
     e: React.ChangeEvent<HTMLSelectElement>,
     name: string,
@@ -99,7 +106,7 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
         <td className="table-delete">
           <button
             className="delete-button"
-            onClick={(event) => handleDeleteFile(event, name, path)}
+            onClick={!deleted ? (event) => handleDeleteFile(event, name, path) : (event) => handleDeleteFileFromTrash(event, path)}
           >
             УДАЛИТЬ
           </button>
