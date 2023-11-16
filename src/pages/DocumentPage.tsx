@@ -6,8 +6,8 @@ import "./DocumentPage.css"
 
 const DocumentPage = () => {
     useEffect(() => {
-        getAllFolders()
         getAllFiles()
+        getAllFolders()
     }, [])
     return (
         <div className="document-page">

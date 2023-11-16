@@ -152,10 +152,17 @@ export const cleanTrash = async (resourcePath: string = "trash:/") => {
         Authorization: `OAuth ${process.env.REACT_APP_API_KEY}`,
       },
       params: {
-        path: resourcePath,
+        path: resourcePath?.split("/").pop(),
         force_async: true,
       },
     })
+    if (response.status === 202) {
+      console.log("delete ok")
+      const newFileArrayTrash = appStore.arrayTrashItems.filter(
+        (item: any) => item.path !== resourcePath,
+      )
+      appStore.setArrayTrashItems(newFileArrayTrash)
+    }
   } catch (error) {
     console.error("API Error", error)
   }
@@ -174,6 +181,8 @@ export const getTrash = async () => {
     const newYandexDiskFoldes = folders.map((item: IYandexDiskFolders) => ({
       name: item.name,
       path: item.path,
+      created: item.created,
+      deleted: item.deleted,
     }))
     const newYandexDiskFiles = files.map((item: IYandexDiskFile) => ({
       name: item.name,
