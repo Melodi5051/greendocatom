@@ -1,5 +1,6 @@
 aside {
   background: var(--aside-background);
+  border-radius: 5px;
   width: var(--aside-width);
   display: flex;
   flex-direction: column;

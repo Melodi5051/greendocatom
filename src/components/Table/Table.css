@@ -6,7 +6,7 @@
   --documents-list-header-border-color: var(--color-workflow-f-blue-1);
   --documents-list-cell-bg: var(--color-workflow-white);
   --documents-list-hover-bg: var(--color-bg-grey-1);
-  --documents-list-cell-font-size: 14px;
+  --documents-list-cell-font-size: 16px;
   --documents-list-cell-padding: 8px;
   --documents-list-cell-max-width: 100px;
 }
@@ -27,9 +27,12 @@
   background: var(--documents-list-header-bg);
   text-align: left;
   border-top: 10px solid var(--documents-list-header-border-color);
- 
+
 }
 
+.documents-list-wrapper thead tr {
+  border-radius: 20px;
+}
 
 .table-no-items {
   color: var(--documents-list-header-border-color);
@@ -94,5 +97,8 @@
   }
   .table-category {
     align-items: end;
+  }
+  .table-wrapper {
+    margin: 5px;
   }
 }

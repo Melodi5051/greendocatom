@@ -54,15 +54,19 @@ const AsideHeader = () => {
           ))
         )}
         <div className="aside-add">
+          <label htmlFor="folderName">Добавить категорию</label>
+          <div className="aside-add-group">
           <input
+              id="folderName"
             type="text"
-            placeholder="Название папки"
+            placeholder="Название категории"
             className="aside-add-input"
             onChange={(event) => storeAside.setEditedValueInputAdd(event.target.value)}
           />
           <button className="aside-add-button" onClick={handleAddNewCategory}>
             +
           </button>
+          </div>
         </div>
         <div className="add-files__wrapper">
           <div className="input__wrapper ">

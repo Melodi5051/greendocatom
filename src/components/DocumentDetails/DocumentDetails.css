@@ -12,15 +12,20 @@
 
 /* фон */
 .document-details {
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px 0;
     background-color: var(--table-background-color);
     margin: 10px;
     width: 100%;
+    padding: 10px;
 }
 
 /* контейнер с данными */
 .document-details-container {
     display: flex;
+    gap: 5px;
     flex-direction: column;
 }
 
@@ -48,7 +53,6 @@
 /* для кнопок */
 .action-buttons {
     display: flex;
-    padding: 10px;
     gap: 20px;
 }
 
@@ -83,12 +87,6 @@
 @media (max-width: 1200px) {
     .column {
         padding: 6px;
-    }
-
-    .download-button,
-    .delete-button {
-        padding: 4px 12px;
-        font-size: 12px;
     }
 }
 
