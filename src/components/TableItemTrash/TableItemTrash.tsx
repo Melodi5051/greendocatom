@@ -11,7 +11,6 @@ const TableItemTrash = ({ name, path }: IYandexTrashList) => {
   const handleDeleteFileFromTrash = (path: string): void => {
     deleteTrash(path)
   }
-
   return (
     <tr className="table-item">
       <td className="table-name">
