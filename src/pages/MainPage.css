@@ -1,8 +1,9 @@
 .content-wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 89%;
+  height: 100%;
 }
 
 
@@ -54,7 +55,7 @@
 
 @media (max-width: 1199px) and (min-width: 920px) {
   .pagination button {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -66,7 +67,6 @@
   }
 
   .pagination button {
-    font-size: 12px;
-    margin: 5px 0;
+    font-size: 16px;
   }
 }

@@ -9,9 +9,7 @@ const Header = () => {
       <div className="header-logo">
         <img src={logo} alt="logo" className="logo-img" />
         <div className="logo-text rosatom-fontFamily-regular">
-          <h1>
-            грин<span>атом</span>
-          </h1>
+          <h1>Гринатом</h1>
           <h2>Документы</h2>
         </div>
       </div>
