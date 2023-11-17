@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import DocumentDetails from "../components/DocumentDetails/DocumentDetails"
 import DocumentViewer from "../components/DocumentView/DocumentViewer"
-import { getAllFiles, getAllFolders } from "../API/axios.api"
 import "./DocumentPage.css"
 import { useParams } from "react-router-dom"
 import { appStore } from "../store/store"
 import { IYandexDiskFile } from "../types/Files"
+import { getAllFiles, getAllFolders } from "../API/apiGetAll"
 
 const DocumentPage = () => {
   const { name } = useParams()

@@ -1,8 +1,8 @@
 import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
 import Main from "../components/Main/Main"
-import { getAllFiles, getAllFolders } from "../API/axios.api"
 import { useEffect } from "react"
+import { getAllFiles, getAllFolders } from "../API/apiGetAll"
 
 const Layout = () => {
   useEffect(() => {

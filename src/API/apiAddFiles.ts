@@ -1,5 +1,6 @@
 import axios from "axios"
-import { getAllFiles } from "./axios.api"
+import { getAllFiles } from "./apiGetAll"
+
 
 export async function uploadFileToYandexDisk(category: string, file: File): Promise<void> {
   try {

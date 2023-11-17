@@ -1,16 +1,15 @@
-import React from "react"
 import Tooltip from "../Tooltip/Tooltip"
-import { Link } from "react-router-dom"
 import download_icon from "./../../assets/icons/icon-download.svg"
 import trash_icon from "./../../assets/icons/icon-trash.svg"
-import { cleanTrash, restoreResource } from "../../API/axios.api"
+import { restoreResource } from "../../API/axios.api"
+import { deleteTrash } from "../../API/apiDeleteRequest"
 interface IYandexTrashList {
   name: string
   path: string
 }
 const TableItemTrash = ({ name, path }: IYandexTrashList) => {
   const handleDeleteFileFromTrash = (path: string): void => {
-    cleanTrash(path)
+    deleteTrash(path)
   }
 
   return (
