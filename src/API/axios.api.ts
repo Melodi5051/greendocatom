@@ -157,21 +157,11 @@ export const cleanTrash = async (resourcePath: string = "trash:/") => {
       },
     })
     if (response.status === 202) {
-      // if (type === "dir") {
-      //   const newFolderarray = appStore.arrayFolders.filter(
-      //       (item: any) => item.name !== resourceName,
-      //   )
-      //   appStore.setArrayFolders(newFolderarray)
-      //   if (appStore.categoryFilter.toLocaleLowerCase() === resourceName.toLowerCase()) {
-      //     appStore.setCategoryFilter("")
-      //   }
-      // } else {
       console.log("delete ok")
-        const newFileArrayTrash = appStore.arrayTrashItems.filter(
-            (item: any) => item.path !== resourcePath,
-        )
-        appStore.setArrayTrashItems(newFileArrayTrash)
-      // }
+      const newFileArrayTrash = appStore.arrayTrashItems.filter(
+        (item: any) => item.path !== resourcePath,
+      )
+      appStore.setArrayTrashItems(newFileArrayTrash)
     }
   } catch (error) {
     console.error("API Error", error)
@@ -192,14 +182,13 @@ export const getTrash = async () => {
       name: item.name,
       path: item.path,
       created: item.created,
-      deleted: item.deleted
+      deleted: item.deleted,
     }))
     const newYandexDiskFiles = files.map((item: IYandexDiskFile) => ({
       name: item.name,
       path: item.path,
       created: item.created,
       modified: item.modified,
-      deleted: item.deleted
     }))
     appStore.setArrayTrashItems([...newYandexDiskFiles, ...newYandexDiskFoldes])
   } catch (error) {

@@ -16,8 +16,6 @@ const BasketPage = () => {
     appStore.setCurrentPage(page)
   }
 
-  console.log(appStore.arrayTrashItems)
-
   return (
   <div className="content-wrapper rosatom-fontFamily-regular">
     <TableTrash arrayItems={filterItems(appStore.arrayTrashItems, appStore.categoryFilter)} />

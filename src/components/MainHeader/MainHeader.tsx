@@ -6,10 +6,7 @@ import refresh_icon from "./../../assets/icons/icon-refreshpage.svg"
 import CustomInput from "../CustomInput/CustomInput"
 import { getAllFiles, getAllFolders } from "../../API/axios.api"
 import arrayBack from "./../../assets/icons/icon-back.svg"
-import {Link, useLocation} from "react-router-dom"
-import { extractFolderName } from "../../helper/formatDate"
-import { storeAddFiles } from "../../store/storeAddFiles"
-import { uploadFileToYandexDisk } from "../../API/apiAddFiles"
+import { Link, useLocation } from "react-router-dom"
 
 const MainHeader = () => {
   const location = useLocation()
@@ -18,24 +15,6 @@ const MainHeader = () => {
     getAllFolders()
     appStore.setCategoryFilter("")
     appStore.setSubstring("")
-  }
-  const handleFileSelection = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files && event.target.files[0]
-    storeAddFiles.setSelectedFile(file)
-  }
-
-  const handleFolderSelection = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const folder = event.target.value
-    storeAddFiles.setSelectedFolder(folder)
-  }
-
-  const handleAddFiles = () => {
-    if (storeAddFiles.selectedFile && storeAddFiles.selectedFolder) {
-      uploadFileToYandexDisk(storeAddFiles.selectedFolder, storeAddFiles.selectedFile)
-      getAllFiles()
-    } else {
-      alert("Выберите файл")
-    }
   }
   return (
     <div className="main-header">
@@ -57,24 +36,13 @@ const MainHeader = () => {
             onClick={(event) => handleRefreshTable()}
           />
         </Link>
-        <h1>{appStore.categoryFilter.length > 0 ? appStore.categoryFilter : location.pathname === "/basket" ? "Удаленные файлы" : "Все файлы"}</h1>
-      </div>
-      <div className="main-add-files">
-        <input type="file" onChange={handleFileSelection} />
-        <select
-          className="category-select"
-          value={storeAddFiles.selectedFolder}
-          onChange={handleFolderSelection}
-        >
-          {appStore.arrayFolders.map((folder: any, folderIndex: any) => (
-            <option key={folderIndex} value={folder.name}>
-              {folder.name}
-            </option>
-          ))}
-        </select>
-        <button className="aside-add-button" onClick={() => handleAddFiles()}>
-          +
-        </button>
+        <h1>
+          {appStore.categoryFilter.length > 0
+            ? appStore.categoryFilter
+            : location.pathname === "/basket"
+            ? "Удаленные файлы"
+            : "Все файлы"}
+        </h1>
       </div>
       <div className="main-input">
         <CustomInput placeholder="Поиск документа" showButton={true} />
