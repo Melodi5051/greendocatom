@@ -38,14 +38,17 @@ const AsideHeader = () => {
   return (
     <div className="aside-header rosatom-fontFamily-regular">
       <h1 className="aside-title">Категории</h1>
-      <div className="aside-button">
-        <InputAside value="Все файлы" path="" />
-      </div>
+      <Link to={"/"}>
+        <div className="aside-button">
+          <InputAside value="Все файлы" path="" />
+        </div>
+      </Link>
+
       <div className="aside-content">
         {appStore.arrayFolders.length === 0 ? (
-            <div style={{display: "flex", justifyContent: "center"}}>
-              <span className="loader"></span>
-            </div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <span className="loader"></span>
+          </div>
         ) : (
           appStore.arrayFolders.map((item: any, index: number) => (
             <Link to={"/"}>
@@ -59,16 +62,16 @@ const AsideHeader = () => {
         <div className="aside-add">
           <label htmlFor="folderName">Добавить категорию</label>
           <div className="aside-add-group">
-          <input
+            <input
               id="folderName"
-            type="text"
-            placeholder="Название категории"
-            className="aside-add-input"
-            onChange={(event) => storeAside.setEditedValueInputAdd(event.target.value)}
-          />
-          <button className="aside-add-button" onClick={handleAddNewCategory}>
-            +
-          </button>
+              type="text"
+              placeholder="Название категории"
+              className="aside-add-input"
+              onChange={(event) => storeAside.setEditedValueInputAdd(event.target.value)}
+            />
+            <button className="aside-add-button" onClick={handleAddNewCategory}>
+              +
+            </button>
           </div>
         </div>
         <div className="add-files__wrapper">
