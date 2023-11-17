@@ -1,5 +1,6 @@
 aside {
   background: var(--aside-background);
+  border-radius: 5px;
   width: var(--aside-width);
   display: flex;
   flex-direction: column;
@@ -25,7 +26,6 @@ a {
 .aside-footer a input {
   margin-top: 5px;
 }
-
 
 @media (max-width: 1200px) {
   aside {

@@ -9,6 +9,7 @@ import { Link } from "react-router-dom"
 import { storeAddFiles } from "../../store/storeAddFiles"
 import { uploadFileToYandexDisk } from "../../API/apiAddFiles"
 import downloadLogo from "./../../assets/icons/icon-download.svg"
+import React from "react";
 const AsideHeader = () => {
   const handleClickTrash = (fileName: string) => {
     deleteResources(fileName, "dir")
@@ -42,7 +43,9 @@ const AsideHeader = () => {
       </div>
       <div className="aside-content">
         {appStore.arrayFolders.length === 0 ? (
-          <p>Loading...</p>
+            <div style={{display: "flex", justifyContent: "center"}}>
+              <span className="loader"></span>
+            </div>
         ) : (
           appStore.arrayFolders.map((item: any, index: number) => (
             <Link to={"/"}>
@@ -54,15 +57,19 @@ const AsideHeader = () => {
           ))
         )}
         <div className="aside-add">
+          <label htmlFor="folderName">Добавить категорию</label>
+          <div className="aside-add-group">
           <input
+              id="folderName"
             type="text"
-            placeholder="Название папки"
+            placeholder="Название категории"
             className="aside-add-input"
             onChange={(event) => storeAside.setEditedValueInputAdd(event.target.value)}
           />
           <button className="aside-add-button" onClick={handleAddNewCategory}>
             +
           </button>
+          </div>
         </div>
         <div className="add-files__wrapper">
           <div className="input__wrapper ">

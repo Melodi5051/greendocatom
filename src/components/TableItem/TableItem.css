@@ -110,4 +110,7 @@
     text-align: start;
     align-items: end;
   }
+  .trash-icon, .download-icon, .info-icon {
+    width: 18px;
+  }
 }
