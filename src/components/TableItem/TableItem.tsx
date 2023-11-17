@@ -21,10 +21,6 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
   const handleDeleteFile = (e: any, name: string, path: string) => {
     deleteResources(`${extractFolderName(path)}/${name}`, "file")
   }
-
-  const handleDeleteFileFromTrash = (e: any, path?: string) => {
-    cleanTrash(path)
-  }
   const handleChangeCategoryFile = (
     e: React.ChangeEvent<HTMLSelectElement>,
     name: string,
