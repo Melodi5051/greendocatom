@@ -77,11 +77,21 @@ export const renameResource = async (
 
 export const restoreResource = async (resourcePath: string) => {
   try {
-    await axios.put(`${TRASH_PATH_FOLDER}/restore?path=${resourcePath}`, null, {
-      headers: {
-        Authorization: `OAuth ${process.env.REACT_APP_API_KEY}`,
-      },
-    })
+    await axios
+      .put(`${TRASH_PATH_FOLDER}/restore?path=${resourcePath}`, null, {
+        headers: {
+          Authorization: `OAuth ${process.env.REACT_APP_API_KEY}`,
+        },
+      })
+      .then((response) => {
+        console.log(response.status)
+        if (response.status === 201) {
+          const newFileTrashArray = appStore.arrayTrashItems.filter(
+            (item: any) => item.path !== resourcePath,
+          )
+          appStore.setArrayTrashItems(newFileTrashArray)
+        }
+      })
   } catch (error) {
     if (axios.isAxiosError(error) && error.response && error.response.status === 404) {
       console.log(`Resource ${resourcePath} not found`)

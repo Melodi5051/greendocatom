@@ -53,8 +53,8 @@ const AsideHeader = () => {
           </div>
         ) : (
           appStore.arrayFolders.map((item: any, index: number) => (
-            <Link to={"/"}>
-              <div key={index} className="aside-button">
+            <Link key={index} to={"/"}>
+              <div className="aside-button">
                 <InputAside isActive={false} value={item.name} path={item.path} />
                 <img src={IconTrash} alt="" onClick={(e) => handleClickTrash(item.name)} />
               </div>
