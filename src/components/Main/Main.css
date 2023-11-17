@@ -12,7 +12,10 @@ main {
 }
 
 .main-content {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  min-width: min-content;
 }
 
 @media (max-width: 1200px) {
