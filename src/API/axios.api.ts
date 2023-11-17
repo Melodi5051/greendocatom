@@ -43,7 +43,6 @@ export const getAllFolders = async () => {
 }
 
 export const moveFile = async (from: string, to: string, fileName = "") => {
-  console.log(`Откуда ${from}, куда ${to}, имя файла ${fileName}`)
   try {
     const response = await axios.post(`${ROOT_PATH_FOLDER}/move`, null, {
       params: {
