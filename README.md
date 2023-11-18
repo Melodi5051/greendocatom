@@ -4,7 +4,7 @@
 
 Основное хранилище документов реализованно при помощи Yandex Disk и взаимодействует с ним через Яндекс Полигон
 
-[![Static Badge](https://img.shields.io/badge/Ссылка%20на%20наш%20сайт-blue?style=for-the-badge&logo=yandex&logoColor=white)](https://greendocatom.web.app/)
+[![Static Badge](https://img.shields.io/badge/%F0%9F%96%A5%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BD%D0%B0%D1%88%20%D1%81%D0%B0%D0%B9%D1%82%F0%9F%96%A5-blue?style=for-the-badge&logo=figma%D0%BF%D0%B0%D1%80&logoColor=white)](https://greendocatom.web.app/)
 [![Static Badge](https://img.shields.io/badge/%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BD%D0%B0%D1%88%20%D0%BC%D0%B0%D0%BA%D0%B5%D1%82-orange?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/file/PT6dGwcEKgCmNcwJUeVXDI/GreenAtom-Doc-app?type=design&mode=design&t=XcnltAAzuvhx6obw-1)
 
 
