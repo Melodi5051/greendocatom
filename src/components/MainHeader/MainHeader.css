@@ -36,7 +36,8 @@
     font-style: normal;
     max-width: 280px;
     font-weight: 400;
-    line-height: normal;
+    white-space: nowrap; 
+   
 }
 .main-refresh h1::first-letter {
     text-transform: uppercase;
@@ -66,6 +67,9 @@
 
     .main-refresh h1 {
         font-size: 16px; 
+         overflow: hidden; 
+        text-overflow: ellipsis; 
+        line-height: normal;
     }
 }
 

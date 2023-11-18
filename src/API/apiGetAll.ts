@@ -16,7 +16,7 @@ export const getAllFiles = async () => {
         path: item.path,
         created: item.created,
         modified: item.modified,
-        preview: item.preview,
+        preview: item.sizes[0].url,
         size: item.size,
       }),
     )

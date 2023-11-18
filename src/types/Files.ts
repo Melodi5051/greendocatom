@@ -5,6 +5,7 @@ export interface IYandexDiskFile {
   path: string
   preview?: string
   size?: number
+  sizes?: any
 }
 export interface IYandexDiskFolders {
   name: string
