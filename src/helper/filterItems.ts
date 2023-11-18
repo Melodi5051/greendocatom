@@ -35,11 +35,16 @@ export const paginate = (
 }
 
 
-export const formatNumber = (number?: number): string => {
-  if (number !== undefined) {
-    const fileSizeInKB: number = number / 1024
-    return `${fileSizeInKB.toFixed(1)} KB`
-  } else {
-    return ""
+export const formatNumber = (sizeNumber?: number): string => {
+  if (!sizeNumber) return "";
+
+  const sizes: string[] = ["", "K", "M", "G", "T", "P", "E", "Z", "Y"];
+  let index: number = 0;
+  let n: number = sizeNumber;
+
+  while (n >= 1024) {
+    n = n / 1024;
+    index++;
   }
+  return `${!index ? n : n.toFixed(2)} ${sizes[index]}B`
 }

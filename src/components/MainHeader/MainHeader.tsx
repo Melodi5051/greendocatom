@@ -4,10 +4,10 @@ import { observer } from "mobx-react-lite"
 import { appStore } from "../../store/store"
 import refresh_icon from "./../../assets/icons/icon-refreshpage.svg"
 import CustomInput from "../CustomInput/CustomInput"
-import { getAllFiles, getAllFolders } from "../../API/axios.api"
+import { } from "../../API/axios.api"
 import arrayBack from "./../../assets/icons/icon-back.svg"
 import { Link, useLocation } from "react-router-dom"
-import { IYandexDiskFile } from "../../types/Files"
+import { getAllFiles, getAllFolders } from "../../API/apiGetAll"
 
 const MainHeader = () => {
   const location = useLocation()
@@ -17,33 +17,46 @@ const MainHeader = () => {
     appStore.setCategoryFilter("")
     appStore.setSubstring("")
   }
-  return (
-    <div className="main-header">
-      <div className="main-refresh">
-        {appStore.categoryFilter.length > 0 ? (
-          // когда в файле
+
+  const renderBackIcon = () => {
+    if (appStore.categoryFilter.length > 0) {
+      return (
+        <div className="main-back">
           <Link to={"/"}>
             <img
               src={arrayBack}
               alt=""
               onClick={() => {
                 appStore.setCategoryFilter(appStore.categoryTemp);
-                appStore.saveToLocalStorage();
               }}
             />
           </Link>
-        ) : null}
-        {appStore.categoryFilter.length > 0 ? (
-          null
-        ) :
-          <Link to={"/"}>
-            <img
-              src={refresh_icon}
-              alt=""
-              onClick={(event) => handleRefreshTable()}
-            />
-          </Link>
-        }
+        </div>
+      );
+    }
+    return null;
+  };
+
+  const renderRefreshIcon = () => {
+    if (appStore.categoryFilter.length === 0) {
+      return (
+        <Link to={"/"}>
+          <img
+            src={refresh_icon}
+            alt=""
+            onClick={(event) => handleRefreshTable()}
+          />
+        </Link>
+      );
+    }
+    return null;
+  };
+
+  return (
+    <div className="main-header">
+      <div className="main-refresh">
+        {renderBackIcon()}
+        {renderRefreshIcon()}
         <h1>
           {appStore.categoryFilter.length > 0
             ? appStore.categoryFilter
@@ -52,14 +65,14 @@ const MainHeader = () => {
               : "Все файлы"}
         </h1>
       </div>
-      {appStore.categoryFilter.length > 0 ? (
-        null
-      ) :
+      {appStore.categoryFilter.length === 0 && (
         <div className="main-input">
           <CustomInput placeholder="Поиск документа" showButton={true} />
-        </div>}
+        </div>
+      )}
     </div>
   )
 }
 
 export default observer(MainHeader)
+

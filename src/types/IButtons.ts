@@ -1,5 +1,3 @@
-import { ISvgIconProps } from "./ISvgIcons"
-
 export interface IButtonTextIcon {
   iconName?: string
   buttonText?: string
@@ -16,7 +14,6 @@ export interface IButtonText extends IButtonTextIcon {
   hasIconTrash?: boolean
   buttonText?: string
 }
-
 
 export interface IButtonClassic {
   text?: string

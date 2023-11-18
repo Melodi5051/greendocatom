@@ -2,13 +2,16 @@ import IconTrash from "./../../assets/icons/icon-trash.svg"
 import "./AsideHeader.css"
 import { appStore } from "../../store/store"
 import { observer } from "mobx-react-lite"
-import { createFolders, deleteResources, getAllFiles } from "../../API/axios.api"
+import { createFolders } from "../../API/axios.api"
 import InputAside from "../UI/InputAside"
 import { storeAside } from "../../store/storeAside"
 import { Link } from "react-router-dom"
 import { storeAddFiles } from "../../store/storeAddFiles"
 import { uploadFileToYandexDisk } from "../../API/apiAddFiles"
 import downloadLogo from "./../../assets/icons/icon-download.svg"
+import React from "react"
+import { deleteResources } from "../../API/apiDeleteRequest"
+import { getAllFiles } from "../../API/apiGetAll"
 const AsideHeader = () => {
   const handleClickTrash = (fileName: string) => {
     deleteResources(fileName, "dir")
@@ -37,16 +40,21 @@ const AsideHeader = () => {
   return (
     <div className="aside-header rosatom-fontFamily-regular">
       <h1 className="aside-title">Категории</h1>
-      <div className="aside-button">
-        <InputAside value="Все файлы" path="" />
-      </div>
+      <Link to={"/"}>
+        <div className="aside-button">
+          <InputAside value="Все файлы" path="" />
+        </div>
+      </Link>
+
       <div className="aside-content">
         {appStore.arrayFolders.length === 0 ? (
-          <p>Loading...</p>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <span className="loader"></span>
+          </div>
         ) : (
           appStore.arrayFolders.map((item: any, index: number) => (
-            <Link to={"/"}>
-              <div key={index} className="aside-button">
+            <Link key={index} to={"/"}>
+              <div className="aside-button">
                 <InputAside isActive={false} value={item.name} path={item.path} />
                 <img src={IconTrash} alt="" onClick={(e) => handleClickTrash(item.name)} />
               </div>
@@ -54,15 +62,19 @@ const AsideHeader = () => {
           ))
         )}
         <div className="aside-add">
-          <input
-            type="text"
-            placeholder="Название папки"
-            className="aside-add-input"
-            onChange={(event) => storeAside.setEditedValueInputAdd(event.target.value)}
-          />
-          <button className="aside-add-button" onClick={handleAddNewCategory}>
-            +
-          </button>
+          <label htmlFor="folderName">Добавить категорию</label>
+          <div className="aside-add-group">
+            <input
+              id="folderName"
+              type="text"
+              placeholder="Название категории"
+              className="aside-add-input"
+              onChange={(event) => storeAside.setEditedValueInputAdd(event.target.value)}
+            />
+            <button className="aside-add-button" onClick={handleAddNewCategory}>
+              +
+            </button>
+          </div>
         </div>
         <div className="add-files__wrapper">
           <div className="input__wrapper ">

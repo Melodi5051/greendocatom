@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect } from "react"
 import "./Table.css"
 import TableItem from "../TableItem/TableItem"
 import { IYandexDiskFile } from "../../types/Files"
@@ -25,7 +25,7 @@ const Table = ({ arrayItems }: any) => {
       <section className="table-wrapper">
         {appStore.arrayItems.length === 0 ? (
           <div>
-            <h1 className="table-no-items">У вас нету файлов добавьте их</h1>
+            <h1 className="table-no-items">У вас нет файлов, добавьте их.</h1>
           </div>
         ) : (
           <table className="documents-list-wrapper rosatom-fontFamily-regular">

@@ -32,23 +32,10 @@
     .input {
         border-width: 1px; /* Further reduced border width */
         padding: 1px 6px; /* Further reduced padding */
-        font-size: 14px; /* Further reduced font size */
+        font-size: 16px; /* Further reduced font size */
     }
 
     .search-button img {
-        max-width: 25px; /* Further reduced max-width for screens below 920px */
-    }
-}
-
-@media (max-width: 630px) {
-    .input {
-        width: 100%;
-        border-width: 1px; /* Further reduced border width */
-        padding: 1px 4px; /* Further reduced padding */
-        font-size: 12px; /* Further reduced font size */
-    }
-
-    .search-button img {
-        max-width: 20px; /* Further reduced max-width for screens below 630px */
+        max-width: 30px; /* Further reduced max-width for screens below 920px */
     }
 }

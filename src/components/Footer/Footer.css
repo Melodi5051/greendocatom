@@ -28,7 +28,6 @@
   font-size: var(--footer-devs-font-size);
   font-weight: var(--footer-devs-font-weight);
   text-transform: var(--footer-devs-text-transform);
-  text-decoration-line: underline;
   color: var(--footer-devs-underline-color);
 }
 
@@ -46,7 +45,7 @@
 @media (max-width: 630px) {
   .footer {
     gap: 30px;
-    padding: 20px 10px;
+    padding: 20px 15px;
   }
 
   .footer-copyright,
