@@ -1,0 +1,23 @@
+.team-container {
+    text-align: center;
+    font-family: var(--fontStack-sansSerif);
+    width: 100%;
+    height: 100vh;
+}
+
+.team-container h1 {
+    text-transform: uppercase;
+}
+
+.block {
+    background-color: var(--color-workflow-f-blue-3);
+    color: var(--color-workflow-white);
+}
+
+.members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    margin: auto;
+}
