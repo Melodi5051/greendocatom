@@ -20,7 +20,9 @@ export const getAllFiles = async () => {
         size: item.size,
       }),
     )
-    appStore.setArrayItems(newYandexDiskFiles)
+    if (newYandexDiskFiles.length > 0) {
+      appStore.setArrayItems(newYandexDiskFiles);
+    }
   } catch (error) {
     console.error("API Error", error)
   }

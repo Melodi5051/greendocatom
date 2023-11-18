@@ -15,6 +15,8 @@ class AppStore {
 
   constructor() {
     makeAutoObservable(this)
+
+    this.hydrate();
   }
 
   setCategoryTemp(newTemp: string) {
@@ -39,6 +41,7 @@ class AppStore {
 
   setArrayItems(newArrayItems: IYandexDiskFile[]) {
     this.arrayItems = newArrayItems
+    this.saveToLocalStorage();
   }
 
   updateAllComponents(newStatus: boolean) {
@@ -59,6 +62,24 @@ class AppStore {
   setSubstring(substring: string) {
     this.searchSubstring = substring
   }
+
+  saveToLocalStorage() {
+    localStorage.setItem("appStore", JSON.stringify(this));
+  }
+
+  hydrate() {
+    try {
+      const savedState = localStorage.getItem("appStore");
+      if (savedState) {
+        const parsedState = JSON.parse(savedState);
+        Object.assign(this, parsedState);
+      }
+    } catch (error) {
+      console.error("Error hydrating appStore from localStorage", error);
+    }
+  }
+
+
 }
 
 export const appStore = new AppStore()
