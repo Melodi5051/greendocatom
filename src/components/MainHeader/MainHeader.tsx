@@ -1,4 +1,3 @@
-import React from "react"
 import "./MainHeader.css"
 import { observer } from "mobx-react-lite"
 import { appStore } from "../../store/store"
@@ -26,30 +25,26 @@ const MainHeader = () => {
               src={arrayBack}
               alt=""
               onClick={() => {
-                appStore.setCategoryFilter(appStore.categoryTemp);
+                appStore.setCategoryFilter(appStore.categoryTemp)
               }}
             />
           </Link>
         </div>
-      );
+      )
     }
-    return null;
-  };
+    return null
+  }
 
   const renderRefreshIcon = () => {
     if (appStore.categoryFilter.length === 0) {
       return (
         <Link to={"/"}>
-          <img
-            src={refresh_icon}
-            alt=""
-            onClick={(event) => handleRefreshTable()}
-          />
+          <img src={refresh_icon} alt="" onClick={(event) => handleRefreshTable()} />
         </Link>
-      );
+      )
     }
-    return null;
-  };
+    return null
+  }
 
   return (
     <div className="main-header">
@@ -60,8 +55,8 @@ const MainHeader = () => {
           {appStore.categoryFilter.length > 0
             ? appStore.categoryFilter
             : location.pathname === "/basket"
-              ? "Удаленные файлы"
-              : "Все файлы"}
+            ? "Удаленные файлы"
+            : "Все файлы"}
         </h1>
       </div>
       {appStore.categoryFilter.length === 0 && (
@@ -74,4 +69,3 @@ const MainHeader = () => {
 }
 
 export default observer(MainHeader)
-

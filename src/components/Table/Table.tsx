@@ -6,7 +6,11 @@ import { paginate } from "../../helper/filterItems"
 import { observer } from "mobx-react-lite"
 import { appStore } from "../../store/store"
 
-const Table = ({ arrayItems }: any) => {
+interface TableProps {
+  arrayItems: IYandexDiskFile[]
+}
+
+const Table: React.FC<TableProps> = ({ arrayItems }) => {
   useEffect(() => {
     const handleResize = () => {
       appStore.setLimitItems(

@@ -1,7 +1,7 @@
-import { IYandexDiskFile } from "../../types/Files"
+import { IYandexDiskFile, IYandexDiskFolders } from "../../types/Files"
 import { observer } from "mobx-react-lite"
 import { appStore } from "./../../store/store"
-import {moveFile} from "../../API/axios.api"
+import { moveFile } from "../../API/axios.api"
 import { extractFolderName } from "../../helper/formatDate"
 import { removeFileExtension } from "../../helper/filterItems"
 import "./TableItem.css"
@@ -19,14 +19,10 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
   const handleFileChangeCategory = (e: React.ChangeEvent<HTMLSelectElement>, name: string) => {
     moveFile(path, `disk:/CaseLabDocuments/${e.target.value}/${name}`, name)
   }
-  const handleDeleteFile = (e: any, name: string, path: string) => {
+  const handleDeleteFile = (name: string, path: string) => {
     deleteResources(`${extractFolderName(path)}/${name}`, "file")
   }
-  const handleChangeCategoryFile = (
-    e: React.ChangeEvent<HTMLSelectElement>,
-    name: string,
-    path: string,
-  ) => {
+  const handleChangeCategoryFile = (name: string, path: string) => {
     appStore.setCategoryTemp(appStore.categoryFilter)
     appStore.setCategoryFilter(`${extractFolderName(path)}/${name}`)
   }
@@ -36,7 +32,6 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
   }
 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
-  const [downloadLink, setLinkD] = useState("#")
 
   useEffect(() => {
     const handleResize = () => {
@@ -53,10 +48,7 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
       <tr className="table-item">
         <td className="table-name">
           <Tooltip content={name}>
-            <Link
-              to={`/${name}`}
-              onClick={(event: any) => handleChangeCategoryFile(event, name, path)}
-            >
+            <Link to={`/${name}`} onClick={() => handleChangeCategoryFile(name, path)}>
               {removeFileExtension(name)}
             </Link>
           </Tooltip>
@@ -72,7 +64,7 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
               src={trash_icon}
               alt=""
               className="trash-icon"
-              onClick={(event) => handleDeleteFile(event, name, path)}
+              onClick={() => handleDeleteFile(name, path)}
             />
           </div>
         </td>
@@ -82,7 +74,7 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
             value={extractFolderName(path)}
             onChange={(e) => handleFileChangeCategory(e, name)}
           >
-            {appStore.arrayFolders.map((folder: any, folderIndex: any) => (
+            {appStore.arrayFolders.map((folder: IYandexDiskFolders, folderIndex: number) => (
               <option key={folderIndex} value={folder.name}>
                 {folder.name}
               </option>
@@ -98,10 +90,7 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
           </button>
         </td>
         <td className="table-delete">
-          <button
-            className="delete-button"
-            onClick={(event) => handleDeleteFile(event, name, path)}
-          >
+          <button className="delete-button" onClick={() => handleDeleteFile(name, path)}>
             УДАЛИТЬ
           </button>
         </td>

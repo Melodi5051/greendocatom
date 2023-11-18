@@ -1,7 +1,7 @@
 import axios from "axios"
 import { ROOT_PATH_FOLDER, TRASH_PATH_FOLDER } from "../constants/constants"
 import { appStore } from "../store/store"
-import { IYandexDiskFile, IYandexDiskFolders } from "../types/Files"
+import { IYandexDiskFile, IYandexDiskFolders, IYandexTrashItems } from "../types/Files"
 
 export const getAllFiles = async () => {
   try {
@@ -34,7 +34,10 @@ export const getAllFolders = async () => {
       },
     })
     const folders = response.data._embedded.items.filter((item: any) => item.type === "dir")
-    const newYandexDiskFolders = folders.map((item: any) => ({ name: item.name, path: item.path }))
+    const newYandexDiskFolders = folders.map((item: IYandexDiskFolders) => ({
+      name: item.name,
+      path: item.path,
+    }))
 
     appStore.setArrayFolders(newYandexDiskFolders)
   } catch (error) {
