@@ -1,9 +1,6 @@
 import axios from "axios"
 import { ROOT_PATH_FOLDER } from "../constants/constants"
 
-// const apiURL: string = "https://cloud-api.yandex.net/v1/disk/resources/upload"
-// let filePath: string = "disk:/CaseLabDocuments/бухгалтерия/lucide_check-circle.png"
-
 export const getDownloadLink = async (filePath: string) => {
   try {
     const response = await axios.get(`${ROOT_PATH_FOLDER}/download?path=${encodeURI(filePath)}`, {

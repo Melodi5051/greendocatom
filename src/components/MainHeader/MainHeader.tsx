@@ -4,9 +4,10 @@ import { observer } from "mobx-react-lite"
 import { appStore } from "../../store/store"
 import refresh_icon from "./../../assets/icons/icon-refreshpage.svg"
 import CustomInput from "../CustomInput/CustomInput"
-import { getAllFiles, getAllFolders } from "../../API/axios.api"
+import {} from "../../API/axios.api"
 import arrayBack from "./../../assets/icons/icon-back.svg"
 import { Link, useLocation } from "react-router-dom"
+import { getAllFiles, getAllFolders } from "../../API/apiGetAll"
 
 const MainHeader = () => {
   const location = useLocation()

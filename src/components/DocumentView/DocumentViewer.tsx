@@ -4,7 +4,7 @@ import "./DocumentViewer.css";
 import { observer } from "mobx-react-lite";
 import { appStore } from "../../store/store";
 import {IYandexDiskFile} from "../../types/Files";
-import {getAllFiles, getAllFolders} from "../../API/axios.api";
+import { getAllFiles, getAllFolders } from "../../API/apiGetAll"
 
 const DocumentViewer = () => {
     const { name } = useParams()

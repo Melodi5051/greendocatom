@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom"
 import { appStore } from "../../store/store"
 import { formatNumber } from "../../helper/filterItems"
-import { getDownloadLink } from "../../API/apiDisc"
-import { deleteResources, moveFile } from "../../API/axios.api"
+import { getDownloadLink } from "../../API/apiCreateFile"
+import { moveFile } from "../../API/axios.api"
 import { extractFolderName, formatData } from "../../helper/formatDate"
 import "./DocumentDetails.css"
 import { useState } from "react"
+import { deleteResources } from "../../API/apiDeleteRequest"
 interface DocumentDetailsProps {
   name: string
   path: string

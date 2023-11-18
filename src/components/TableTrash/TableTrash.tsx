@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react"
-import TableItem from "../TableItem/TableItem"
+import { useEffect } from "react"
 import { IYandexDiskFile } from "../../types/Files"
 import { paginate } from "../../helper/filterItems"
 import { observer } from "mobx-react-lite"

@@ -1,7 +1,7 @@
 import { IYandexDiskFile } from "../../types/Files"
 import { observer } from "mobx-react-lite"
 import { appStore } from "./../../store/store"
-import {cleanTrash, deleteResources, moveFile} from "../../API/axios.api"
+import {moveFile} from "../../API/axios.api"
 import { extractFolderName } from "../../helper/formatDate"
 import { removeFileExtension } from "../../helper/filterItems"
 import "./TableItem.css"
@@ -11,8 +11,9 @@ import info_icon from "./../../assets/icons/icon-info.svg"
 import { formatData } from "../../helper/formatDate"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { getDownloadLink } from "../../API/apiDisc"
+import { getDownloadLink } from "../../API/apiCreateFile"
 import Tooltip from "../Tooltip/Tooltip"
+import { deleteResources } from "../../API/apiDeleteRequest"
 
 const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
   const handleFileChangeCategory = (e: React.ChangeEvent<HTMLSelectElement>, name: string) => {
