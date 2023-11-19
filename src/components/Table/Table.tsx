@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect } from "react"
 import "./Table.css"
 import TableItem from "../TableItem/TableItem"
 import { IYandexDiskFile } from "../../types/Files"

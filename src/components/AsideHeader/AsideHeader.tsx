@@ -2,14 +2,16 @@ import IconTrash from "./../../assets/icons/icon-trash.svg"
 import "./AsideHeader.css"
 import { appStore } from "../../store/store"
 import { observer } from "mobx-react-lite"
-import { createFolders, deleteResources, getAllFiles } from "../../API/axios.api"
+import { createFolders } from "../../API/axios.api"
 import InputAside from "../UI/InputAside"
 import { storeAside } from "../../store/storeAside"
 import { Link } from "react-router-dom"
 import { storeAddFiles } from "../../store/storeAddFiles"
 import { uploadFileToYandexDisk } from "../../API/apiAddFiles"
 import downloadLogo from "./../../assets/icons/icon-download.svg"
-import React from "react";
+import React from "react"
+import { deleteResources } from "../../API/apiDeleteRequest"
+import { getAllFiles } from "../../API/apiGetAll"
 const AsideHeader = () => {
   const handleClickTrash = (fileName: string) => {
     deleteResources(fileName, "dir")
@@ -51,8 +53,8 @@ const AsideHeader = () => {
           </div>
         ) : (
           appStore.arrayFolders.map((item: any, index: number) => (
-            <Link to={"/"}>
-              <div key={index} className="aside-button">
+            <Link key={index} to={"/"}>
+              <div className="aside-button">
                 <InputAside isActive={false} value={item.name} path={item.path} />
                 <img src={IconTrash} alt="" onClick={(e) => handleClickTrash(item.name)} />
               </div>

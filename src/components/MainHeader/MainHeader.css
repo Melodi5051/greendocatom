@@ -34,6 +34,7 @@
     font-family: 'RosatomWebRegular';
     font-size: 20px;
     font-style: normal;
+    max-width: 280px;
     font-weight: 400;
     line-height: normal;
 }
