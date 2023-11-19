@@ -38,6 +38,8 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
   const [downloadLink, setLinkD] = useState("#")
 
+  const nameLength = 15 // Ограничение длины названия файла
+
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth)
@@ -57,7 +59,7 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
               to={`/${name}`}
               onClick={(event: any) => handleChangeCategoryFile(event, name, path)}
             >
-              {removeFileExtension(name)}
+              {removeFileExtension(name, nameLength)}
             </Link>
           </Tooltip>
           <div className="adaptive_icon">
