@@ -8,10 +8,13 @@
 }
 
 .aside-button {
-  padding: 5px 15px;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid var(--aside-title-border-color);
+}
+
+.aside-button img {
+  padding: 5px 5px;
 }
 
 .aside-button:hover {
