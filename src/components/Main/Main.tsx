@@ -6,7 +6,7 @@ import MainHeader from "../MainHeader/MainHeader"
 import { Outlet } from "react-router-dom"
 
 const Main = () => {
-  const handleClickDocument = (event: any) => {
+  const handleClickDocument = (event: React.MouseEvent<HTMLElement>) => {
     const target = event.target as HTMLElement
     if (!target.closest(".aside-open") && !target.closest(".aside-close")) {
       storeAside.setIsOpen(false)

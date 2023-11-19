@@ -6,7 +6,11 @@ import { paginate } from "../../helper/filterItems"
 import { observer } from "mobx-react-lite"
 import { appStore } from "../../store/store"
 
-const Table = ({ arrayItems }: any) => {
+interface TableProps {
+  arrayItems: IYandexDiskFile[]
+}
+
+const Table: React.FC<TableProps> = ({ arrayItems }) => {
   useEffect(() => {
     const handleResize = () => {
       appStore.setLimitItems(
@@ -25,7 +29,7 @@ const Table = ({ arrayItems }: any) => {
       <section className="table-wrapper">
         {appStore.arrayItems.length === 0 ? (
           <div>
-            <h1 className="table-no-items">У вас нету файлов добавьте их</h1>
+            <h1 className="table-no-items">У вас нет файлов, добавьте их.</h1>
           </div>
         ) : (
           <table className="documents-list-wrapper rosatom-fontFamily-regular">

@@ -19,6 +19,13 @@
   padding: var(--footer-padding);
 }
 
+.open-team{
+  border: none;
+  cursor: pointer;
+  color: var(--footer-devs-underline-color);
+  background: var(--footer-background);
+}
+
 .footer-copyright {
   text-transform: uppercase;
   font-size: var(--footer-copyright-font-size);

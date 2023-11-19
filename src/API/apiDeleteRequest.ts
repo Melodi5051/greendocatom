@@ -1,6 +1,7 @@
 import axios from "axios"
 import { appStore } from "../store/store"
 import { TRASH_PATH_FOLDER } from "../constants/constants"
+import { IYandexDiskFile, IYandexDiskFolders, IYandexTrashItems } from "../types/Files"
 
 export const deleteResources = async (resourceName: string, type: string) => {
   try {
@@ -16,7 +17,7 @@ export const deleteResources = async (resourceName: string, type: string) => {
     if (response.status === 202) {
       if (type === "dir") {
         const newFolderarray = appStore.arrayFolders.filter(
-          (item: any) => item.name !== resourceName,
+          (item: IYandexDiskFolders) => item.name !== resourceName,
         )
         appStore.setArrayFolders(newFolderarray)
         if (appStore.categoryFilter.toLocaleLowerCase() === resourceName.toLowerCase()) {
@@ -24,7 +25,7 @@ export const deleteResources = async (resourceName: string, type: string) => {
         }
       } else {
         const newFileArray = appStore.arrayItems.filter(
-          (item: any) => item.name !== resourceName.split("/").pop(),
+          (item: IYandexDiskFile) => item.name !== resourceName.split("/").pop(),
         )
         appStore.setArrayItems(newFileArray)
       }
@@ -48,7 +49,7 @@ export const deleteTrash = async (resourcePath: string = "trash:/") => {
     if (response.status === 202) {
       console.log("delete ok")
       const newFileArrayTrash = appStore.arrayTrashItems.filter(
-        (item: any) => item.path !== resourcePath,
+        (item: IYandexTrashItems) => item.path !== resourcePath,
       )
       appStore.setArrayTrashItems(newFileArrayTrash)
     }
