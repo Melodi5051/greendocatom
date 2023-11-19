@@ -1,11 +1,15 @@
 import { useEffect } from "react"
-import { IYandexDiskFile } from "../../types/Files"
+import { IYandexDiskFile, IYandexTrashItems } from "../../types/Files"
 import { paginate } from "../../helper/filterItems"
 import { observer } from "mobx-react-lite"
 import { appStore } from "../../store/store"
 import TableItemTrash from "../TableItemTrash/TableItemTrash"
 
-const TableTrash = ({ arrayItems }: any) => {
+interface TableProps {
+  arrayItems: IYandexTrashItems[]
+}
+
+const TableTrash: React.FC<TableProps> = ({ arrayItems }) => {
   useEffect(() => {
     const handleResize = () => {
       appStore.setLimitItems(

@@ -7,6 +7,7 @@ import { extractFolderName, formatData } from "../../helper/formatDate"
 import "./DocumentDetails.css"
 import { useState } from "react"
 import { deleteResources } from "../../API/apiDeleteRequest"
+import { IYandexDiskFolders } from "../../types/Files"
 interface DocumentDetailsProps {
   name: string
   path: string
@@ -45,7 +46,7 @@ const DocumentPage = ({ name, path, modified, created, size }: DocumentDetailsPr
                   handleFileChangeCategory(selectedCategory, event.target.value, name)
                 }
               >
-                {appStore.arrayFolders.map((folder: any, folderIndex: any) => (
+                {appStore.arrayFolders.map((folder: IYandexDiskFolders, folderIndex: number) => (
                   <option key={folderIndex} value={folder.name}>
                     {folder.name}
                   </option>
