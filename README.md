@@ -12,6 +12,7 @@
 ### ✏️ Версии сайта.
 
 ![Static Badge](https://img.shields.io/badge/1.0%20(18.11.2023)-blue?style=plastic&logo=v&logoColor=white)
+![Static Badge](https://img.shields.io/badge/1.1%20(19.11.2023)-blue?style=plastic&logo=v&logoColor=white)
 
 ## :hammer_and_wrench: Стек технологий который используеться в проекте:
 
