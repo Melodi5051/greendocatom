@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import {useEffect, useState} from "react"
+import {useParams} from "react-router-dom"
 import DocumentDetails from "../components/DocumentDetails/DocumentDetails"
 import DocumentViewer from "../components/DocumentView/DocumentViewer"
 import "./DocumentPage.css"
-import { appStore } from "../store/store"
-import { IYandexDiskFile } from "../types/Files"
-import { getAllFiles, getAllFolders } from "../API/apiGetAll"
-import { extractFolderName } from "../helper/formatDate"
+import {appStore} from "../store/store"
+import {IYandexDiskFile} from "../types/Files"
+import {getAllFiles, getAllFolders} from "../API/apiGetAll"
+import {extractFolderName} from "../helper/formatDate"
 
 const DocumentPage = () => {
-  const { name } = useParams()
+  const {name} = useParams()
   const [loaded, setLoaded] = useState(false)
   const [helderSerchFullItem, setHelderSerchFullItem] = useState<IYandexDiskFile[]>([])
 
@@ -35,7 +35,11 @@ const DocumentPage = () => {
   }, [name, helderSerchFullItem])
 
   if (!loaded) {
-    return <span className="loader"></span>
+    return (
+      <div style={{display: "flex", justifyContent: "center"}}>
+        <span className="loader"></span>
+      </div>
+    )
   }
 
   const handleChangeCategoryFile = (name: string, path: string) => {
@@ -58,7 +62,7 @@ const DocumentPage = () => {
         created={helderSerchFullItem[0].created}
         size={helderSerchFullItem[0].size}
       />
-      <DocumentViewer />
+      <DocumentViewer/>
     </div>
   )
 }

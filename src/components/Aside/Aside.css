@@ -19,12 +19,10 @@ a {
   display: flex;
   gap: 10px;
   font-weight: 400;
+  color: black;
 }
 .aside-footer a:hover {
   background: #e0e0e0;
-}
-.aside-footer a input {
-  margin-top: 5px;
 }
 
 @media (max-width: 1200px) {
