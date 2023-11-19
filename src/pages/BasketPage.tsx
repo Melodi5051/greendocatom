@@ -8,6 +8,7 @@ import { getAllTrash } from "../API/apiGetAll"
 const BasketPage = () => {
   useEffect(() => {
     getAllTrash()
+    appStore.setCategoryFilter("")
   }, [])
   const totalPages = Math.ceil(appStore.arrayTrashItems.length / appStore.limitItems)
   const handlePageChange = (page: number) => {

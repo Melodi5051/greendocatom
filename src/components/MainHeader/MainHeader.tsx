@@ -1,7 +1,7 @@
 import "./MainHeader.css"
-import React, {useState} from "react"
-import { observer } from "mobx-react-lite"
-import { appStore } from "../../store/store"
+import React, {useEffect, useState} from "react"
+import {observer} from "mobx-react-lite"
+import {appStore} from "../../store/store"
 import refresh_icon from "./../../assets/icons/icon-refreshpage.svg"
 import CustomInput from "../CustomInput/CustomInput"
 import arrayBack from "./../../assets/icons/icon-back.svg"
@@ -44,12 +44,10 @@ const MainHeader = () => {
   }
 
   const renderRefreshIcon = () => {
-    if (appStore.categoryFilter.length === 0) {
+    if (location.pathname === "/basket" || location.pathname === "/") {
       return (
-        <Link to={"/"}>
-          <img className={'refresh_icon' + (loading ? ' refresh_icon_active' : '')}
-               src={refresh_icon} alt="" onClick={(event) => handleRefreshTable()} />
-        </Link>
+        <img className={'refresh_icon' + (loading ? ' refresh_icon_active' : '')}
+             src={refresh_icon} alt="" onClick={(event) => handleRefreshTable()}/>
       )
     }
     return null
@@ -64,15 +62,13 @@ const MainHeader = () => {
           {appStore.categoryFilter.length > 0
             ? appStore.categoryFilter
             : location.pathname === "/basket"
-            ? "Удаленные файлы"
-            : "Все файлы"}
+              ? "Удаленные файлы"
+              : "Все файлы"}
         </h1>
       </div>
-      {appStore.categoryFilter.length === 0 && (
-        <div className="main-input">
-          <CustomInput placeholder="Поиск документа" showButton={true} />
-        </div>
-      )}
+      <div className="main-input">
+        <CustomInput placeholder="Поиск документа" showButton={true}/>
+      </div>
     </div>
   )
 }
