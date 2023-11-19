@@ -1,0 +1,30 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+.card-container:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.75);
+}
+
+.name {
+    padding: 0 5px;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+}
+
+.block {
+    background-color: var(--color-workflow-f-blue-3);
+    color: var(--color-workflow-white);
+    padding: 5px 10px;
+    text-align: center;
+    flex: 1;
+    min-width: 217px;
+}

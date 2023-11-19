@@ -19,14 +19,13 @@
 }
 
 
-.main-refresh refresh_icon {
+.main-refresh .refresh_icon {
     cursor: pointer;
     max-width: 35px;
 }
 
-.main-refresh refresh_icon:hover {
-    animation: rotateAnimation 0.5s linear;
-    
+.main-refresh .refresh_icon_active {
+    animation: rotateAnimation 1s linear infinite;
 }
 .main-refresh h1 {
     margin: 0;
@@ -36,7 +35,8 @@
     font-style: normal;
     max-width: 280px;
     font-weight: 400;
-    line-height: normal;
+    white-space: nowrap; 
+   
 }
 .main-refresh h1::first-letter {
     text-transform: uppercase;
@@ -51,7 +51,7 @@
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(180deg);
+    transform: rotate(-360deg);
   }
 }
 
@@ -66,6 +66,9 @@
 
     .main-refresh h1 {
         font-size: 16px; 
+         overflow: hidden; 
+        text-overflow: ellipsis; 
+        line-height: normal;
     }
 }
 

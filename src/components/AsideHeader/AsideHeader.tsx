@@ -12,6 +12,7 @@ import downloadLogo from "./../../assets/icons/icon-download.svg"
 import React from "react"
 import { deleteResources } from "../../API/apiDeleteRequest"
 import { getAllFiles } from "../../API/apiGetAll"
+import { IYandexDiskFolders } from "../../types/Files"
 const AsideHeader = () => {
   const handleClickTrash = (fileName: string) => {
     deleteResources(fileName, "dir")
@@ -52,7 +53,7 @@ const AsideHeader = () => {
             <span className="loader"></span>
           </div>
         ) : (
-          appStore.arrayFolders.map((item: any, index: number) => (
+          appStore.arrayFolders.map((item: IYandexDiskFolders, index: number) => (
             <Link key={index} to={"/"}>
               <div className="aside-button">
                 <InputAside isActive={false} value={item.name} path={item.path} />
@@ -103,7 +104,7 @@ const AsideHeader = () => {
             value={storeAddFiles.selectedFolder}
             onChange={handleFolderSelection}
           >
-            {appStore.arrayFolders.map((folder: any, folderIndex: any) => (
+            {appStore.arrayFolders.map((folder: IYandexDiskFolders, folderIndex: number) => (
               <option key={folderIndex} value={folder.name}>
                 {folder.name}
               </option>

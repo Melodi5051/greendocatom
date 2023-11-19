@@ -1,6 +1,6 @@
 import axios from "axios"
 import { appStore } from "../store/store"
-import { IYandexDiskFile } from "../types/Files"
+import { IYandexDiskFile, IYandexTrashItems } from "../types/Files"
 import { ROOT_PATH_FOLDER, TRASH_PATH_FOLDER } from "../constants/constants"
 import { getAllFolders } from "./apiGetAll"
 
@@ -87,7 +87,7 @@ export const restoreResource = async (resourcePath: string) => {
         console.log(response.status)
         if (response.status === 201) {
           const newFileTrashArray = appStore.arrayTrashItems.filter(
-            (item: any) => item.path !== resourcePath,
+            (item: IYandexTrashItems) => item.path !== resourcePath,
           )
           appStore.setArrayTrashItems(newFileTrashArray)
         }
