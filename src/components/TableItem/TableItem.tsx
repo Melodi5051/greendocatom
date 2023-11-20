@@ -50,14 +50,8 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
       <tr className="table-item">
         <td className="table-name">
           <Tooltip content={name}>
-
-
-            <Link
-              to={`/${name}`}
-              onClick={() => handleChangeCategoryFile(name, path)}
-            >
+            <Link to={`/${name}`} onClick={() => handleChangeCategoryFile(name, path)}>
               {removeFileExtension(name, nameLength)}
-
             </Link>
           </Tooltip>
           <div className="adaptive_icon">
