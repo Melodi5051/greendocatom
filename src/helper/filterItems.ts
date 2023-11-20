@@ -13,11 +13,16 @@ export const filterItems = (arrayItems: IYandexDiskFile[], typeFilter: string) =
   return appStore.findItems(arrayItems)
 }
 
-export const removeFileExtension = (fileName: string): string => {
+export const removeFileExtension = (fileName: string, maxLength: number): string => {
   const lastDotIndex = fileName.lastIndexOf(".")
   if (lastDotIndex !== -1) {
-    return fileName.slice(0, lastDotIndex)
+    fileName = fileName.slice(0, lastDotIndex)
   }
+
+  if (fileName.length > maxLength) {
+    fileName = fileName.slice(0, maxLength) + "…"; // Добавляем многоточие, чтобы указать, что текст обрезан
+  }
+
   return fileName
 }
 
