@@ -33,32 +33,25 @@ const MainHeader = () => {
               src={arrayBack}
               alt=""
               onClick={() => {
-
-                appStore.setCategoryFilter(appStore.categoryTemp);
-
+                appStore.setCategoryFilter(appStore.categoryTemp)
               }}
             />
           </Link>
         </div>
-      );
+      )
     }
-    return null;
-  };
+    return null
+  }
 
   const renderRefreshIcon = () => {
-    if (appStore.categoryFilter.length === 0) {
+    if (location.pathname === "/basket" || location.pathname === "/") {
       return (
-        <Link to={"/"}>
-          <img
-            src={refresh_icon}
-            alt=""
-            onClick={(event) => handleRefreshTable()}
-          />
-        </Link>
-      );
+        <img className={'refresh_icon' + (loading ? ' refresh_icon_active' : '')}
+             src={refresh_icon} alt="" onClick={(event) => handleRefreshTable()}/>
+      )
     }
-    return null;
-  };
+    return null
+  }
 
   return (
     <div className="main-header">
@@ -73,11 +66,9 @@ const MainHeader = () => {
               : "Все файлы"}
         </h1>
       </div>
-      {appStore.categoryFilter.length === 0 && (
-        <div className="main-input">
-          <CustomInput placeholder="Поиск документа" showButton={true} />
-        </div>
-      )}
+      <div className="main-input">
+        <CustomInput placeholder="Поиск документа" showButton={true}/>
+      </div>
     </div>
   )
 }
