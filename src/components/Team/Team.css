@@ -1,5 +1,7 @@
 .team-container {
     text-align: center;
+    position: absolute;
+    z-index: 1999;
     font-family: var(--fontStack-sansSerif);
     width: 100%;
     height: max-content;
@@ -18,6 +20,5 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-
     margin: auto;
 }

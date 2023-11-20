@@ -7,7 +7,7 @@ class AppStore {
   categoryFilter: string = ""
   arrayFolders: IYandexDiskFolders[] = []
   updateWeb: boolean = true
-  limitItems: number = Math.floor((window.innerHeight - 320) / (window.innerWidth < 620 ? 70 : 65))
+  limitItems: number = 9
   currentPage: number = 1
   searchSubstring: string = ""
   categoryTemp: string = ""

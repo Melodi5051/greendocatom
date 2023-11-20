@@ -1,10 +1,7 @@
 import { IYandexDiskFile } from "../types/Files"
 import { extractFolderName } from "./formatDate"
 import { appStore } from "../store/store"
-export const filterItems = (
-  arrayItems: IYandexDiskFile[],
-  typeFilter: string,
-): IYandexDiskFile[] => {
+export const filterItems = (arrayItems: IYandexDiskFile[], typeFilter: string) => {
   if (
     arrayItems.length > 0 &&
     typeFilter.length > 0 &&
