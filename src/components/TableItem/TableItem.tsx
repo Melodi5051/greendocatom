@@ -31,71 +31,59 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
     getDownloadLink(path)
   }
 
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth)
-    }
-    window.addEventListener("resize", handleResize)
-    return () => {
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
+  const nameLength = 15 // Ограничение длины названия файла
 
   return (
-    <>
-      <tr className="table-item">
-        <td className="table-name">
-          <Tooltip content={name}>
-            <Link to={`/${name}`} onClick={() => handleChangeCategoryFile(name, path)}>
-              {removeFileExtension(name)}
-            </Link>
-          </Tooltip>
-          <div className="adaptive_icon">
-            <img src={info_icon} alt="" className="info-icon" />
-            <img
-              src={download_icon}
-              alt=""
-              className="download-icon"
-              onClick={() => handleDownloadFile(path)}
-            />
-            <img
-              src={trash_icon}
-              alt=""
-              className="trash-icon"
-              onClick={() => handleDeleteFile(name, path)}
-            />
-          </div>
-        </td>
-        <td className="table-category">
-          <select
-            className="category-select"
-            value={extractFolderName(path)}
-            onChange={(e) => handleFileChangeCategory(e, name)}
-          >
-            {appStore.arrayFolders.map((folder: IYandexDiskFolders, folderIndex: number) => (
-              <option key={folderIndex} value={folder.name}>
-                {folder.name}
-              </option>
-            ))}
-          </select>
-          <span></span>
-        </td>
-        <td className="table-modified">{formatData(new Date(modified))}</td>
-        <td className="table-created">{formatData(new Date(created))}</td>
-        <td className="table-download">
-          <button className="download-button" onClick={() => handleDownloadFile(path)}>
-            СКАЧАТЬ
-          </button>
-        </td>
-        <td className="table-delete">
-          <button className="delete-button" onClick={() => handleDeleteFile(name, path)}>
-            УДАЛИТЬ
-          </button>
-        </td>
-      </tr>
-    </>
+    <tr className="table-item">
+      <td className="table-name">
+        <Tooltip content={name}>
+          <Link to={`/${name}`} onClick={() => handleChangeCategoryFile(name, path)}>
+            {removeFileExtension(name, nameLength)}
+          </Link>
+        </Tooltip>
+        <div className="adaptive_icon">
+          <img src={info_icon} alt="" className="info-icon" />
+          <img
+            src={download_icon}
+            alt=""
+            className="download-icon"
+            onClick={() => handleDownloadFile(path)}
+          />
+          <img
+            src={trash_icon}
+            alt=""
+            className="trash-icon"
+            onClick={() => handleDeleteFile(name, path)}
+          />
+        </div>
+      </td>
+      <td className="table-category">
+        <select
+          className="category-select"
+          value={extractFolderName(path)}
+          onChange={(e) => handleFileChangeCategory(e, name)}
+        >
+          {appStore.arrayFolders.map((folder: IYandexDiskFolders, folderIndex: number) => (
+            <option key={folderIndex} value={folder.name}>
+              {folder.name}
+            </option>
+          ))}
+        </select>
+        <span></span>
+      </td>
+      <td className="table-modified">{formatData(new Date(modified))}</td>
+      <td className="table-created">{formatData(new Date(created))}</td>
+      <td className="table-download">
+        <button className="download-button" onClick={() => handleDownloadFile(path)}>
+          СКАЧАТЬ
+        </button>
+      </td>
+      <td className="table-delete">
+        <button className="delete-button" onClick={() => handleDeleteFile(name, path)}>
+          УДАЛИТЬ
+        </button>
+      </td>
+    </tr>
   )
 }
 
