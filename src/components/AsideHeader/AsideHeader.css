@@ -5,8 +5,18 @@
   font-size: var(--aside-title-font-size);
   font-weight: 400;
   line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-
+.aside-title button {
+  display: none;
+  border: none;
+  color: white;
+  font-weight: 700;
+  padding: 0px 8px 2px;
+  background: #6cace4;
+}
 .aside-button {
   display: flex;
   justify-content: space-between;
@@ -130,5 +140,11 @@ padding: 0px 10px;
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 920px) {
+  .aside-title button {
+    display: block;
   }
 }
