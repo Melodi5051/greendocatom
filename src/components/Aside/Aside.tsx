@@ -7,7 +7,10 @@ import IconTrash from "./../../assets/icons/icon-trash.svg"
 import InputAside from "../UI/InputAside"
 const Aside = () => {
   return (
-    <aside className={storeAside.isOpen ? "aside-open" : "aside-close"}>
+    <aside
+      data-testid="aside-component"
+      className={storeAside.isOpen ? "aside-open" : "aside-close"}
+    >
       <AsideHeader />
       <div className="aside-footer rosatom-fontFamily-bold">
         <Link to={"/basket"}>

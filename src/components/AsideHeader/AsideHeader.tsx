@@ -40,7 +40,10 @@ const AsideHeader = () => {
   }
   return (
     <div className="aside-header rosatom-fontFamily-regular">
-      <h1 className="aside-title">Категории</h1>
+      <h1 className="aside-title">
+        Категории <button onClick={() => storeAside.setIsOpen(!storeAside.isOpen)}>x</button>
+      </h1>
+
       <Link to={"/"}>
         <div className="aside-button">
           <InputAside value="Все файлы" path="" />

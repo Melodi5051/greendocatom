@@ -4,6 +4,7 @@ import Aside from "../Aside/Aside"
 import { storeAside } from "../../store/storeAside"
 import MainHeader from "../MainHeader/MainHeader"
 import { Outlet } from "react-router-dom"
+import Team from "../Team/Team"
 
 const Main = () => {
   const handleClickDocument = (event: React.MouseEvent<HTMLElement>) => {
