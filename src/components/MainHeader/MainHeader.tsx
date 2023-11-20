@@ -73,11 +73,9 @@ const MainHeader = () => {
               : "Все файлы"}
         </h1>
       </div>
-      {appStore.categoryFilter.length === 0 && (
-        <div className="main-input">
-          <CustomInput placeholder="Поиск документа" showButton={true} />
-        </div>
-      )}
+      <div className="main-input">
+        <CustomInput placeholder="Поиск документа" showButton={true} />
+      </div>
     </div>
   )
 }
