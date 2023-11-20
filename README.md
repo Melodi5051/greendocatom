@@ -13,6 +13,7 @@
 
 ![Static Badge](https://img.shields.io/badge/1.0%20(18.11.2023)-blue?style=plastic&logo=v&logoColor=white)
 ![Static Badge](https://img.shields.io/badge/1.1%20(19.11.2023)-blue?style=plastic&logo=v&logoColor=white)
+![Static Badge](https://img.shields.io/badge/1.2%20(19.11.2023)-blue?style=plastic&logo=v&logoColor=white)
 
 ## :hammer_and_wrench: Стек технологий который используеться в проекте:
 
@@ -21,7 +22,7 @@
 ![Static Badge](https://img.shields.io/badge/MobX%20%20v6.10.2-brown?style=for-the-badge&logo=mobx&logoColor=white)
 ![Static Badge](https://img.shields.io/badge/react%20router%20dom%20%20v6.18.0-yelou?style=for-the-badge&logo=reactrouter&logoColor=white)
 ![Static Badge](https://img.shields.io/badge/axios%20%20v1.6.0-purple?style=for-the-badge&logo=axios&logoColor=white)
-
+![Static Badge](https://img.shields.io/badge/jest%20%20v27.5.2-red?style=for-the-badge&logo=jest&logoColor=white)
 
 ## Команда нашего проекта:
 
