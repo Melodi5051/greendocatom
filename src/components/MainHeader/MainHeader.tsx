@@ -17,37 +17,59 @@ const MainHeader = () => {
     appStore.setCategoryFilter("")
     appStore.setSubstring("")
   }
-  return (
-    <div className="main-header">
-      <div className="main-refresh">
-        {appStore.categoryFilter.length > 0 ? (
+
+  const renderBackIcon = () => {
+    if (appStore.categoryFilter.length > 0) {
+      return (
+        <div className="main-back">
           <Link to={"/"}>
             <img
               src={arrayBack}
               alt=""
-              onClick={() => appStore.setCategoryFilter(appStore.categoryTemp)}
+              onClick={() => {
+                appStore.setCategoryFilter(appStore.categoryTemp);
+              }}
             />
           </Link>
-        ) : null}
+        </div>
+      );
+    }
+    return null;
+  };
+
+  const renderRefreshIcon = () => {
+    if (appStore.categoryFilter.length === 0) {
+      return (
         <Link to={"/"}>
           <img
-            className="refresh_icon"
             src={refresh_icon}
             alt=""
             onClick={(event) => handleRefreshTable()}
           />
         </Link>
+      );
+    }
+    return null;
+  };
+
+  return (
+    <div className="main-header">
+      <div className="main-refresh">
+        {renderBackIcon()}
+        {renderRefreshIcon()}
         <h1>
           {appStore.categoryFilter.length > 0
             ? appStore.categoryFilter
             : location.pathname === "/basket"
-            ? "Удаленные файлы"
-            : "Все файлы"}
+              ? "Удаленные файлы"
+              : "Все файлы"}
         </h1>
       </div>
-      <div className="main-input">
-        <CustomInput placeholder="Поиск документа" showButton={true} />
-      </div>
+      {appStore.categoryFilter.length === 0 && (
+        <div className="main-input">
+          <CustomInput placeholder="Поиск документа" showButton={true} />
+        </div>
+      )}
     </div>
   )
 }
