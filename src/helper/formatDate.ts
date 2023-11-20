@@ -10,9 +10,9 @@ export const formatData = (date: Date): string => {
 
   if (isSmallScreen) {
     return `${day}.${month}.${year}`
-  } else {
-    return `${day}.${month}.${year} ${hours}:${minutes}`
   }
+  return `${day}.${month}.${year} ${hours}:${minutes}`
+  
 }
 
 export const extractFolderName = (path: string): string => {

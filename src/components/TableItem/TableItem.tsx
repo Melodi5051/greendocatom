@@ -20,7 +20,7 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
     moveFile(path, `disk:/CaseLabDocuments/${e.target.value}/${name}`, name)
   }
   const handleDeleteFile = (name: string, path: string) => {
-    deleteResources(`${extractFolderName(path)}/${name}`, "file")
+    deleteResources(`${extractFolderName(path)}/${name}`, "file", path)
   }
   const handleChangeCategoryFile = (name: string, path: string) => {
     appStore.setCategoryTemp(appStore.categoryFilter)

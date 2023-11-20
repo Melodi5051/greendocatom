@@ -73,6 +73,7 @@ const AsideHeader = () => {
               type="text"
               placeholder="Название категории"
               className="aside-add-input"
+              value={storeAside.editedValueInputAdd}
               onChange={(event) => storeAside.setEditedValueInputAdd(event.target.value)}
             />
             <button className="aside-add-button" onClick={handleAddNewCategory}>

@@ -1,6 +1,6 @@
 import axios from "axios"
 import { getAllFiles } from "./apiGetAll"
-
+import { storeNotifications } from "../store/storeNotifications"
 
 export async function uploadFileToYandexDisk(category: string, file: File): Promise<void> {
   try {
@@ -21,11 +21,18 @@ export async function uploadFileToYandexDisk(category: string, file: File): Prom
         },
       })
       .then((response) => {
-        if (response.status === 201) {
-          getAllFiles()
-        }
+        storeNotifications.setVisible(true)
+        storeNotifications.addNotification({
+          title: "Файл успешно загружен",
+          type: "success",
+        })
+        getAllFiles()
       })
   } catch (error) {
-    console.error("Ошибка загрузки файла", error)
+    storeNotifications.setVisible(true)
+    storeNotifications.addNotification({
+      title: "Ошибка загрузки файла",
+      type: "fatal",
+    })
   }
 }
