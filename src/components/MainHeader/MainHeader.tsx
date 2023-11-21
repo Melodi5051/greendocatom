@@ -1,12 +1,12 @@
 import "./MainHeader.css"
 import { useState } from "react"
-import {observer} from "mobx-react-lite"
-import {appStore} from "../../store/store"
+import { observer } from "mobx-react-lite"
+import { appStore } from "../../store/store"
 import refresh_icon from "./../../assets/icons/icon-refreshpage.svg"
 import CustomInput from "../CustomInput/CustomInput"
 import arrayBack from "./../../assets/icons/icon-back.svg"
-import {Link, useLocation} from "react-router-dom"
-import {getAllFiles, getAllFolders, getAllTrash} from "../../API/apiGetAll"
+import { Link, useLocation } from "react-router-dom"
+import { getAllFiles, getAllFolders, getAllTrash } from "../../API/apiGetAll"
 
 const MainHeader = () => {
   const location = useLocation()
@@ -16,10 +16,7 @@ const MainHeader = () => {
     getAllFolders()
     if (location.pathname === "/basket") {
       await getAllTrash()
-    } else (
-      await getAllFiles()
-    )
-
+    } else await getAllFiles()
     appStore.setSubstring("")
     setLoading(false)
   }
@@ -66,9 +63,11 @@ const MainHeader = () => {
               : "Все файлы"}
         </h1>
       </div>
-      <div className="main-input">
-        <CustomInput placeholder="Поиск документа" showButton={true} />
-      </div>
+      {appStore.categoryFilter.indexOf("/") === -1 ? (
+        <div className="main-input">
+          <CustomInput placeholder="Поиск документа" showButton={true} />
+        </div>
+      ) : null}
     </div>
   )
 }

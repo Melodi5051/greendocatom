@@ -1,19 +1,18 @@
 import IconTrash from "./../../assets/icons/icon-trash.svg"
 import "./AsideHeader.css"
-import {appStore} from "../../store/store"
-import {observer} from "mobx-react-lite"
-import {createFolders} from "../../API/axios.api"
+import { appStore } from "../../store/store"
+import { observer } from "mobx-react-lite"
+import { createFolders } from "../../API/axios.api"
 import InputAside from "../UI/InputAside"
-import {storeAside} from "../../store/storeAside"
-import {Link} from "react-router-dom"
-import {storeAddFiles} from "../../store/storeAddFiles"
-import {uploadFileToYandexDisk} from "../../API/apiAddFiles"
+import { storeAside } from "../../store/storeAside"
+import { Link } from "react-router-dom"
+import { storeAddFiles } from "../../store/storeAddFiles"
+import { uploadFileToYandexDisk } from "../../API/apiAddFiles"
 import downloadLogo from "./../../assets/icons/icon-download.svg"
 import React from "react"
-import {deleteResources} from "../../API/apiDeleteRequest"
-import {getAllFiles} from "../../API/apiGetAll"
-import {IYandexDiskFolders} from "../../types/Files"
-
+import { deleteResources } from "../../API/apiDeleteRequest"
+import { getAllFiles } from "../../API/apiGetAll"
+import { IYandexDiskFolders } from "../../types/Files"
 const AsideHeader = () => {
   const handleClickTrash = (fileName: string) => {
     deleteResources(fileName, "dir")
@@ -46,22 +45,22 @@ const AsideHeader = () => {
       </h1>
 
       <Link to={"/"}>
-        <div className="aside-button">
-          <InputAside value="Все файлы" path=""/>
+        <div className="aside-button" onClick={() => console.log(appStore.categoryFilter)}>
+          <InputAside value="Все файлы" path="" />
         </div>
       </Link>
 
       <div className="aside-content">
         {appStore.arrayFolders.length === 0 ? (
-          <div style={{display: "flex", justifyContent: "center"}}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <span className="loader"></span>
           </div>
         ) : (
           appStore.arrayFolders.map((item: IYandexDiskFolders, index: number) => (
             <Link key={index} to={"/"}>
               <div className="aside-button">
-                <InputAside isActive={false} value={item.name} path={item.path}/>
-                <img src={IconTrash} alt="" onClick={(e) => handleClickTrash(item.name)}/>
+                <InputAside isActive={false} value={item.name} path={item.path} />
+                <img src={IconTrash} alt="" onClick={(e) => handleClickTrash(item.name)} />
               </div>
             </Link>
           ))
@@ -103,24 +102,23 @@ const AsideHeader = () => {
                   width="25"
                 />
               </span>
-                <span className="input__file-button-text">Выберите файл</span>
-              </label>
-            </div>
-            <select
-              className="category-select"
-              value={storeAddFiles.selectedFolder}
-              onChange={handleFolderSelection}
-            >
-              {appStore.arrayFolders.map((folder: IYandexDiskFolders, folderIndex: number) => (
-                <option key={folderIndex} value={folder.name}>
-                  {folder.name}
-                </option>
-              ))}
-            </select>
-            <button className="aside-add-button" onClick={() => handleAddFiles()}>
-              Добавить
-            </button>
+              <span className="input__file-button-text">Выберите файл</span>
+            </label>
           </div>
+          <select
+            className="category-select"
+            value={storeAddFiles.selectedFolder}
+            onChange={handleFolderSelection}
+          >
+            {appStore.arrayFolders.map((folder: IYandexDiskFolders, folderIndex: number) => (
+              <option key={folderIndex} value={folder.name}>
+                {folder.name}
+              </option>
+            ))}
+          </select>
+          <button className="aside-add-button" onClick={() => handleAddFiles()}>
+            Добавить
+          </button>
         </div>
       </div>
     </div>

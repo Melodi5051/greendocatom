@@ -10,19 +10,6 @@ interface TableProps {
 }
 
 const TableTrash: React.FC<TableProps> = ({ arrayItems }) => {
-  useEffect(() => {
-    const handleResize = () => {
-      appStore.setLimitItems(
-        Math.floor((window.innerHeight - 320) / (window.innerWidth < 620 ? 70 : 65)),
-      )
-    }
-    window.addEventListener("resize", handleResize)
-
-    return () => {
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
-
   return (
     <>
       <section className="table-wrapper">
