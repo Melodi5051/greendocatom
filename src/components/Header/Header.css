@@ -48,6 +48,7 @@
   gap: 0;
   text-transform: uppercase;
   border-left: 1px solid var(--color-workflow-f-black);
+  user-select: none;
 }
 
 .header-logo h1 {
