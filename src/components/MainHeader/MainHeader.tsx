@@ -50,7 +50,6 @@ const MainHeader = () => {
     }
     return null
   }
-  console.log(appStore.categoryFilter)
   return (
     <div className="main-header">
       <div className="main-refresh">

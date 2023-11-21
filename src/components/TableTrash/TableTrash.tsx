@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { IYandexDiskFile, IYandexTrashItems } from "../../types/Files"
 import { paginate } from "../../helper/filterItems"
 import { observer } from "mobx-react-lite"

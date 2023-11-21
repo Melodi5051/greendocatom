@@ -17,8 +17,6 @@ class StoreNotifications {
   }
 
   removeNotification(notification: Notification) {
-    console.log(notification)
-    console.log(this.notifications[0])
     this.notifications = this.notifications.filter((item: any) => item.title !== notification.title)
   }
 }
