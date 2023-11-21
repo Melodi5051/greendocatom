@@ -9,7 +9,6 @@ import download_icon from "./../../assets/icons/icon-download.svg"
 import trash_icon from "./../../assets/icons/icon-trash.svg"
 import info_icon from "./../../assets/icons/icon-info.svg"
 import { formatData } from "../../helper/formatDate"
-import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getDownloadLink } from "../../API/apiCreateFile"
 import Tooltip from "../Tooltip/Tooltip"
@@ -20,7 +19,7 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
     moveFile(path, `disk:/CaseLabDocuments/${e.target.value}/${name}`, name)
   }
   const handleDeleteFile = (name: string, path: string) => {
-    deleteResources(`${extractFolderName(path)}/${name}`, "file")
+    deleteResources(`${extractFolderName(path)}/${name}`, "file", path)
   }
   const handleChangeCategoryFile = (name: string, path: string) => {
     appStore.setCategoryTemp(appStore.categoryFilter)
@@ -31,7 +30,7 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
     getDownloadLink(path)
   }
 
-  const nameLength = 15 // Ограничение длины названия файла
+  const nameLength = 15
 
   return (
     <tr className="table-item">

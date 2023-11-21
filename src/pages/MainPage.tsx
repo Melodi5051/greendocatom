@@ -3,6 +3,7 @@ import Table from "../components/Table/Table"
 import { filterItems } from "../helper/filterItems"
 import { appStore } from "../store/store"
 import "./MainPage.css"
+
 const MainPage = () => {
   const totalPages = Math.ceil(
     filterItems(appStore.arrayItems, appStore.categoryFilter).length / appStore.limitItems,

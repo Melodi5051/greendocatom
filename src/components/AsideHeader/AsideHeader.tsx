@@ -1,18 +1,19 @@
 import IconTrash from "./../../assets/icons/icon-trash.svg"
 import "./AsideHeader.css"
-import { appStore } from "../../store/store"
-import { observer } from "mobx-react-lite"
-import { createFolders } from "../../API/axios.api"
+import {appStore} from "../../store/store"
+import {observer} from "mobx-react-lite"
+import {createFolders} from "../../API/axios.api"
 import InputAside from "../UI/InputAside"
-import { storeAside } from "../../store/storeAside"
-import { Link } from "react-router-dom"
-import { storeAddFiles } from "../../store/storeAddFiles"
-import { uploadFileToYandexDisk } from "../../API/apiAddFiles"
+import {storeAside} from "../../store/storeAside"
+import {Link} from "react-router-dom"
+import {storeAddFiles} from "../../store/storeAddFiles"
+import {uploadFileToYandexDisk} from "../../API/apiAddFiles"
 import downloadLogo from "./../../assets/icons/icon-download.svg"
 import React from "react"
-import { deleteResources } from "../../API/apiDeleteRequest"
-import { getAllFiles } from "../../API/apiGetAll"
-import { IYandexDiskFolders } from "../../types/Files"
+import {deleteResources} from "../../API/apiDeleteRequest"
+import {getAllFiles} from "../../API/apiGetAll"
+import {IYandexDiskFolders} from "../../types/Files"
+
 const AsideHeader = () => {
   const handleClickTrash = (fileName: string) => {
     deleteResources(fileName, "dir")
@@ -73,6 +74,7 @@ const AsideHeader = () => {
               type="text"
               placeholder="Название категории"
               className="aside-add-input"
+              value={storeAside.editedValueInputAdd}
               onChange={(event) => storeAside.setEditedValueInputAdd(event.target.value)}
             />
             <button className="aside-add-button" onClick={handleAddNewCategory}>
@@ -80,42 +82,45 @@ const AsideHeader = () => {
             </button>
           </div>
         </div>
-        <div className="add-files__wrapper">
-          <div className="input__wrapper ">
-            <input
-              name="file"
-              type="file"
-              id="input__file"
-              className="input input__file"
-              onChange={handleFileSelection}
-              multiple
-            />
-            <label htmlFor="input__file" className="input__file-button">
-              <span className="input__file-icon-wrapper">
-                <img
-                  className="input__file-icon"
-                  src={downloadLogo}
-                  alt="Выбрать файл"
-                  width="25"
-                />
-              </span>
-              <span className="input__file-button-text">Выберите файл</span>
-            </label>
+        <div className="aside-add">
+          <label>Добавить файл</label>
+          <div className="add-files__wrapper">
+            <div className="input__wrapper ">
+              <input
+                name="file"
+                type="file"
+                id="input__file"
+                className="input input__file"
+                onChange={handleFileSelection}
+                multiple
+              />
+              <label htmlFor="input__file" className="input__file-button">
+                <span className="input__file-icon-wrapper">
+                  <img
+                    className="input__file-icon"
+                    src={downloadLogo}
+                    alt="Выбрать файл"
+                    width="25"
+                  />
+                </span>
+                <span className="input__file-button-text">Выберите файл</span>
+              </label>
+            </div>
+            <select
+              className="category-select"
+              value={storeAddFiles.selectedFolder}
+              onChange={handleFolderSelection}
+            >
+              {appStore.arrayFolders.map((folder: IYandexDiskFolders, folderIndex: number) => (
+                <option key={folderIndex} value={folder.name}>
+                  {folder.name}
+                </option>
+              ))}
+            </select>
+            <button className="aside-add-button" onClick={() => handleAddFiles()}>
+              Добавить
+            </button>
           </div>
-          <select
-            className="category-select"
-            value={storeAddFiles.selectedFolder}
-            onChange={handleFolderSelection}
-          >
-            {appStore.arrayFolders.map((folder: IYandexDiskFolders, folderIndex: number) => (
-              <option key={folderIndex} value={folder.name}>
-                {folder.name}
-              </option>
-            ))}
-          </select>
-          <button className="aside-add-button" onClick={() => handleAddFiles()}>
-            Добавить
-          </button>
         </div>
       </div>
     </div>

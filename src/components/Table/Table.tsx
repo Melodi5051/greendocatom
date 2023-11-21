@@ -4,12 +4,18 @@ import { IYandexDiskFile } from "../../types/Files"
 import { paginate } from "../../helper/filterItems"
 import { observer } from "mobx-react-lite"
 import { appStore } from "../../store/store"
+import { useEffect } from "react"
+import { getAllFiles } from "../../API/apiGetAll"
 
 interface TableProps {
   arrayItems: IYandexDiskFile[]
 }
 
 const Table: React.FC<TableProps> = ({ arrayItems }) => {
+  useEffect(() => {
+    getAllFiles()
+    appStore.setCurrentPage(1)
+  }, [appStore.categoryFilter])
   return (
     <>
       <section className="table-wrapper">
