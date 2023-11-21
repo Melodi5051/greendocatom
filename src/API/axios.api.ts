@@ -27,6 +27,7 @@ export const moveFile = async (from: string, to: string, fileName = "") => {
         obj.name === fileName ? { ...obj, path: to } : obj,
       )
       appStore.setArrayItems(newArray)
+      return response
     }
   } catch (error) {
     storeNotifications.setVisible(true)

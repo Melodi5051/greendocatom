@@ -26,8 +26,11 @@ const DocumentPage = ({ name, path, modified, created, size }: DocumentDetailsPr
     deleteResources(`${extractFolderName(path)}/${name}`, "")
   }
   const handleFileChangeCategory = (from: string, path: string, name: string) => {
-    setSelectedCategory(`disk:/CaseLabDocuments/${path}/${name}`)
-    moveFile(from, `disk:/CaseLabDocuments/${path}/${name}`, name)
+    moveFile(from, `disk:/CaseLabDocuments/${path}/${name}`, name).then((response: any) => {
+      if (response) {
+        setSelectedCategory(`disk:/CaseLabDocuments/${path}/${name}`)
+      }
+    })
   }
   return (
     <div className="document-details rosatom-fontFamily-regular">
