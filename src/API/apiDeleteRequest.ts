@@ -3,7 +3,6 @@ import { appStore } from "../store/store"
 import { TRASH_PATH_FOLDER } from "../constants/constants"
 import { IYandexDiskFile, IYandexDiskFolders, IYandexTrashItems } from "../types/Files"
 import { storeNotifications } from "../store/storeNotifications"
-import path from "path"
 
 export const deleteResources = async (resourceName: string, type: string, pathFile?: string) => {
   try {
@@ -27,8 +26,7 @@ export const deleteResources = async (resourceName: string, type: string, pathFi
         }
       } else {
         const newFileArray = appStore.arrayItems.filter(
-          (item: IYandexDiskFile) =>
-            item.name !== resourceName.split("/").pop() && item.path !== pathFile,
+          (item: IYandexDiskFile) => item.path !== pathFile,
         )
         appStore.setArrayItems(newFileArray)
       }

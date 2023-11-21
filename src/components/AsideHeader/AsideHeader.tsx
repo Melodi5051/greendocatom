@@ -45,7 +45,7 @@ const AsideHeader = () => {
       </h1>
 
       <Link to={"/"}>
-        <div className="aside-button">
+        <div className="aside-button" onClick={() => console.log(appStore.categoryFilter)}>
           <InputAside value="Все файлы" path="" />
         </div>
       </Link>

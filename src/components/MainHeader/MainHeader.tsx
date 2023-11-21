@@ -1,12 +1,12 @@
 import "./MainHeader.css"
 import { useState } from "react"
-import {observer} from "mobx-react-lite"
-import {appStore} from "../../store/store"
+import { observer } from "mobx-react-lite"
+import { appStore } from "../../store/store"
 import refresh_icon from "./../../assets/icons/icon-refreshpage.svg"
 import CustomInput from "../CustomInput/CustomInput"
 import arrayBack from "./../../assets/icons/icon-back.svg"
-import {Link, useLocation} from "react-router-dom"
-import {getAllFiles, getAllFolders, getAllTrash} from "../../API/apiGetAll"
+import { Link, useLocation } from "react-router-dom"
+import { getAllFiles, getAllFolders, getAllTrash } from "../../API/apiGetAll"
 
 const MainHeader = () => {
   const location = useLocation()
@@ -16,10 +16,7 @@ const MainHeader = () => {
     getAllFolders()
     if (location.pathname === "/basket") {
       await getAllTrash()
-    } else (
-      await getAllFiles()
-    )
-
+    } else await getAllFiles()
     appStore.setSubstring("")
     setLoading(false)
   }
@@ -33,33 +30,27 @@ const MainHeader = () => {
               src={arrayBack}
               alt=""
               onClick={() => {
-
-                appStore.setCategoryFilter(appStore.categoryTemp);
-
+                appStore.setCategoryFilter(appStore.categoryTemp)
               }}
             />
           </Link>
         </div>
-      );
+      )
     }
-    return null;
-  };
+    return null
+  }
 
   const renderRefreshIcon = () => {
     if (appStore.categoryFilter.length === 0) {
       return (
         <Link to={"/"}>
-          <img
-            src={refresh_icon}
-            alt=""
-            onClick={(event) => handleRefreshTable()}
-          />
+          <img src={refresh_icon} alt="" onClick={() => handleRefreshTable()} />
         </Link>
-      );
+      )
     }
-    return null;
-  };
-
+    return null
+  }
+  console.log(appStore.categoryFilter)
   return (
     <div className="main-header">
       <div className="main-refresh">
@@ -73,9 +64,11 @@ const MainHeader = () => {
               : "Все файлы"}
         </h1>
       </div>
-      <div className="main-input">
-        <CustomInput placeholder="Поиск документа" showButton={true} />
-      </div>
+      {appStore.categoryFilter.length === 0 || appStore.categoryFilter.indexOf("/") === -1 ? (
+        <div className="main-input">
+          <CustomInput placeholder="Поиск документа" showButton={true} />
+        </div>
+      ) : null}
     </div>
   )
 }
