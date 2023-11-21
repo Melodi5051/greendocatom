@@ -1,6 +1,7 @@
 import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
 import Main from "../components/Main/Main"
+import NoNetworkPage from "../components/NoNetworkPage/NoNetworkPage"
 import { useEffect } from "react"
 import { getAllFiles, getAllFolders } from "../API/apiGetAll"
 import { useNavigate } from "react-router-dom"
@@ -26,8 +27,9 @@ const Layout = () => {
   return (
     <div className="layout">
       <Header />
-      <Main />
-      <Footer />
+      {/* <Main />
+      <Footer /> */}
+      <NoNetworkPage />
     </div>
   )
 }
