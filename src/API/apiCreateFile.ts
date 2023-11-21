@@ -1,5 +1,6 @@
 import axios from "axios"
 import { ROOT_PATH_FOLDER } from "../constants/constants"
+import { storeNotifications } from "../store/storeNotifications"
 
 export const getDownloadLink = async (filePath: string) => {
   try {
@@ -15,23 +16,27 @@ export const getDownloadLink = async (filePath: string) => {
     link.click()
     document.body.removeChild(link)
   } catch (error) {
-    console.error("Ошибка АПИ запроса при получении ссылки на скачивание документа", error)
+    storeNotifications.addNotification({
+      title: "Ошибка загрузки файла",
+      type: "fatal",
+    })
   }
 }
 
 export const getUploadLink = async (filePath: string) => {
-  console.log(filePath)
   try {
     const response = await axios.get(`${ROOT_PATH_FOLDER}/upload?path=${encodeURI(filePath)}`, {
       headers: {
         Authorization: process.env.REACT_APP_API_KEY,
       },
     })
-
     const result = response.data
-    console.log("getUploadLink", result.href)
     return result.href
   } catch (error) {
-    console.error("Ошибка АПИ запроса при получение ссылки на загрузку документа", error)
+    storeNotifications.setVisible(true)
+    storeNotifications.addNotification({
+      title: "Ошибка загрузки файла",
+      type: "fatal",
+    })
   }
 }

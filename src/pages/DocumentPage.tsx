@@ -44,12 +44,8 @@ const DocumentPage = () => {
 
   const handleChangeCategoryFile = (name: string, path: string) => {
     if (name && !appStore.categoryFilter) {
-      console.log("appStore.categoryFilter до уставновки: " + appStore.categoryFilter)
-      console.log("appStore.CategoryTemp до уставновки: " + appStore.categoryTemp)
       appStore.setCategoryTemp(appStore.categoryFilter)
       appStore.setCategoryFilter(`${extractFolderName(path)}/${name}`)
-      console.log("appStore.categoryFilter после уставновки: " + appStore.categoryFilter)
-      console.log("appStore.CategoryTemp после уставновки: " + appStore.categoryTemp)
     }
   }
 

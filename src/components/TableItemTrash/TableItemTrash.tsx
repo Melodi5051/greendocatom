@@ -1,5 +1,5 @@
 import Tooltip from "../Tooltip/Tooltip"
-import download_icon from "./../../assets/icons/icon-download.svg"
+import download_icon from "./../../assets/icons/icon-return.svg"
 import trash_icon from "./../../assets/icons/icon-trash.svg"
 import { restoreResource } from "../../API/axios.api"
 import { deleteTrash } from "../../API/apiDeleteRequest"
