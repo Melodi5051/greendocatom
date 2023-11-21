@@ -86,7 +86,6 @@ padding: 0px 10px;
 }
 
 .input__file-button {
-
   background: #6cace4;
   color: #fff;
   display: -webkit-box;
@@ -103,6 +102,9 @@ padding: 0px 10px;
   cursor: pointer;
   margin: 0 auto;
 }
+.input__file-button:hover, .aside-add-button:hover {
+  box-shadow: 0px 0px 10px #6cace4;
+}
 
 .aside-add {
   display: flex;
@@ -113,7 +115,6 @@ padding: 0px 10px;
   padding: 0px 10px;
   margin-top: 20px;
 }
-
 .aside-add-group {
   display: flex;
   justify-content: space-between;

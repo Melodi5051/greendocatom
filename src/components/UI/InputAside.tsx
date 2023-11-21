@@ -29,15 +29,13 @@ const handleSwapCategory = (name: string) => {
 
 const InputAside: React.FC<IPropsInput> = ({ isActive, value, path }) => {
   return (
-    <input
-      type="text"
+    <button
       spellCheck="false"
       className={`styled-input ${isActive ? "" : "inactive"}`}
-      value={value}
-      onClick={(event: any) => handleSwapCategory(event.target.value)}
-      onChange={() => null}
-      onKeyPress={(event) => handleKeyPress(event, path, value)}
-    />
+      onClick={() => handleSwapCategory(value)}
+    >
+      {value}
+    </button>
   )
 }
 

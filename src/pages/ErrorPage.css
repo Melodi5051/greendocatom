@@ -1,0 +1,36 @@
+.errorpage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    align-items: center;
+}
+.errorpage-title {
+    font-size: 101px;
+    color: #6cace4;
+    text-shadow: 10px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.errorpage-descript {
+    margin-top: -25px;
+    margin-bottom: 25px;
+    color: #6cace4;
+    font-size: 41px;
+}
+.errorpage-button {
+    background: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border: 5px solid #6cace4;
+    color: #6cace4;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.errorpage-button:hover {
+    background: #6cace4;
+    color: white;
+    text-decoration:double;
+}

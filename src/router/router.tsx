@@ -3,11 +3,12 @@ import Layout from "../pages/Layout"
 import MainPage from "../pages/MainPage"
 import DocumentPage from "../pages/DocumentPage"
 import BasketPage from "../pages/BasketPage"
+import ErrorPage from "../pages/ErrorPage"
 export const RouterWeb = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement: <div>Error</div>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
