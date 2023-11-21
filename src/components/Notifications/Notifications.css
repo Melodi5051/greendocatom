@@ -1,0 +1,75 @@
+.notions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    opacity: 1;
+    animation: fadeInOut 3s ease-in;
+}
+
+.notions.hidden {
+    opacity: 0;
+    animation: none
+}
+
+.notions-card {
+    display: flex;
+    border-radius: 5px;
+    padding: 0px 0px 0px 10px;
+    align-items: center;
+}
+.notions-card img {
+    padding: 5px 0px;
+    max-width: 30px;
+    max-height: 30px;
+}
+.notions-card button {
+    padding: 5px 10px 5px 10px;
+    background: none;
+    color: white;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+.notions-card__content {
+    padding: 5px 20px;
+    text-wrap: nowrap;
+    color: white;
+    font-weight: 700;
+    position: relative;
+    border-radius: 5px;
+}
+.notions-card__content::after {
+    content: '';
+    position: absolute;
+    margin-left: 15px;
+    width: 1px;
+    border-radius: 5px;
+    align-items: center;
+    height: 80%;
+    background: white;
+}
+.success {
+    border: 1px solid rgb(27, 112, 27);
+    background: rgb(27, 112, 27);
+}
+.fatal {
+    border: 1px solid rgb(231, 67, 67);
+    background: rgb(231, 67, 67);
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0%;
+  }
+  25% {
+    opacity: 100%;
+  }
+  75% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+

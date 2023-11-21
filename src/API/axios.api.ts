@@ -3,6 +3,8 @@ import { appStore } from "../store/store"
 import { IYandexDiskFile, IYandexTrashItems } from "../types/Files"
 import { ROOT_PATH_FOLDER, TRASH_PATH_FOLDER } from "../constants/constants"
 import { getAllFolders } from "./apiGetAll"
+import { storeNotifications } from "../store/storeNotifications"
+import { storeAside } from "../store/storeAside"
 
 export const moveFile = async (from: string, to: string, fileName = "") => {
   try {
@@ -16,13 +18,22 @@ export const moveFile = async (from: string, to: string, fileName = "") => {
       },
     })
     if (response.status === 201) {
+      storeNotifications.setVisible(true)
+      storeNotifications.addNotification({
+        title: "Успешное перемещение",
+        type: "success",
+      })
       const newArray: IYandexDiskFile[] = appStore.arrayItems.map((obj) =>
         obj.name === fileName ? { ...obj, path: to } : obj,
       )
       appStore.setArrayItems(newArray)
     }
   } catch (error) {
-    console.error("Move Error", error)
+    storeNotifications.setVisible(true)
+    storeNotifications.addNotification({
+      title: "Ошибка перемещения",
+      type: "fatal",
+    })
   }
 }
 
@@ -36,15 +47,21 @@ export const createFolders = async (folderName: string) => {
       })
       .then((response) => {
         if (response.status === 201) {
+          storeNotifications.setVisible(true)
+          storeNotifications.addNotification({
+            title: "Успешное создание папки",
+            type: "success",
+          })
           getAllFolders()
+          storeAside.setEditedValueInputAdd("")
         }
       })
   } catch (error) {
-    if (axios.isAxiosError(error) && error.response && error.response.status === 409) {
-      console.log(`Directory ${folderName} already exists`)
-    } else {
-      console.error("API Error", error)
-    }
+    storeNotifications.setVisible(true)
+    storeNotifications.addNotification({
+      title: "Ошибка создание папки",
+      type: "fatal",
+    })
   }
 }
 

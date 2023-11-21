@@ -2,8 +2,10 @@ import axios from "axios"
 import { appStore } from "../store/store"
 import { TRASH_PATH_FOLDER } from "../constants/constants"
 import { IYandexDiskFile, IYandexDiskFolders, IYandexTrashItems } from "../types/Files"
+import { storeNotifications } from "../store/storeNotifications"
+import path from "path"
 
-export const deleteResources = async (resourceName: string, type: string) => {
+export const deleteResources = async (resourceName: string, type: string, pathFile?: string) => {
   try {
     const response = await axios.delete("https://cloud-api.yandex.net/v1/disk/resources", {
       headers: {
@@ -25,7 +27,8 @@ export const deleteResources = async (resourceName: string, type: string) => {
         }
       } else {
         const newFileArray = appStore.arrayItems.filter(
-          (item: IYandexDiskFile) => item.name !== resourceName.split("/").pop(),
+          (item: IYandexDiskFile) =>
+            item.name !== resourceName.split("/").pop() && item.path !== pathFile,
         )
         appStore.setArrayItems(newFileArray)
       }
@@ -54,6 +57,9 @@ export const deleteTrash = async (resourcePath: string = "trash:/") => {
       appStore.setArrayTrashItems(newFileArrayTrash)
     }
   } catch (error) {
-    console.error("API Error", error)
+    storeNotifications.addNotification({
+      title: "Ошибка загрузки файла",
+      type: "fatal",
+    })
   }
 }

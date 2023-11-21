@@ -1,5 +1,5 @@
 import "./MainHeader.css"
-import React, {useEffect, useState} from "react"
+import { useState } from "react"
 import {observer} from "mobx-react-lite"
 import {appStore} from "../../store/store"
 import refresh_icon from "./../../assets/icons/icon-refreshpage.svg"
@@ -67,7 +67,7 @@ const MainHeader = () => {
         </h1>
       </div>
       <div className="main-input">
-        <CustomInput placeholder="Поиск документа" showButton={true}/>
+        <CustomInput placeholder="Поиск документа" showButton={true} />
       </div>
     </div>
   )
