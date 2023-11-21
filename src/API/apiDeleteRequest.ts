@@ -20,11 +20,21 @@ export const deleteResources = async (resourceName: string, type: string, pathFi
         const newFolderarray = appStore.arrayFolders.filter(
           (item: IYandexDiskFolders) => item.name !== resourceName,
         )
+        storeNotifications.setVisible(true)
+        storeNotifications.addNotification({
+          title: "Успешное удаление папки",
+          type: "success",
+        })
         appStore.setArrayFolders(newFolderarray)
         if (appStore.categoryFilter.toLocaleLowerCase() === resourceName.toLowerCase()) {
           appStore.setCategoryFilter("")
         }
       } else {
+        storeNotifications.setVisible(true)
+        storeNotifications.addNotification({
+          title: "Успешное удаление файла",
+          type: "success",
+        })
         const newFileArray = appStore.arrayItems.filter(
           (item: IYandexDiskFile) => item.path !== pathFile,
         )
@@ -32,7 +42,11 @@ export const deleteResources = async (resourceName: string, type: string, pathFi
       }
     }
   } catch (error) {
-    console.error("API Error", error)
+    storeNotifications.setVisible(true)
+    storeNotifications.addNotification({
+      title: "Ошибка удаления файла",
+      type: "fatal",
+    })
   }
 }
 
