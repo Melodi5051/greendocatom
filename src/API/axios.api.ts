@@ -102,8 +102,12 @@ export const restoreResource = async (resourcePath: string) => {
         },
       })
       .then((response) => {
-        console.log(response.status)
         if (response.status === 201) {
+          storeNotifications.setVisible(true)
+          storeNotifications.addNotification({
+            title: "Успешное восстановление",
+            type: "success",
+          })
           const newFileTrashArray = appStore.arrayTrashItems.filter(
             (item: IYandexTrashItems) => item.path !== resourcePath,
           )
@@ -111,10 +115,10 @@ export const restoreResource = async (resourcePath: string) => {
         }
       })
   } catch (error) {
-    if (axios.isAxiosError(error) && error.response && error.response.status === 404) {
-      console.log(`Resource ${resourcePath} not found`)
-    } else {
-      console.error("API Error", error)
-    }
+    storeNotifications.setVisible(true)
+    storeNotifications.addNotification({
+      title: "Ошибка восстановление",
+      type: "fatal",
+    })
   }
 }
