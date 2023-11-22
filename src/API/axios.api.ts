@@ -24,7 +24,7 @@ export const moveFile = async (from: string, to: string, fileName = "") => {
         type: "success",
       })
       const newArray: IYandexDiskFile[] = appStore.arrayItems.map((obj) =>
-        obj.name === fileName ? { ...obj, path: to } : obj,
+        obj.name === fileName && obj.path === from ? { ...obj, path: to } : obj,
       )
       appStore.setArrayItems(newArray)
       return response
