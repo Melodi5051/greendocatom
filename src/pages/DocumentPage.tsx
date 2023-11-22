@@ -9,7 +9,8 @@ import {getAllFiles, getAllFolders} from "../API/apiGetAll"
 import {extractFolderName} from "../helper/formatDate"
 
 const DocumentPage = () => {
-  const {name} = useParams()
+  const { path, name } = useParams()
+  console.log(path, name)
   const [loaded, setLoaded] = useState(false)
   const [helderSerchFullItem, setHelderSerchFullItem] = useState<IYandexDiskFile[]>([])
 
@@ -17,7 +18,10 @@ const DocumentPage = () => {
     const fetchData = async () => {
       try {
         await Promise.all([getAllFolders(), getAllFiles()])
-        const fullItem = appStore.arrayItems.filter((item) => item.name === name)
+        const fullItem = appStore.arrayItems.filter(
+          (item) => item.name === name && extractFolderName(item.path) === path,
+        )
+        console.log(appStore.arrayItems[0])
         setHelderSerchFullItem(fullItem)
         setLoaded(true)
       } catch (error) {
