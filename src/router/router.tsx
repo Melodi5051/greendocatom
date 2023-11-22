@@ -15,7 +15,7 @@ export const RouterWeb = createBrowserRouter([
         element: <MainPage />,
       },
       {
-        path: "/:name",
+        path: "/:path/:name",
         element: <DocumentPage />,
       },
       {

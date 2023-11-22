@@ -13,6 +13,7 @@ import { Link } from "react-router-dom"
 import { getDownloadLink } from "../../API/apiCreateFile"
 import Tooltip from "../Tooltip/Tooltip"
 import { deleteResources } from "../../API/apiDeleteRequest"
+import { useEffect, useState } from "react"
 
 const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
   const handleFileChangeCategory = (e: React.ChangeEvent<HTMLSelectElement>, name: string) => {
@@ -29,14 +30,31 @@ const TableItem = ({ name, path, modified, created }: IYandexDiskFile) => {
   const handleDownloadFile = (path: string) => {
     getDownloadLink(path)
   }
-
-  const nameLength = 15
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+  const [nameLength, setNameLength] = useState(window.innerWidth < 1100 ? 10 : 15)
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth)
+      if (window.innerWidth < 1100) {
+        setNameLength(10)
+      } else {
+        setNameLength(15)
+      }
+    }
+    window.addEventListener("resize", handleResize)
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
 
   return (
     <tr className="table-item">
       <td className="table-name">
         <Tooltip content={name}>
-          <Link to={`/${name}`} onClick={() => handleChangeCategoryFile(name, path)}>
+          <Link
+            to={`/${extractFolderName(path)}/${name}`}
+            onClick={() => handleChangeCategoryFile(name, path)}
+          >
             {removeFileExtension(name, nameLength)}
           </Link>
         </Tooltip>
